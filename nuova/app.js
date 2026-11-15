@@ -130,7 +130,7 @@
     if (ha(n, 'salAltScelta')) {
       var b = '';
       n.querySelectorAll('.salAltBtn').forEach(function (x) {
-        var m = /salAlt\('(\d+)',\s*(\d+)\)/.exec(x.getAttribute('onclick') || '');
+        var m = /salAlt\('(\w+)',\s*(\d+)\)/.exec(x.getAttribute('onclick') || '');
         if (!m) return;
         var c = x.cloneNode(true), nota = c.querySelector('.salAltNota'), nt = nota ? testo(nota) : '';
         if (nota) nota.remove();
@@ -138,10 +138,10 @@
         b += '<button type="button" class="opt" data-alt="' + m[1] + '" data-i="' + m[2] + '" aria-pressed="' + on + '">' +
           '<span class="ot">' + esc(testo(c)) + '</span><span class="on2">' + esc(nt) + '</span></button>';
       });
-      out.push('<div class="scelta" role="group" aria-label="Scegli il cantico">' + b + '</div>');
+      out.push('<div class="scelta" role="group" aria-label="Scegli">' + b + '</div>');
       return;
     }
-    var m = /^salmastro_salalt_(\d+)_(\d+)$/.exec(id);
+    var m = /^salmastro_salalt_(\w+)_(\d+)$/.exec(id);
     if (m) {
       out.push('<div class="altblk" data-alt="' + m[1] + '" data-i="' + m[2] + '"' + (s.indexOf('display:none') >= 0 ? ' hidden' : '') + '>');
       Array.prototype.forEach.call(n.children, function (c) { nodo(c, out); });
