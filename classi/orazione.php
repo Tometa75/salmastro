@@ -3037,9 +3037,9 @@ class Orazione {
             elseif ($this->actual['evCode']=='1228a') $this->actual['proprio']='1228a';
 
             //////////////////////////////////////
-            if (substr($this->actual['today'],4,4)=='1226' && $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') $this->actual['proprio']='N1226';
-            if (substr($this->actual['today'],4,4)=='1227' && $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') $this->actual['proprio']='lodi_NAT';
-            if (substr($this->actual['today'],4,4)=='1228' && $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') $this->actual['proprio']='terza_NAT';
+            if (substr($this->actual['today'],4,4)=='1226' && ($this->actual['ora']=='ves' || $this->actual['ora']=='ves2')) $this->actual['proprio']='N1226';
+            if (substr($this->actual['today'],4,4)=='1227' && ($this->actual['ora']=='ves' || $this->actual['ora']=='ves2')) $this->actual['proprio']='lodi_NAT';
+            if (substr($this->actual['today'],4,4)=='1228' && ($this->actual['ora']=='ves' || $this->actual['ora']=='ves2')) $this->actual['proprio']='terza_NAT';
 
             if ($this->actual['evCode']=='SAF') $this->actual['proprio']='SAF';
             if ($this->actual['evCode']=='MSS') $this->actual['proprio']='MSS';
@@ -3049,15 +3049,15 @@ class Orazione {
             if ($this->actual['evCode']=='F0103') $this->actual['proprio']='F0103';
             if ($this->actual['evCode']=='F0104') $this->actual['proprio']='F0104';
             if ($this->actual['evCode']=='F0105') $this->actual['proprio']='F0105';
-            if ($this->actual['evCode']=='2DN') $this->actual['proprio']='EPI';
+            if ($this->actual['evCode']=='EPI') $this->actual['proprio']='EPI';
 
             if (substr($this->actual['today'],4,4)>'0106' && substr($this->actual['today'],4,4)<'1225') {
-                if (substr($this->actual['today'],4,4)=='0107' || $this->actual['weekDay']==1) $this->actual['proprio']='N0107';
-                if (substr($this->actual['today'],4,4)=='0108' || $this->actual['weekDay']==2) $this->actual['proprio']='N0108';
-                if (substr($this->actual['today'],4,4)=='0109' || $this->actual['weekDay']==3) $this->actual['proprio']='N0109';
-                if (substr($this->actual['today'],4,4)=='0110' || $this->actual['weekDay']==4) $this->actual['proprio']='N0110';
-                if (substr($this->actual['today'],4,4)=='0111' || $this->actual['weekDay']==5) $this->actual['proprio']='N0111';
-                if (substr($this->actual['today'],4,4)=='0112' || $this->actual['weekDay']==6) $this->actual['proprio']='N0112';
+                if (substr($this->actual['today'],4,4)=='0107') $this->actual['proprio']='N0107';
+                if (substr($this->actual['today'],4,4)=='0108') $this->actual['proprio']='N0108';
+                if (substr($this->actual['today'],4,4)=='0109') $this->actual['proprio']='N0109';
+                if (substr($this->actual['today'],4,4)=='0110') $this->actual['proprio']='N0110';
+                if (substr($this->actual['today'],4,4)=='0111') $this->actual['proprio']='N0111';
+                if (substr($this->actual['today'],4,4)=='0112') $this->actual['proprio']='N0112';
             }
 
         }

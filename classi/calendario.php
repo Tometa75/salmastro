@@ -636,7 +636,7 @@ class Calendario {
 			)
 		),
 		"0606"=>array(
-			"0603a"=>array(
+			"0606a"=>array(
 				"titolo"=>"San Norberto (Vescovo)",
 				"tipo"=>"R",
 				"comune"=>"pastori",
@@ -676,7 +676,7 @@ class Calendario {
 			)
 		),
 		"0621"=>array(
-			"0611a"=>array(
+			"0621a"=>array(
 				"titolo"=>"San Luigi Gonzaga (Religioso)",
 				"tipo"=>"M",
 				"comune"=>"religiosi",
@@ -698,7 +698,7 @@ class Calendario {
 			)
 		),
 		"0625"=>array(
-			"0611a"=>array(
+			"0625a"=>array(
 				"titolo"=>"San Guglielmo (Abate)",
 				"tipo"=>"M",
 				"comune"=>"monaci",
@@ -1020,7 +1020,7 @@ class Calendario {
 			)
 		),
 		"0827"=>array(
-			"0820a"=>array(
+			"0827a"=>array(
 				"titolo"=>"Santa Monica",
 				"tipo"=>"M",
 				"comune"=>"sante",
@@ -2030,7 +2030,8 @@ class Calendario {
 
 				$m['evento']['EPI']=array(
 					"titolo"=>"Epifania del Signore",
-					"tipo"=>"S"
+					"tipo"=>"S",
+					"ppvv"=>true
 				);
 			}
 
@@ -2538,43 +2539,24 @@ class Calendario {
 	}
 	
 	function pasqua($year) {
-	
-		$aM = array(22, 22, 23, 23, 24, 24);
-    	$aN = array(2, 2, 3, 4, 5, 5);
-	
+		// Data della Pasqua gregoriana (algoritmo di Meeus/Jones/Butcher),
+		// valido per qualsiasi anno dal 1583 in poi.
 		$a = $year % 19;
-        $b = $year % 4;
-        $c = $year % 7;
- 
-        $aIndex= floor($year/100)-15;
- 
-        $d = (19 * $a + $aM[$aIndex]) % 30;
-        $e = (2 * $b + 4 * $c + 6 * $d + $aN[$aIndex]) % 7;
- 
-        $day = 22 + $d + $e;
-        $month = 3;
- 
-        if ($day > 31) {
-            $month = 4;
-            $day -= 31;
-        }
- 
-        /**
-         * Eccezioni:
-         * - Se la data risultante dalla formula è il 26 aprile, 
-         *   allora la Pasqua cadrà il giorno 19 aprile;
-         * - Se la data risultante dalla formula è il 25 aprile 
-         *   e contemporaneamente d = 28, e = 6 e a > 10, 
-         *   allora la Pasqua cadrà il 18 aprile. 
-         */
-        if ($month == 4 && $day == 26) {
-            $day = 19;
-        } elseif ($month == 4 && $day == 26 && $d == 28 && $e == 6 && $a > 10) {
-            $day = 18;
-        } 
- 
-        //return array('day'=>$day,'month'=>$month);
-        return mktime(0,0,0,$month,$day,$year);
+		$b = intdiv($year, 100);
+		$c = $year % 100;
+		$d = intdiv($b, 4);
+		$e = $b % 4;
+		$f = intdiv($b + 8, 25);
+		$g = intdiv($b - $f + 1, 3);
+		$h = (19 * $a + $b - $d - $g + 15) % 30;
+		$i = intdiv($c, 4);
+		$k = $c % 4;
+		$l = (32 + 2 * $e + 2 * $i - $h - $k) % 7;
+		$m = intdiv($a + 11 * $h + 22 * $l, 451);
+		$month = intdiv($h + $l - 7 * $m + 114, 31);
+		$day = (($h + $l - 7 * $m + 114) % 31) + 1;
+
+		return mktime(0,0,0,$month,$day,$year);
 	}
 
 	function avvento($anno) {

@@ -3,7 +3,13 @@
 include ('baseline.php');
 require_once (SITE_ROOT.'/classi/salmastro.php');
 
-$param=$_POST['param'];
+$post=(isset($_POST['param']) && is_array($_POST['param']))?$_POST['param']:array();
+
+//i parametri vengono accettati solo se validi (vedi mainFunc::param_today e param_config)
+$param=array(
+    "today"=>mainFunc::param_today(isset($post['today'])?$post['today']:''),
+    "config"=>mainFunc::param_config(isset($post['config'])?$post['config']:array())
+);
 
 //echo __DIR__;
 //echo json_encode($_REQUEST);

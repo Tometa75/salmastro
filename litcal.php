@@ -2,7 +2,10 @@
 include ('baseline.php');
 require_once (SITE_ROOT.'/classi/calendario.php');
 
-$param=$_POST['param'];
+$param=array(
+    "today"=>mainFunc::param_today((isset($_POST['param']['today']))?$_POST['param']['today']:'')
+);
+if ($param['today']=='') $param['today']=date('Ymd');
 
 $cal=new Calendario($param['today']);
 

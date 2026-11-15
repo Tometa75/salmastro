@@ -177,5 +177,42 @@ class mainFunc {
 
 	}
 	
+
+	//////////////////////////////////////////////////////////////////
+	// Controllo dei parametri che arrivano dal browser (link o chiamate ajax):
+	// si accettano solo valori noti, tutto il resto viene scartato.
+
+	// Data YYYYMMDD esistente e dentro l'intervallo del navigatore (1999-2100);
+	// 'xxxxxxxx' vuol dire oggi. Restituisce '' se il valore non è valido.
+	public static function param_today($v) {
+		if (!is_string($v)) return '';
+		if ($v=='xxxxxxxx') return date('Ymd');
+		if (!preg_match('/^(\d{4})(\d{2})(\d{2})$/',$v,$m)) return '';
+		if (!checkdate((int)$m[2],(int)$m[3],(int)$m[1])) return '';
+		if ($v<'19990101' || $v>'21001231') return '';
+		return $v;
+	}
+
+	// Opzioni della preghiera: ora, memoria scelta, invitatorio, mix, contesto.
+	public static function param_config($c) {
+		$res=array();
+		if (!is_array($c)) return $res;
+
+		$ore=array('lodi','terza','sesta','nona','ves','ves1','ves2','comp','comp1');
+		if (isset($c['ora']) && in_array($c['ora'],$ore,true)) $res['ora']=$c['ora'];
+
+		if (isset($c['festa'])) {
+			$res['festa']=(is_string($c['festa']) && preg_match('/^[A-Za-z0-9]{1,12}$/',$c['festa']))?$c['festa']:'';
+		}
+
+		foreach (array('inv','mix') as $k) {
+			if (isset($c[$k])) $res[$k]=($c[$k]=='1')?1:0;
+		}
+
+		if (isset($c['contesto']) && in_array($c['contesto'],array('solo','comune','prete'),true)) $res['contesto']=$c['contesto'];
+
+		return $res;
+	}
+
 }
 ?>	

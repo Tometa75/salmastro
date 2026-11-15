@@ -1,7 +1,14 @@
 <?php
-ini_set('display_errors', 1);
-//error_reporting(E_ERROR | E_PARSE);
+// Fuso orario: "oggi" e l'ora proposta seguono l'ora italiana anche su un server in UTC
+date_default_timezone_set('Europe/Rome');
+
+// Errori PHP: visibili solo in sviluppo (sito aperto da localhost), nascosti in produzione.
+// Per vederli anche altrove, mettere $salDebug = true;
+$salHost = preg_replace('/:\d+$/', '', isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
+$salDebug = in_array($salHost, array('localhost', '127.0.0.1', '[::1]'), true);
 error_reporting(-1);
+ini_set('display_errors', $salDebug ? '1' : '0');
+ini_set('log_errors', '1');
 
 //define ('SITE_ROOT',$_SERVER['DOCUMENT_ROOT'].'/github/salmastro');
 define ('SITE_ROOT',$_SERVER['DOCUMENT_ROOT'].dirname($_SERVER['PHP_SELF']));

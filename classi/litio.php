@@ -255,7 +255,7 @@ class Litio {
 
             echo '<div style="position:relative;display:inline-block;width:20%;vertical-align:top;padding:5px;box-sizing:border-box;">';
 
-                $tnow=date('H:m');
+                $tnow=date('H:i');
                 $def="";
 				
 				if (!isset($this->config['ora']) || $this->config['ora']=='') {
