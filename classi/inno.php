@@ -2939,7 +2939,8 @@ class Inno {
                 elseif ($this->actual['ora']=='lodi') $this->actual['proprio']='lodi_NAT';
             }
             elseif ($this->actual['evCode']=='SAF') {
-                if ($this->actual['ora']=='ves2' || $this->actual['ora']=='ves1') $this->actual['proprio']='ves_SAF';
+                //'ves' quando la festa cade in un giorno feriale (senza Primi e Secondi Vespri)
+                if ($this->actual['ora']=='ves2' || $this->actual['ora']=='ves1' || $this->actual['ora']=='ves') $this->actual['proprio']='ves_SAF';
                 elseif ($this->actual['ora']=='lodi') $this->actual['proprio']='lodi_0319a';
             }
             elseif ($this->actual['evCode']=='MSS') {

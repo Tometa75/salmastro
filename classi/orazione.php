@@ -2873,9 +2873,16 @@ class Orazione {
             if ($this->actual['ora']=='terza') $this->actual['orazione']='terza_'.$this->actual['weekDay'];
             elseif ($this->actual['ora']=='sesta') $this->actual['orazione']='sesta_'.$this->actual['weekDay'];
             elseif ($this->actual['ora']=='nona') $this->actual['orazione']='nona_'.$this->actual['weekDay'];
+            //Compieta dopo i Primi Vespri di una solennità infrasettimanale
+            elseif ($this->actual['ora']=='comp1') $this->actual['orazione']='comp_S';
             elseif ($this->actual['ora']=='comp' || $this->actual['ora']=='comp2') {
                 if ( ($this->actual['evCode']!="" && $this->actual['evento'][$this->actual['evCode']]['tipo']=='S') || ($this->actual['fesCode']!="" && $this->actual['festa'][$this->actual['fesCode']]['tipo']=='S')) {
                     $this->actual['orazione']='comp_S';
+                }
+                //il sabato sera la Compieta è quella della vigilia della domenica (non c'è 'comp_6'),
+                //anche quando mancano i Primi Vespri (es. vigilia della Santa Famiglia)
+                elseif ($this->actual['weekDay']==6) {
+                    $this->actual['orazione']='comp1_0';
                 }
                 else {
                     $this->actual['orazione']='comp_'.$this->actual['weekDay'];
@@ -2909,6 +2916,8 @@ class Orazione {
         //###############################
 		//se è compieta l'orazione non subisce variazioni in base alla ricorrenza
 		if ($this->actual['ora']=='comp' || $this->actual['ora']=='comp1' || $this->actual['ora']=='comp2') {
+			//Sabato Santo: la Compieta ha la stessa orazione delle Lodi
+			if ($this->actual['evCode']=='SS6') $this->actual['proprio']='SS6';
 			$this->apply();
 			return;
 		}

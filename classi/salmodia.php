@@ -55,7 +55,8 @@ class Salmodia {
         //definizione dei salmi in base a feste ed eventi
         //build dei salmi e definizione delle antifone e delle parti
 
-        if ($this->actual['weekDay']==0) {
+        //la Compieta dopo i Primi Vespri è sempre quella della domenica, anche per le solennità infrasettimanali
+        if ($this->actual['weekDay']==0 || $this->actual['ora']=='comp1') {
             switch ($this->actual['ora']) {
                 case 'ves1': 
                     $this->salmi=array(
@@ -1932,7 +1933,8 @@ class Salmodia {
 
                 if  ($this->actual['evCode']=='1208a') {
 
-                    if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
+                    //le stesse cinque antifone valgono anche per i Primi Vespri (come nel breviario monastico)
+                    if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves1' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
 
                         switch ($s[0]) {
                             case 1: $this->res[$k]->setAntifona(array(
@@ -3374,7 +3376,8 @@ class Salmodia {
                     }
                 }
 
-                elseif ($this->actual['evCode']=='PA3' || $this->actual['evCode']=='PA4' || $this->actual['evCode']=='PA5' || $this->actual['evCode']=='PA6') {
+                //domeniche di Pasqua; la II domenica solo ai Vespri (le antifone sono le stesse ai Primi e ai Secondi)
+                elseif ( ($this->actual['evCode']=='PA2' && substr($this->actual['ora'],0,3)=='ves') || $this->actual['evCode']=='PA3' || $this->actual['evCode']=='PA4' || $this->actual['evCode']=='PA5' || $this->actual['evCode']=='PA6') {
 
                     if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves1' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
                         switch ($s[0]) {

@@ -31,7 +31,8 @@ class Lettura {
 
     function init() {
 
-        if ($this->actual['weekDay']==0) {
+        //la Compieta dopo i Primi Vespri è sempre quella della domenica, anche per le solennità infrasettimanali
+        if ($this->actual['weekDay']==0 || $this->actual['ora']=='comp1') {
             switch ($this->actual['ora']) {
                 case 'ves1': 
                     switch ($this->actual['quarto']) {
@@ -1103,7 +1104,8 @@ class Lettura {
 
         if ($this->actual['tempo']=='A') {
 
-            if (substr($this->actual['today'],4,4)<'1217') {
+            //i Primi Vespri delle domeniche dal 17 dicembre usano la lettura delle domeniche di Avvento
+            if (substr($this->actual['today'],4,4)<'1217' || ($this->actual['weekDay']==0 && $this->actual['ora']=='ves1')) {
 
                 if ($this->actual['weekDay']==0) {
 
@@ -1658,7 +1660,7 @@ class Lettura {
                 if($this->actual['ora']=='ves1') {
                     $this->info=array(
                         "titolo"=>"2Cor 8,9",
-                        "testo"=>"Conoscete la grazia del signore nostro Gesù Cristo: da ricco che era, si è fatto povero per voi, perché voi diventaste ricchi per mezzo della sua povertà."
+                        "testo"=>"Conoscete la grazia del Signore nostro Gesù Cristo: da ricco che era, si è fatto povero per voi, perché voi diventaste ricchi per mezzo della sua povertà."
                     );
                 }
                 if($this->actual['ora']=='lodi') {
@@ -1927,6 +1929,13 @@ class Lettura {
                     $this->info=array(
                         "titolo"=>"Is 65,1",
                         "testo"=>"Mi feci ricercare da chi non mi interrogava, mi feci trovare da chi non mi cercava. Dissi: « Eccomi, eccomi » a gente che non invocava il mio nome."
+                    );
+                }
+                //Vespri dell'8 gennaio (il 31 dicembre la sera ci sono i Primi Vespri di Maria Madre di Dio)
+                elseif(($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') && $this->actual['evCode']=='F0108') {
+                    $this->info=array(
+                        "titolo"=>"Ef 2,3b-5",
+                        "testo"=>"Eravamo per natura meritevoli d'ira, come gli altri. Ma Dio, ricco di misericordia, per il grande amore con il quale ci ha amati, da morti che eravamo per i peccati, ci ha fatti rivivere con Cristo: per grazia infatti siete stati salvati."
                     );
                 }
             }
@@ -3741,7 +3750,7 @@ class Lettura {
             }
             elseif($this->actual['ora']=='lodi') {
                 $this->info=array(
-                    "titolo"=>"Pt 8,22-24a",
+                    "titolo"=>"Pr 8,22-24a",
                     "testo"=>"Il Signore mi ha creato all'inizio della sua attività, prima di ogni sua opera, fin d'allora. Dall'eternità sono stata costituita, fin dal principio, dagli inizi della terra. Quando non esistevano gli abissi, io fui generata."
                 );
             }

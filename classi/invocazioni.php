@@ -1185,9 +1185,12 @@ class Invocazioni {
 
         if ($this->actual['tempo']=='A') {
 
+            //in Avvento 'quarto' non è impostato: la settimana del salterio coincide con la settimana di Avvento
+            $q=($this->actual['quarto']!='')?$this->actual['quarto']:$this->actual['settimana'];
+
             if ($this->actual['weekDay']==0) {
 
-                if ($this->actual['quarto']==1 || $this->actual['quarto']==3) {
+                if ($q==1 || $q==3) {
 
                     if ($this->actual['ora']=='ves1') {
 
@@ -1254,7 +1257,7 @@ class Invocazioni {
                     }
                 }
 
-                if ($this->actual['quarto']==2 || $this->actual['quarto']==4) {
+                if ($q==2 || $q==4) {
 
                     if ($this->actual['ora']=='ves1') {
 
@@ -2756,7 +2759,8 @@ class Invocazioni {
 
             //////////////////////////////////////////////////
 
-            if ($this->actual['evCode']=='SFA') {
+            //Santa Famiglia (il codice dell'evento è SAF; SFA è il comune di San Francesco)
+            if ($this->actual['evCode']=='SAF') {
 
                 if ($this->actual['ora']=='lodi') {
 
@@ -5447,6 +5451,13 @@ class Invocazioni {
             }
         }
 
+        elseif ($this->actual['evCode']=='1208a') {
+
+            //Immacolata: testi del Comune della B.V. Maria; i Primi Vespri come i Secondi Vespri
+            if ($this->actual['ora']=='lodi') $this->testo=$this->comuneBVM('lodi');
+            elseif ($this->actual['ora']=='ves1' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') $this->testo=$this->comuneBVM('ves2');
+        }
+
         elseif ($this->actual['evCode']=='0325a') {
 
             if ($this->actual['ora']=='lodi') {
@@ -5812,6 +5823,73 @@ class Invocazioni {
         }
     }
 
+    //intercessioni del Comune della B.V. Maria (memorie della Madonna e Immacolata)
+    function comuneBVM($ora) {
+
+        if ($ora=='ves1') {
+            return array(
+                array(
+                    array('','',"Riuniti nella preghiera di lode, glorifichiamo Dio, Padre onnipotente, che ci ha dato in Maria un pegno sicuro di consolazione e di speranza. Diciamo con fiducia:"),
+                    array('ris','I',"Maria, piena di grazia, interceda per noi.")
+                ),
+                array(
+                    array('','',"O Dio, operatore di prodigi, che hai concesso alla santa Vergine Maria di condividere, nell'anima e nel corpo, la gloria del Cristo risorto,"),
+                    array('-','',"guidaci alla gloria immortale."),
+                    array('','',"Tu che ci hai dato Maria per madre, concedi per sua intercessione la salute ai malati, il conforto agli afflitti, il perdono ai peccatori,"),
+                    array('-','',"dona a tutti pace e salvezza."),
+                    array('','',"Tu che hai reso piena di grazia la Vergine Maria,"),
+                    array('-','',"allietaci con l'abbondanza dei doni del tuo Spirito."),
+                    array('','',"Fa' che la tua Chiesa sia un cuor solo e un'anima sola;"),
+                    array('-','',"donaci di perseverare unanimi nella preghiera con Maria, madre di Gesù."),
+                    array('','',"Tu che hai incoronato Maria regina del cielo,"),
+                    array('-','',"fa' che i nostri fratelli defunti godano la gioia eterna nell'assemblea dei santi.")
+                )
+            );
+        }
+
+        if ($ora=='lodi') {
+            return array(
+                array(
+                    array('','',"Rivolgiamo la nostra lode e la nostra supplica al Cristo salvatore, nato da Maria Vergine e diciamo:"),
+                    array('ris','I',"Maria, la Madre tua, sostenga la nostra preghiera.")
+                ),
+                array(
+                    array('','',"Sole di giustizia, che hai voluto farti precedere da Maria immacolata, mistica aurora della redenzione,"),
+                    array('-','',"fa' che camminiamo sempre nella luce della tua presenza."),
+                    array('','',"Verbo eterno, che hai scelto Maria come arca santa per la tua dimora fra noi,"),
+                    array('-','',"liberaci dalla corruzione del peccato."),
+                    array('','',"Salvatore nostro, che hai voluto la Madre tua ai piedi della croce, unita nell'offerta del sacrificio,"),
+                    array('-','',"fa' che comunichiamo, per sua intercessione, al mistero della tua passione e della tua gloria."),
+                    array('','',"Gesù buono, che mentre pendevi dalla croce, hai dato per madre a Giovanni la Vergine addolorata,"),
+                    array('-','',"concedi a noi la grazia di vivere come suoi veri figli.")
+                )
+            );
+        }
+
+        if ($ora=='ves' || $ora=='ves2') {
+            return array(
+                array(
+                    array('','',"Uniti nella preghiera di lode, rendiamo grazie a Dio che ha voluto Maria amata e venerata da tutte le generazioni. Diciamo con fiducia:"),
+                    array('ris','I',"Maria, piena di grazia, interceda per noi.")
+                ),
+                array(
+                    array('','',"Tu che hai costituito Maria madre di misericordia,"),
+                    array('-','',"fa' che sperimentiamo, in mezzo ai pericoli, la sua bontà materna."),
+                    array('','',"Hai voluto Maria madre di famiglia nella casa di Nazareth,"),
+                    array('-','',"fa' che tutte le mamme custodiscano la santità e l'amore."),
+                    array('','',"Hai reso forte Maria ai piedi della croce e l'hai colmata di gioia nella risurrezione del tuo Figlio,"),
+                    array('-','',"sostienici fra le prove della vita e rafforzaci nella speranza."),
+                    array('','',"In Maria, attenta alla tua parola e serva fedele della tua volontà, ci mostri il modello e l'immagine della santa Chiesa,"),
+                    array('-','',"per sua intercessione rendici veri discepoli del Cristo tuo Figlio."),
+                    array('','',"Hai incoronato Maria, Regina del cielo,"),
+                    array('-','',"fa' che i nostri fratelli defunti godano la felicità eterna nell'assemblea dei santi.")
+                )
+            );
+        }
+
+        return false;
+    }
+
     function build2() {
 
         if ($this->actual['fesCode']!='') {
@@ -5867,69 +5945,8 @@ class Invocazioni {
 
                 elseif ($f['comune']=='BVM') {
 
-                    if ($this->actual['ora']=='ves1') {
-
-                        $this->testo=array(
-                            array(
-                                array('','',"Riuniti nella preghiera di lode, glorifichiamo Dio, Padre onnipotente, che ci ha dato in Maria un pegno sicuro di consolazione e di speranza. Diciamo con fiducia:"),
-                                array('ris','I',"Maria, piena di grazia, interceda per noi.")
-                            ),
-                            array(
-                                array('','',"O Dio, operatore di prodigi, che hai concesso alla santa Vergine Maria di condividere, nell'anima e nel corpo, la gloria del Cristo risorto,"),
-                                array('-','',"guidaci alla gloria immortale."),
-                                array('','',"Tu che ci hai dato Maria per madre, concedi per sua intercessione la salute ai malati, il conforto agli afflitti, il perdono ai peccatori,"),
-                                array('-','',"dona a tutti pace e salvezza."),
-                                array('','',"Tu che hai reso piena di grazia la Vergine Maria,"),
-                                array('-','',"allietaci con l'abbondanza dei doni del tuo Spirito."),
-                                array('','',"Fa' che la tua Chiesa sia un cuor solo e un'anima sola;"),
-                                array('-','',"donaci di perseverare unanimi nella preghiera con Maria, madre di Gesù."),
-                                array('','',"Tu che hai incoronato Maria regina del cielo,"),
-                                array('-','',"fa' che i nostri fratelli defunti godano la gioia eterna nell'assemblea dei santi.")
-                            )
-                        );
-                    }
-
-                    elseif ($this->actual['ora']=='lodi') {
-
-                        $this->testo=array(
-                            array(
-                                array('','',"Rivolgiamo la nostra lode e la nostra supplica al Cristo salvatore, nato da Maria Vergine e diciamo:"),
-                                array('ris','I',"Maria, la Madre tua, sostenga la nostra preghiera.")
-                            ),
-                            array(
-                                array('','',"Sole di giustizia, che hai voluto farti precedere da Maria immacolata, mistica aurora della redenzione,"),
-                                array('-','',"fa' che camminiamo sempre nella luce della tua presenza."),
-                                array('','',"Verbo eterno, che hai scelto Maria come arca santa per la tua dimora fra noi,"),
-                                array('-','',"liberaci dalla corruzione del peccato."),
-                                array('','',"Salvatore nostro, che hai voluto la Madre tua ai piedi della croce, unita nell'offerta del sacrificio,"),
-                                array('-','',"fa' che comunichiamo, per sua intercessione, al mistero della tua passione e della tua gloria."),
-                                array('','',"Gesù buono, che mentre pendevi dalla croce, hai dato per madre a Giovanni la Vergine addolorata,"),
-                                array('-','',"concedi a noi la grazia di vivere come suoi veri figli.")
-                            )
-                        );
-                    }
-    
-                    elseif ($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
-    
-                        $this->testo=array(
-                            array(
-                                array('','',"Uniti nella preghiera di lode, rendiamo grazie a Dio che ha voluto Maria amata e venerata da tutte le generazioni. Diciamo con fiducia:"),
-                                array('ris','I',"Maria, piena di grazia, interceda per noi.")
-                            ),
-                            array(
-                                array('','',"Tu che hai costituito Maria madre di misericordia,"),
-                                array('-','',"fa' che sperimentiamo, in mezzo ai pericoli, la sua bontà materna."),
-                                array('','',"Hai voluto Maria madre di famiglia nella casa di Nazareth,"),
-                                array('-','',"fa' che tutte le mamme custodiscano la santità e l'amore."),
-                                array('','',"Hai reso forte Maria ai piedi della croce e l'hai colmata di gioia nella risurrezione del tuo Figlio,"),
-                                array('-','',"sostienici fra le prove della vita e rafforzaci nella speranza."),
-                                array('','',"In Maria, attenta alla tua parola e serva fedele della tua volontà, ci mostri il modello e l'immagine della santa Chiesa,"),
-                                array('-','',"per sua intercessione rendici veri discepoli del Cristo tuo Figlio."),
-                                array('','',"Hai incoronato Maria, Regina del cielo,"),
-                                array('-','',"fa' che i nostri fratelli defunti godano la felicità eterna nell'assemblea dei santi.")
-                            )
-                        );
-                    }   
+                    $t=$this->comuneBVM($this->actual['ora']);
+                    if ($t) $this->testo=$t;
                 }
 
                 elseif ($f['comune']=='apostoli') {
