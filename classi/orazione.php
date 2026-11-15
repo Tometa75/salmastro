@@ -90,7 +90,7 @@ class Orazione {
         ),
         "ves_1_4"=>array(
             array(
-                array('','',"Confortaci, o Dio, con la presenza del figlio tuo, e ravviva  la nostra fede, perché sappiamo riconoscerlo, come i discepoli a Emmaus, alla mensa della parola e del pane."),
+                array('','',"Confortaci, o Dio, con la presenza del figlio tuo, e ravviva la nostra fede, perché sappiamo riconoscerlo, come i discepoli a Emmaus, alla mensa della parola e del pane."),
                 array('','',"Egli è Dio, e vive e regna con te, nell'unità dello Spirito Santo, per tutti i secoli dei secoli.")
             )
         ),
@@ -150,7 +150,7 @@ class Orazione {
         ),
         "ves_2_2"=>array(
             array(
-                array('','',"O Dio, a cui appartiene il giorno e la notte, fa' he il sole della giustizia non tramonti mai nel nostro spirito, perché possiamo giungere alla luce gloriosa del tuo regno."),
+                array('','',"O Dio, a cui appartiene il giorno e la notte, fa' che il sole della giustizia non tramonti mai nel nostro spirito, perché possiamo giungere alla luce gloriosa del tuo regno."),
                 array('ending')
             )
         ),
@@ -198,7 +198,7 @@ class Orazione {
         ),
         "terza_3"=>array(
             array(
-                array('','',"Signore, §Pa dre santo, Dio fedele, che hai mandato lo Spirito Santo promesso dal tuo Figlio, per riunire l'umanità dispersa a causa del peccato, donaci di essere nel mondo operatori di unità e di pace."),
+                array('','',"Signore, Padre santo, Dio fedele, che hai mandato lo Spirito Santo promesso dal tuo Figlio, per riunire l'umanità dispersa a causa del peccato, donaci di essere nel mondo operatori di unità e di pace."),
                 array('','',"Per Cristo nostro Signore.")
             )
         ),
@@ -498,7 +498,7 @@ class Orazione {
         ),
         "sun_12"=>array(
             array(
-                array('','',"Dona al tuo popolo , o Padre, di vivere sempre nella venerazione e nell'amore per il tuo santo nome, poiché tu non privi mai della tua guida coloro che hai stabilito sulla roccia del tuo amore."),
+                array('','',"Dona al tuo popolo, o Padre, di vivere sempre nella venerazione e nell'amore per il tuo santo nome, poiché tu non privi mai della tua guida coloro che hai stabilito sulla roccia del tuo amore."),
                 array('ending')
             )
         ),
@@ -576,7 +576,7 @@ class Orazione {
         ),
         "sun_25"=>array(
             array(
-                array('','',"O Dio, che nell'amore verso di te e verso il prossimo hai posto il fondamento di tutta la legge, fa' che osservando i tuoi comandamenti  meritiamo di entrare nella vita eterna."),
+                array('','',"O Dio, che nell'amore verso di te e verso il prossimo hai posto il fondamento di tutta la legge, fa' che osservando i tuoi comandamenti meritiamo di entrare nella vita eterna."),
                 array('ending')
             )
         ),
@@ -678,7 +678,7 @@ class Orazione {
         ),
         "A_2_0"=>array(
             array(
-                array('','',"Dio grande e misericordioso, fa' che il nostro impegno nel mondo non ci  ostacoli nel cammino verso il tuo Figlio, ma la sapienza che viene dal cielo ci guidi alla comunione con il Cristo, nostro Salvatore."),
+                array('','',"Dio grande e misericordioso, fa' che il nostro impegno nel mondo non ci ostacoli nel cammino verso il tuo Figlio, ma la sapienza che viene dal cielo ci guidi alla comunione con il Cristo, nostro Salvatore."),
                 array('','',"Egli è Dio e vive e regna con te nell'unità dello Spirito Santo, per tutti i secoli dei secoli.")
             )
         ),
@@ -879,7 +879,7 @@ class Orazione {
         ),
         "A1219"=>array(
             array(
-                array('','',"O Dio, cha hai rivelato al mondo con il parto della Vergine lo splendore della tua gloria, concedi al tuo popolo di venerare con fede viva e di celebrare con sincero amore il grande mistero dell'incarnazione."),
+                array('','',"O Dio, che hai rivelato al mondo con il parto della Vergine lo splendore della tua gloria, concedi al tuo popolo di venerare con fede viva e di celebrare con sincero amore il grande mistero dell'incarnazione."),
                 array('ending')
             )
         ),
@@ -1005,7 +1005,7 @@ class Orazione {
         ),
         "N0112"=>array(
             array(
-                array('','',"Dio onnipotente ed eterno, che nel Natale del Redentore hai fatto di noi una nuova creatura, trasformaci nel Cristo tuo Figlio, che ha congiunto per sempre a sè la nostra umanità."),
+                array('','',"Dio onnipotente ed eterno, che nel Natale del Redentore hai fatto di noi una nuova creatura, trasformaci nel Cristo tuo Figlio, che ha congiunto per sempre a sé la nostra umanità."),
                 array('','',"Egli è Dio e vive e regna con te nell'unità dello Spirito Santo, per tutti i secoli dei secoli.")
             )
         ),
@@ -1311,7 +1311,7 @@ class Orazione {
         ),
         "PA2"=>array(
             array(
-                array('','',"Dio di eterna misericordia che nella ricorrenza pasquale ravvivi la fede del tuo popolo, accresci in noi la grazia che ci hai dato, perché tutti comprendiamo l'inestimabile ricchezza del Battesimo chd ci ha purificati, dello Spirito che ci ha rigenerati, del sangue che ci ha redenti."),
+                array('','',"Dio di eterna misericordia che nella ricorrenza pasquale ravvivi la fede del tuo popolo, accresci in noi la grazia che ci hai dato, perché tutti comprendiamo l'inestimabile ricchezza del Battesimo che ci ha purificati, dello Spirito che ci ha rigenerati, del sangue che ci ha redenti."),
                 array('ending')
             )
         ),
@@ -1635,13 +1635,13 @@ class Orazione {
         ),
         "0124a"=>array(
             array(
-                array('','',"O Dio, tu hai voluto he il santo vescovo Francesco di Sales si facesse tutto a tutti nella carità apostolica: concedi anche a noi di testimoniare sempre, nel servizio dei fratelli, la dolcezza del tuo amore."),
+                array('','',"O Dio, tu hai voluto che il santo vescovo Francesco di Sales si facesse tutto a tutti nella carità apostolica: concedi anche a noi di testimoniare sempre, nel servizio dei fratelli, la dolcezza del tuo amore."),
                 array('ending')
             )
         ),
         "0125a"=>array(
             array(
-                array('','',"O Dio, che hai illuminato tutte le genti con la parola dell'apostolo Paolo, concedei anche a noi, che oggi ricordiamo la sua conversione, di essere testimoni della tua verità e di camminare sempre nella via del Vangelo."),
+                array('','',"O Dio, che hai illuminato tutte le genti con la parola dell'apostolo Paolo, concedi anche a noi, che oggi ricordiamo la sua conversione, di essere testimoni della tua verità e di camminare sempre nella via del Vangelo."),
                 array('ending')
             )
         ),
@@ -1659,7 +1659,7 @@ class Orazione {
         ),
         "0127b"=>array(
             array(
-                array('','',"O Dio, Padre misericordioso, che in sant'Angela Merici hai dato alla tua Chiesa un modello di carità sapiente e coraggiosa, per il suo esempio e la sua intercessione donaci di comprendere e testimoniare kla forza rinnovatrice del Vangelo."),
+                array('','',"O Dio, Padre misericordioso, che in sant'Angela Merici hai dato alla tua Chiesa un modello di carità sapiente e coraggiosa, per il suo esempio e la sua intercessione donaci di comprendere e testimoniare la forza rinnovatrice del Vangelo."),
                 array('ending')
             )
         ),
@@ -1707,7 +1707,7 @@ class Orazione {
         ),
         "0208a"=>array(
             array(
-                array('','',"O Dio, che in san Girolamo Emiliani, sostegno e padre degli orfani, hai dato alla Chiesa un segno della tua predilizione verso i piccoli e i poveri, donaci di vivere e operare nello spirito di adozione per il quale ci chiamiamo e siamo realmente tuoi figli."),
+                array('','',"O Dio, che in san Girolamo Emiliani, sostegno e padre degli orfani, hai dato alla Chiesa un segno della tua predilezione verso i piccoli e i poveri, donaci di vivere e operare nello spirito di adozione per il quale ci chiamiamo e siamo realmente tuoi figli."),
                 array('ending')
             )
         ),
@@ -2001,7 +2001,7 @@ class Orazione {
         ),
         "0531a"=>array(
             array(
-                array('','',"Dio onnipotente ed eterno, che nel tuo disegno di amore hai ispirato alla beata Vergine Maria, che portava in grembo il tuo Figlio, di visitare sant'Elisabetta, concedi a noi di essere docili all'azione del tuo Spirito. per magnificare con Maria il tuo santo nome."),
+                array('','',"Dio onnipotente ed eterno, che nel tuo disegno di amore hai ispirato alla beata Vergine Maria, che portava in grembo il tuo Figlio, di visitare sant'Elisabetta, concedi a noi di essere docili all'azione del tuo Spirito, per magnificare con Maria il tuo santo nome."),
                 array('ending')
             )
         ),
@@ -2013,7 +2013,7 @@ class Orazione {
         ),
         "0602a"=>array(
             array(
-                array('','',"O Dio, che nel glorioso martirio dei senti Marcelino e Pietro ci hai dato un segno della tua amorosa presenza nella Chiesa, concedi a noi, che confidiamo nella loro intercessione, di imitarli nella fermezza della fede."),
+                array('','',"O Dio, che nel glorioso martirio dei santi Marcellino e Pietro ci hai dato un segno della tua amorosa presenza nella Chiesa, concedi a noi, che confidiamo nella loro intercessione, di imitarli nella fermezza della fede."),
                 array('ending')
             )
         ),
@@ -2355,13 +2355,13 @@ class Orazione {
         ),
         "0825b"=>array(
             array(
-                array('','',"O Dio, che hai dato al tuo sacerdote san Giuseppe Calasazio doni straordinari di carità e di pazienza per consacrare la sua vita all'insegnamento e all'educazione dei giovani, concedi a noi, che lo veneriamo maestro di sapienza, di essere come lui cooperatori della tua verità."),
+                array('','',"O Dio, che hai dato al tuo sacerdote san Giuseppe Calasanzio doni straordinari di carità e di pazienza per consacrare la sua vita all'insegnamento e all'educazione dei giovani, concedi a noi, che lo veneriamo maestro di sapienza, di essere come lui cooperatori della tua verità."),
                 array('ending')
             )
         ),
         "0827a"=>array(
             array(
-                array('','',"O Dio, consolatore degli afflitti, he hai esaudito le pie lacrime di santa Monica con la conversione del figlio Agostino, per la loro comune preghiera donaci una viva contrizione dei nostri peccati perché gustiamo la dolcezza del tuo perdono."),
+                array('','',"O Dio, consolatore degli afflitti, che hai esaudito le pie lacrime di santa Monica con la conversione del figlio Agostino, per la loro comune preghiera donaci una viva contrizione dei nostri peccati perché gustiamo la dolcezza del tuo perdono."),
                 array('ending')
             )
         ),
@@ -2397,7 +2397,7 @@ class Orazione {
         ),
         "0914a"=>array(
             array(
-                array('','',"O Padre, che hai voluto salvare gli uomini con la Croce del Cristo tuo Figlio, concedi a noi cha abbiamo conosciuto in terra il suo mistero d'amore, di godere in cielo i frutti della redenzione."),
+                array('','',"O Padre, che hai voluto salvare gli uomini con la Croce del Cristo tuo Figlio, concedi a noi che abbiamo conosciuto in terra il suo mistero d'amore, di godere in cielo i frutti della redenzione."),
                 array('ending')
             )
         ),
@@ -2415,7 +2415,7 @@ class Orazione {
         ),
         "0917a"=>array(
             array(
-                array('','',"O Dio, che hai infiammato del tuo amore l'ardente desiderio della santa vergine Ildegarde per sollevarla alla contemplazione della tua luminosa maestà divina, concedi anche a noi, per sua intercessione, di crescere nella dottrina spirituale e nella perfezione della vita monastica."),
+                array('','',"O Dio, che hai infiammato del tuo amore l'ardente desiderio della santa vergine Ildegarda per sollevarla alla contemplazione della tua luminosa maestà divina, concedi anche a noi, per sua intercessione, di crescere nella dottrina spirituale e nella perfezione della vita monastica."),
                 array('ending')
             )
         ),
@@ -2529,7 +2529,7 @@ class Orazione {
         ),
         "1015a"=>array(
             array(
-                array('','',"O Padre, che pr mezzo del tuo Spirito hai suscitato nella Chiesa santa Teresa d'Avila per indicare una via nuova nella ricerca della perfezione, concedi a noi, tuoi fedeli, di nutrirci spiritualmente della sua dottrina e di essere infiammati da un vivo desiderio di santità."),
+                array('','',"O Padre, che per mezzo del tuo Spirito hai suscitato nella Chiesa santa Teresa d'Avila per indicare una via nuova nella ricerca della perfezione, concedi a noi, tuoi fedeli, di nutrirci spiritualmente della sua dottrina e di essere infiammati da un vivo desiderio di santità."),
                 array('ending')
             )
         ),

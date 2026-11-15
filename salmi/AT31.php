@@ -35,7 +35,7 @@ $this->closure['load']=function() {
                 array('','*',"Israele sarà salvato dal Signore con salvezza perenne."),
                 array('','2',"Non patirete confusione o vergogna per i secoli eterni."),
                 array('','+',"Poiché così dice il Signore, che ha creato i cieli;"),
-                array('','*',"egli, il Dio che ha  plasmato e fatto la terra"),
+                array('','*',"egli, il Dio che ha plasmato e fatto la terra"),
                 array('','2',"e l'ha resa stabile;"),
                 array('','*',"l'ha creata non come orrida regione,"),
                 array('','2',"ma l'ha plasmata perché fosse abitata:") 

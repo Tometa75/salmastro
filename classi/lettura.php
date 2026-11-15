@@ -174,7 +174,7 @@ class Lettura {
                         case 4:
                             $this->info=array(
                                 "titolo"=>"Ct 8,6b-7a",
-                                "testo"=>"Forte come la morte è l'amore, tenace come gli inferi è la gelosia: le sua vampe son vampe do fuoco, una fiamma del Signore! Le grandi acque non possono spegnera l'amore né i fiumi travolgerlo."
+                                "testo"=>"Forte come la morte è l'amore, tenace come gli inferi è la gelosia: le sua vampe son vampe do fuoco, una fiamma del Signore! Le grandi acque non possono spegnere l'amore né i fiumi travolgerlo."
                             );
                         break;
                     }
@@ -210,7 +210,7 @@ class Lettura {
                 case 'comp': 
                     $this->info=array(
                         "titolo"=>"Ap 22,4-5",
-                        "testo"=>"Gli eletti vedranno la faccia del Signore e porteranno il suo nome sulla fronte. Non vi sarà più notte e non avranno più bisogno di luce di lampada nè di luce di sole, perché il Signore Dio li illuminerà e regneranno nei secoli dei secoli."
+                        "testo"=>"Gli eletti vedranno la faccia del Signore e porteranno il suo nome sulla fronte. Non vi sarà più notte e non avranno più bisogno di luce di lampada né di luce di sole, perché il Signore Dio li illuminerà e regneranno nei secoli dei secoli."
                     );
                 break;
             }
@@ -464,7 +464,7 @@ class Lettura {
                         case 2:
                             $this->info=array(
                                 "titolo"=>"1Cor 12,24b-26",
-                                "testo"=>"Dio ha composto il corpo, conferendo maggior onore a ciò che ne mancava, perché non vi fosse disunione nel corpo, ma anzi le arie membra avessero cura le une delle altre. Quindi se un membro soffre, tutte le membra soffrono insieme; e se un membro è onorato, tutte le membra gioiscono con lui."
+                                "testo"=>"Dio ha composto il corpo, conferendo maggior onore a ciò che ne mancava, perché non vi fosse disunione nel corpo, ma anzi le varie membra avessero cura le une delle altre. Quindi se un membro soffre, tutte le membra soffrono insieme; e se un membro è onorato, tutte le membra gioiscono con lui."
                             );
                         break;
                         case 3:
@@ -565,7 +565,7 @@ class Lettura {
                         case 3:
                             $this->info=array(
                                 "titolo"=>"1Cor 13,4-7",
-                                "testo"=>"La cairtà è paziente, è benigna la carità; non è invidiosa la carità, non si vanta, non si gonfia,  non manca di rispetto, non cerca il suo interesse, non si adira, non tiene conto del male ricevuto, non gode dell'ingiustizia, ma si compiace della verità. Tutto copre, tutto crede, tutto spera, tutto sopporta."
+                                "testo"=>"La carità è paziente, è benigna la carità; non è invidiosa la carità, non si vanta, non si gonfia, non manca di rispetto, non cerca il suo interesse, non si adira, non tiene conto del male ricevuto, non gode dell'ingiustizia, ma si compiace della verità. Tutto copre, tutto crede, tutto spera, tutto sopporta."
                             );
                         break;
                         case 4:
@@ -704,7 +704,7 @@ class Lettura {
                         case 1:
                             $this->info=array(
                                 "titolo"=>"Am 4,13",
-                                "testo"=>"Ecco colui che forma i monti e crea i venti, che manifesta ll'uomo qual'è il suo pensiero, che fa l'alba ele tenebre e cammina sulle alture della terra, Signore, Dio degli eserciti è il suo nome."
+                                "testo"=>"Ecco colui che forma i monti e crea i venti, che manifesta all'uomo qual è il suo pensiero, che fa l'alba e le tenebre e cammina sulle alture della terra, Signore, Dio degli eserciti è il suo nome."
                             );
                         break;
                         case 2:
@@ -827,13 +827,13 @@ class Lettura {
                         case 1:
                             $this->info=array(
                                 "titolo"=>"Ef 4,29-32",
-                                "testo"=>"Nessuna parola cattiva esca più dalla vostra bocca; ma piuttosto parole buone che possano servire per la necessaria edificazione, giovando a quelli che ascoltano. E non vogliate rattristare lo Spirito Santo di Dio, col quale foste segnati per il giorno della redenzione. Scompaia da voi ogni asprezza, sdegno, ira, clamore e maldicenza con ogni sorta di malignità. siate invece benevoli gli uni verso gli altri, misericordiosi, perdonandovi a vicenda come Dio ha perdonato a voi in Cristo."
+                                "testo"=>"Nessuna parola cattiva esca più dalla vostra bocca; ma piuttosto parole buone che possano servire per la necessaria edificazione, giovando a quelli che ascoltano. E non vogliate rattristare lo Spirito Santo di Dio, col quale foste segnati per il giorno della redenzione. Scompaia da voi ogni asprezza, sdegno, ira, clamore e maldicenza con ogni sorta di malignità. Siate invece benevoli gli uni verso gli altri, misericordiosi, perdonandovi a vicenda come Dio ha perdonato a voi in Cristo."
                             );
                         break;
                         case 2:
                             $this->info=array(
                                 "titolo"=>"Ef 2,13-16",
-                                "testo"=>"Ora, in Cristo Gesù, voi ch eun tempo eravate i lontani siete diventati i vicini grazie al sangue di Cristo. Egli infatti è la nostra pace, colui che ha fatto dei due un popolo solo, abbattendo il muro di separazione che era frammezzo, cioè l'inimicizia, annullando, per mezzo della sua carne, la legge fatta di prescrizioni e di decreti, per creare in sé stesso, dei due, un solo uomo nuovo, facendo la pace, e per riconciliare tutti e due con Dio in un solo corpo, per mezzo della croce, distruggendo in sé stesso l'inimicizia."
+                                "testo"=>"Ora, in Cristo Gesù, voi che un tempo eravate i lontani siete diventati i vicini grazie al sangue di Cristo. Egli infatti è la nostra pace, colui che ha fatto dei due un popolo solo, abbattendo il muro di separazione che era frammezzo, cioè l'inimicizia, annullando, per mezzo della sua carne, la legge fatta di prescrizioni e di decreti, per creare in sé stesso, dei due, un solo uomo nuovo, facendo la pace, e per riconciliare tutti e due con Dio in un solo corpo, per mezzo della croce, distruggendo in sé stesso l'inimicizia."
                             );
                         break;
                         case 3:
@@ -867,7 +867,7 @@ class Lettura {
                         case 3:
                             $this->info=array(
                                 "titolo"=>"Rm 1,16b-17",
-                                "testo"=>"Il vangelo è potenza di Dio per la salvezza di chiunque crede, del Giudeo prima e poi del Greco. È in esso che si rivela la giustizia di Dio di fede in fde, come sta scritto: Il giusto vivrà mediante la fede."
+                                "testo"=>"Il vangelo è potenza di Dio per la salvezza di chiunque crede, del Giudeo prima e poi del Greco. È in esso che si rivela la giustizia di Dio di fede in fede, come sta scritto: Il giusto vivrà mediante la fede."
                             );
                         break;
                         case 4:
@@ -996,7 +996,7 @@ class Lettura {
                         case 4:
                             $this->info=array(
                                 "titolo"=>"2Pt 3.13-15a",
-                                "testo"=>"Secondo la promessa del Signore, noi aspettiamo nuovi cieli e una terra nuova nei quali avrà stabile dimora la giustizia. Perciò, carissimi, nell'attesa di questi eventi, cercate d'essere senza macchia e irreprensibili davanti a Dio, in pace. La magnanimità ddl Signore nostro giudicatela come salvezza."
+                                "testo"=>"Secondo la promessa del Signore, noi aspettiamo nuovi cieli e una terra nuova nei quali avrà stabile dimora la giustizia. Perciò, carissimi, nell'attesa di questi eventi, cercate d'essere senza macchia e irreprensibili davanti a Dio, in pace. La magnanimità del Signore nostro giudicatela come salvezza."
                             );
                         break;
                     }
@@ -1264,7 +1264,7 @@ class Lettura {
                     elseif($this->actual['ora']=='sesta') {
                         $this->info=array(
                             "titolo"=>"Ag 2,6.9",
-                            "testo"=>"Ancora un pò di tempo e io scuoterò il cielo e la terra, il mare e la terraferma. La gloria futura di questa casa sarà più grande di quella di una volta, dice il Signore degli eserciti; in questo luogo porrò la pace - oracolo del Signore degli eserciti -."
+                            "testo"=>"Ancora un po' di tempo e io scuoterò il cielo e la terra, il mare e la terraferma. La gloria futura di questa casa sarà più grande di quella di una volta, dice il Signore degli eserciti; in questo luogo porrò la pace - oracolo del Signore degli eserciti -."
                         );
                     }
                     elseif($this->actual['ora']=='nona') {
@@ -1531,7 +1531,7 @@ class Lettura {
                 elseif($this->actual['ora']=='sesta') {
                     $this->info=array(
                         "titolo"=>"Ag 2,6.9",
-                        "testo"=>"Ancora un pò di tempo e io scuoterò il cielo e la terra, il mare e la terraferma. La gloria futura di questa casa sarà più grande di quella di una volta, dice il Signore degli eserciti; in questo luogo porrò la pace - oracolo del Signore degli eserciti -."
+                        "testo"=>"Ancora un po' di tempo e io scuoterò il cielo e la terra, il mare e la terraferma. La gloria futura di questa casa sarà più grande di quella di una volta, dice il Signore degli eserciti; in questo luogo porrò la pace - oracolo del Signore degli eserciti -."
                     );
                 }
                 elseif($this->actual['ora']=='nona') {
@@ -1750,7 +1750,7 @@ class Lettura {
                 elseif($this->actual['ora']=='sesta') {
                     $this->info=array(
                         "titolo"=>"Gc 1,12",
-                        "testo"=>"Beato l'uomo che sopporta la tentazione, perché una volta superata la prova riceverà la  corona della vita che il Signore ha promesso a quelli che lo amano."
+                        "testo"=>"Beato l'uomo che sopporta la tentazione, perché una volta superata la prova riceverà la corona della vita che il Signore ha promesso a quelli che lo amano."
                     );
                 }
                 elseif($this->actual['ora']=='nona') {
@@ -1778,7 +1778,7 @@ class Lettura {
                 elseif($this->actual['ora']=='terza') {
                     $this->info=array(
                         "titolo"=>"2Cor 5,19-20",
-                        "testo"=>"È stato Dio a riconciliare a sè il mondo in Cristo, non imputando agli uomini le loro colpe e affidando a noi la parola della riconciliazione. Noi fungiamo quindi da ambasciatori per Cristo, come se Dio esortasse per mezzo nostro. Vi supplichiamo in nome di Cristo: lasciatevi riconciliare con Dio."
+                        "testo"=>"È stato Dio a riconciliare a sé il mondo in Cristo, non imputando agli uomini le loro colpe e affidando a noi la parola della riconciliazione. Noi fungiamo quindi da ambasciatori per Cristo, come se Dio esortasse per mezzo nostro. Vi supplichiamo in nome di Cristo: lasciatevi riconciliare con Dio."
                     );
                 }
                 elseif($this->actual['ora']=='sesta') {
@@ -1908,7 +1908,7 @@ class Lettura {
                 if($this->actual['ora']=='lodi') {
                     $this->info=array(
                         "titolo"=>"Is 4,2-3",
-                        "testo"=>"In quel giorno il germoglio del Signore crescerà in onore e gloria e il frutto della terra sarà a magnificenza e ornamento per gòi scampati di Israele. Chiunque sarà rimasto in Sion e chi sarà superstite in Gerusalemme sarà chiamato santo, cioè quanti saranno iscritti per restare in vita in Gerusalemme."
+                        "testo"=>"In quel giorno il germoglio del Signore crescerà in onore e gloria e il frutto della terra sarà a magnificenza e ornamento per gli scampati di Israele. Chiunque sarà rimasto in Sion e chi sarà superstite in Gerusalemme sarà chiamato santo, cioè quanti saranno iscritti per restare in vita in Gerusalemme."
                     );
                 }
                 elseif($this->actual['ora']=='terza') {
@@ -2010,7 +2010,7 @@ class Lettura {
                 if($this->actual['ora']=='lodi') {
                     $this->info=array(
                         "titolo"=>"Is 62,11b-12a",
-                        "testo"=>"Dite alla figlia di Sion: Ecco, arriva il tuo salvatore; ecco, ha con sè la sua mercede, la sua ricompensa è davanti a lui. Li chiameranno popolo santo, redenti del Signore."
+                        "testo"=>"Dite alla figlia di Sion: Ecco, arriva il tuo salvatore; ecco, ha con sé la sua mercede, la sua ricompensa è davanti a lui. Li chiameranno popolo santo, redenti del Signore."
                     );
                 }
                 elseif($this->actual['ora']=='terza') {
@@ -2050,7 +2050,7 @@ class Lettura {
                 elseif($this->actual['ora']=='terza') {
                     $this->info=array(
                         "titolo"=>"Ger 31,7-8a",
-                        "testo"=>"Così dice il Signore: Innalzate canti di gioia per Giacobbe, esultate per la prima delle nazioni, fate usire la vostra lode e dite: Il Signore ha salvato il suo popolo, un resto di Israele. Eccoli riconduco dal paese del settentrione e li raduno dall'estremità della terra."
+                        "testo"=>"Così dice il Signore: Innalzate canti di gioia per Giacobbe, esultate per la prima delle nazioni, fate udire la vostra lode e dite: Il Signore ha salvato il suo popolo, un resto di Israele. Eccoli riconduco dal paese del settentrione e li raduno dall'estremità della terra."
                     );
                 }
                 elseif($this->actual['ora']=='sesta') {
@@ -2261,7 +2261,7 @@ class Lettura {
                     if($this->actual['ora']=='lodi') {
                         $this->info=array(
                             "titolo"=>"Es 19,4-6a",
-                            "testo"=>"Voi stessi avete visto come ho sollevato voi su ali di aquile e vi  ho fatti venire fino a me. Ora, se vorrete ascoltare la mia voce e custodire la mia alleanza, voi sarete per me la proprietà tra tutti i popoli, perché mia è tutta la terra! Voi sarete per me un regno di sacerdoti e una nazione santa."
+                            "testo"=>"Voi stessi avete visto come ho sollevato voi su ali di aquile e vi ho fatti venire fino a me. Ora, se vorrete ascoltare la mia voce e custodire la mia alleanza, voi sarete per me la proprietà tra tutti i popoli, perché mia è tutta la terra! Voi sarete per me un regno di sacerdoti e una nazione santa."
                         );
                     }
                     elseif($this->actual['ora']=='terza') {
@@ -2486,7 +2486,7 @@ class Lettura {
                     elseif($this->actual['ora']=='nona') {
                         $this->info=array(
                             "titolo"=>"1Pt 5,10-11",
-                            "testo"=>"Il Dio di ogni grazia, il quale vi ha chiamati alla sua gloria eterna in Cristo, egli stesso vi ristabilirà, dopo una bree sofferenza vi confermerà e vi renderà forti e saldi. A lui la potenza nei secoli. Amen!"
+                            "testo"=>"Il Dio di ogni grazia, il quale vi ha chiamati alla sua gloria eterna in Cristo, egli stesso vi ristabilirà, dopo una breve sofferenza vi confermerà e vi renderà forti e saldi. A lui la potenza nei secoli. Amen!"
                         );
                     }
                     elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
@@ -2536,7 +2536,7 @@ class Lettura {
                     if($this->actual['ora']=='lodi') {
                         $this->info=array(
                             "titolo"=>"Zc 12,10-11a",
-                            "testo"=>"Riverserò sopra la casa di Davide e sopra gli abitanti di Gerusalemme uno spirito di grazia e di consolazione: guarderanno a colui che hanno trafitto. Ne faranno il lutto come si fa il lutto per un figlio unico. lo piangeranno come si piange il primogenito. In quel giorno grande sarà il lamento in Gerusalemme."
+                            "testo"=>"Riverserò sopra la casa di Davide e sopra gli abitanti di Gerusalemme uno spirito di grazia e di consolazione: guarderanno a colui che hanno trafitto. Ne faranno il lutto come si fa il lutto per un figlio unico, lo piangeranno come si piange il primogenito. In quel giorno grande sarà il lamento in Gerusalemme."
                         );
                     }
                     elseif($this->actual['ora']=='terza') {
@@ -2644,7 +2644,7 @@ class Lettura {
                     elseif($this->actual['ora']=='terza') {
                         $this->info=array(
                             "titolo"=>"Is 53,2-3",
-                            "testo"=>"È cresciuto come un virgulto davanti a lui e come una radice in tera arida. Non ha apparenza né bellezza per attirare i nostri sguardi, non splendore per potercene compiacere. Disprezzato e reietto dagli uomini, uomo dei dolori che ben conosce il patire, come uno davanti al quale ci si copre la faccia, era disprezzato e non ne avevano alcuna stima."
+                            "testo"=>"È cresciuto come un virgulto davanti a lui e come una radice in terra arida. Non ha apparenza né bellezza per attirare i nostri sguardi, non splendore per potercene compiacere. Disprezzato e reietto dagli uomini, uomo dei dolori che ben conosce il patire, come uno davanti al quale ci si copre la faccia, era disprezzato e non ne avevano alcuna stima."
                         );
                     }
                     elseif($this->actual['ora']=='sesta') {
@@ -2762,7 +2762,7 @@ class Lettura {
                 elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
                     $this->info=array(
                         "titolo"=>"Eb 10,12-14",
-                        "testo"=>"Cristo, avendo offerto un solo sacrificio per i peccati una volta per sempre, si è assiso alla destra di Dio, aspettando ormai soltanto ch ei suoi nemici vengano posti sotto i suoi piedi. Poiché con un'unica oblazione egli ha resi perfetti per sempre quelli che vengono santificati."
+                        "testo"=>"Cristo, avendo offerto un solo sacrificio per i peccati una volta per sempre, si è assiso alla destra di Dio, aspettando ormai soltanto che i suoi nemici vengano posti sotto i suoi piedi. Poiché con un'unica oblazione egli ha resi perfetti per sempre quelli che vengono santificati."
                     );
                 }
             }
@@ -2874,7 +2874,7 @@ class Lettura {
                 if($this->actual['ora']=='lodi') {
                     $this->info=array(
                         "titolo"=>"Rm 8,10-11",
-                        "testo"=>"Se Cristo è in voi, il vostro corpo è morto a causa del peccato, ma lo spirito è vita a causa della giustificazione. E se lo Spirito di colui che ha risuscitato Gesù dai morti abita in voi , colui che ha risuscitato Cristo dai morti darà la vita anche ai vostri corpi mortali per mezzo del suo Spirito che abita in voi."
+                        "testo"=>"Se Cristo è in voi, il vostro corpo è morto a causa del peccato, ma lo spirito è vita a causa della giustificazione. E se lo Spirito di colui che ha risuscitato Gesù dai morti abita in voi, colui che ha risuscitato Cristo dai morti darà la vita anche ai vostri corpi mortali per mezzo del suo Spirito che abita in voi."
                     );
                 }
                 elseif($this->actual['ora']=='terza') {
@@ -2954,7 +2954,7 @@ class Lettura {
                 elseif($this->actual['ora']=='sesta') {
                     $this->info=array(
                         "titolo"=>"1Cor 15,20-22",
-                        "testo"=>"Cristo è risuscitato dai morti, primizia di coloro che sono morti. Poiché se a causa di un uomo venne la morte , a causa di un uomo verrà anche la risurrezione dei morti: e come tutti muoiono in Adamo, così tutti riceveranno la vita in Cristo."
+                        "testo"=>"Cristo è risuscitato dai morti, primizia di coloro che sono morti. Poiché se a causa di un uomo venne la morte, a causa di un uomo verrà anche la risurrezione dei morti: e come tutti muoiono in Adamo, così tutti riceveranno la vita in Cristo."
                     );
                 }
                 elseif($this->actual['ora']=='nona') {
@@ -2996,7 +2996,7 @@ class Lettura {
                 elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
                     $this->info=array(
                         "titolo"=>"Eb 10,12-14",
-                        "testo"=>"Cristo, avendo offerto un solo sacrificio per i peccati una volta per sempre, si è assiso alla destra di Dio, aspettando ormai soltanto ch ei suoi nemici vengano posti sotto i suoi piedi. Poiché con un'unica oblazione egli ha resi perfetti per sempre quelli che vengono santificati."
+                        "testo"=>"Cristo, avendo offerto un solo sacrificio per i peccati una volta per sempre, si è assiso alla destra di Dio, aspettando ormai soltanto che i suoi nemici vengano posti sotto i suoi piedi. Poiché con un'unica oblazione egli ha resi perfetti per sempre quelli che vengono santificati."
                     );
                 }
             }
@@ -3012,7 +3012,7 @@ class Lettura {
                 elseif($this->actual['ora']=='lodi') {
                     $this->info=array(
                         "titolo"=>"Eb 10,12-14",
-                        "testo"=>"Cristo, avendo offerto un solo sacrificio per i peccati una volta per sempre, si è assiso alla destra di Dio, aspettando ormai soltanto ch ei suoi nemici vengano posti sotto i suoi piedi. Poiché con un'unica oblazione egli ha resi perfetti per sempre quelli che vengono santificati."
+                        "testo"=>"Cristo, avendo offerto un solo sacrificio per i peccati una volta per sempre, si è assiso alla destra di Dio, aspettando ormai soltanto che i suoi nemici vengano posti sotto i suoi piedi. Poiché con un'unica oblazione egli ha resi perfetti per sempre quelli che vengono santificati."
                     );
                 }
                 elseif($this->actual['ora']=='terza') {
@@ -3268,7 +3268,7 @@ class Lettura {
                 elseif($this->actual['ora']=='nona') {
                     $this->info=array(
                         "titolo"=>"Col 1,19-20",
-                        "testo"=>"Piacque a Dio di fare abitare in Cristo ogni pienezza e per mezzo di lui riconciliare a sé tutte le cose, rappacificando col il sangue della sua croce, cioè per mezzo di lui, le cose che stanno sulla terra  e quelle nei cieli."
+                        "testo"=>"Piacque a Dio di fare abitare in Cristo ogni pienezza e per mezzo di lui riconciliare a sé tutte le cose, rappacificando col il sangue della sua croce, cioè per mezzo di lui, le cose che stanno sulla terra e quelle nei cieli."
                     );
                 }
                 elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
@@ -3440,7 +3440,7 @@ class Lettura {
             elseif($this->actual['ora']=='terza') {
                 $this->info=array(
                     "titolo"=>"Ef 1,9-10",
-                    "testo"=>"Dio ci ha fatto conoscere il mistero della sua volontà, secondo quanto nella sua benevolenza aveva in lui prestabilito per realizzarlo nella pienezza dei tempi:il disegno cioè di ricapitolare in Cristo tutte le cose, quelle del cielo come quelle della terra."
+                    "testo"=>"Dio ci ha fatto conoscere il mistero della sua volontà, secondo quanto nella sua benevolenza aveva in lui prestabilito per realizzarlo nella pienezza dei tempi: il disegno cioè di ricapitolare in Cristo tutte le cose, quelle del cielo come quelle della terra."
                 );
             }
             elseif($this->actual['ora']=='sesta') {
@@ -3628,7 +3628,7 @@ class Lettura {
             elseif($this->actual['ora']=='lodi') {
                 $this->info=array(
                     "titolo"=>"Is 61,10",
-                    "testo"=>"Io gioisco pienamente nel Signore, la mia anima esulta nel mio Dio, perché mi ha rivestito delle vesti di salvezza, mi ha avvolto con il manto della giustizia, come una sposa che si adorna gi gioielli."
+                    "testo"=>"Io gioisco pienamente nel Signore, la mia anima esulta nel mio Dio, perché mi ha rivestito delle vesti di salvezza, mi ha avvolto con il manto della giustizia, come una sposa che si adorna di gioielli."
                 );
             }
             elseif($this->actual['ora']=='terza') {
@@ -3668,7 +3668,7 @@ class Lettura {
             elseif($this->actual['ora']=='terza') {
                 $this->info=array(
                     "titolo"=>"Eb 5,7-9",
-                    "testo"=>"Cristo nei giorni della sua vita terrena offrì preghiere e suppliche con forti grida e lacrime a colui che poteva liberarlo da morte e fu esaudito per la sua pietà. Pur essendo Figlio, imparò l'obbedienza dalle cose che patì e, reso perfetto, divenne causa di salvezza eterna per tutti  coloro che gli obbediscono."
+                    "testo"=>"Cristo nei giorni della sua vita terrena offrì preghiere e suppliche con forti grida e lacrime a colui che poteva liberarlo da morte e fu esaudito per la sua pietà. Pur essendo Figlio, imparò l'obbedienza dalle cose che patì e, reso perfetto, divenne causa di salvezza eterna per tutti coloro che gli obbediscono."
                 );
             }
             elseif($this->actual['ora']=='sesta') {
@@ -3784,7 +3784,7 @@ class Lettura {
                     if($this->actual['ora']=='ves1') {
                         $this->info=array(
                             "titolo"=>"Ef 2,19-22",
-                            "testo"=>"Voi non siete più stranieri nè ospiti, ma siete concittadini dei santi e familiari di Dio, edificati sopra il fondamento degli apostoli e dei profeti, e avendo come pietra angolare lo stesso Cristo Gesù. In lui ogni costruzione cresce ben ordinata per essere tempio santo nel Signore; in lui anche voi insieme con gli altri venite edificati per diventare dimora di Dio per mezzo dello Spirito."
+                            "testo"=>"Voi non siete più stranieri né ospiti, ma siete concittadini dei santi e familiari di Dio, edificati sopra il fondamento degli apostoli e dei profeti, e avendo come pietra angolare lo stesso Cristo Gesù. In lui ogni costruzione cresce ben ordinata per essere tempio santo nel Signore; in lui anche voi insieme con gli altri venite edificati per diventare dimora di Dio per mezzo dello Spirito."
                         );
                     }
                     elseif($this->actual['ora']=='lodi') {
@@ -3864,13 +3864,13 @@ class Lettura {
                     elseif($this->actual['ora']=='lodi') {
                         $this->info=array(
                             "titolo"=>"Ef 2,19-22",
-                            "testo"=>"Voi non siete più stranieri nè ospiti, ma siete concittadini dei santi e familiari di Dio, edificati sopra il fondamento degli apostoli e dei profeti, e avendo come pietra angolare lo stesso Cristo Gesù. In lui ogni costruzione cresce ben ordinata per essere tempio santo nel Signore; in lui anche voi insieme con gli altri venite edificati per diventare dimora di Dio per mezzo dello Spirito."
+                            "testo"=>"Voi non siete più stranieri né ospiti, ma siete concittadini dei santi e familiari di Dio, edificati sopra il fondamento degli apostoli e dei profeti, e avendo come pietra angolare lo stesso Cristo Gesù. In lui ogni costruzione cresce ben ordinata per essere tempio santo nel Signore; in lui anche voi insieme con gli altri venite edificati per diventare dimora di Dio per mezzo dello Spirito."
                         );
                     }
                     elseif($this->actual['ora']=='terza') {
                         $this->info=array(
                             "titolo"=>"2Cor 5,19-20",
-                            "testo"=>"È stato Dio a riconciliare a sè il mondo in Cristo, non imputando agli uomini le loro colpe e affidando a noi la parola della riconciliazione. Noi fungiamo quindi da ambasciatori per Cristo, come se Dio esortasse per mezzo nostro. Vi supplichiamo in nome di Cristo: lasciatevi riconciliare con Dio."
+                            "testo"=>"È stato Dio a riconciliare a sé il mondo in Cristo, non imputando agli uomini le loro colpe e affidando a noi la parola della riconciliazione. Noi fungiamo quindi da ambasciatori per Cristo, come se Dio esortasse per mezzo nostro. Vi supplichiamo in nome di Cristo: lasciatevi riconciliare con Dio."
                         );
                     }
                     elseif($this->actual['ora']=='sesta') {
@@ -3939,7 +3939,7 @@ class Lettura {
                         if($this->actual['ora']=='ves1') {
                             $this->info=array(
                                 "titolo"=>"Rm 8,35.37-39",
-                                "testo"=>"Chi ci separerà dall'amore di Cristo? Forse la tribolazione, l'angoscia, la persecuzione, la fame, la nudità, il pericolo, la spada? In tutte queste cose noi siamo più che vincitori per virtù di colui che ci ha amati. Io sono infatti persuaso che né morte nè vita, né angeli né principati, né presente né avvenire, né potenze, né altezza né profondità, né alcun'altra creatura potrà mai separarci dall'amore di Dio, in Cristo Gesù, nostro Signore."
+                                "testo"=>"Chi ci separerà dall'amore di Cristo? Forse la tribolazione, l'angoscia, la persecuzione, la fame, la nudità, il pericolo, la spada? In tutte queste cose noi siamo più che vincitori per virtù di colui che ci ha amati. Io sono infatti persuaso che né morte né vita, né angeli né principati, né presente né avvenire, né potenze, né altezza né profondità, né alcun'altra creatura potrà mai separarci dall'amore di Dio, in Cristo Gesù, nostro Signore."
                             );
                         }
                         elseif($this->actual['ora']=='lodi') {
@@ -4085,7 +4085,7 @@ class Lettura {
                     elseif($this->actual['ora']=='terza') {
                         $this->info=array(
                             "titolo"=>"Sir 31,8-11",
-                            "testo"=>"Beato il ricco, che sio trova senza macchia e che non corre dietro all'oro. Chi è costui? Noi lo proclameremo beato: difatti egli ha compiuto meraviglie in mezzo al suo popolo. Chi ha subito la prova, risultando perfetto? Sarà un titolo di gloria per lui. Chi, potendo trasgredire non ha trasgredito, e potendo compiere il male, non lo ha fatto? Si consolideranno i suoi beni e l'assemblea celebrerà le sue beneficenze."
+                            "testo"=>"Beato il ricco, che si trova senza macchia e che non corre dietro all'oro. Chi è costui? Noi lo proclameremo beato: difatti egli ha compiuto meraviglie in mezzo al suo popolo. Chi ha subito la prova, risultando perfetto? Sarà un titolo di gloria per lui. Chi, potendo trasgredire non ha trasgredito, e potendo compiere il male, non lo ha fatto? Si consolideranno i suoi beni e l'assemblea celebrerà le sue beneficenze."
                         );
                     }
                     elseif($this->actual['ora']=='sesta') {
@@ -4097,7 +4097,7 @@ class Lettura {
                     elseif($this->actual['ora']=='nona') {
                         $this->info=array(
                             "titolo"=>"Pr 4,1-2.20-23",
-                            "testo"=>"Ascoltate, o fogli, l'istruzione di un padre e fate attenzione per conoscere la verità, poiché io vi do una buona dottrina; non abbandonate il mio insegnamento. Figlio mio, fa' attenzione alle mie parole, porgi l'orecchio ai miei detti; non perderli mai di vista, custodiscili nel tuo cuore, perché essi sono vita per chi li trova e salute per tutto il suo corpo. Con ogni cura vigila sul cuore perché da esso sgorga la vita."
+                            "testo"=>"Ascoltate, o figli, l'istruzione di un padre e fate attenzione per conoscere la verità, poiché io vi do una buona dottrina; non abbandonate il mio insegnamento. Figlio mio, fa' attenzione alle mie parole, porgi l'orecchio ai miei detti; non perderli mai di vista, custodiscili nel tuo cuore, perché essi sono vita per chi li trova e salute per tutto il suo corpo. Con ogni cura vigila sul cuore perché da esso sgorga la vita."
                         );
                     }
                     elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
@@ -4119,7 +4119,7 @@ class Lettura {
                     elseif($this->actual['ora']=='lodi') {
                         $this->info=array(
                             "titolo"=>"Ct 8,7",
-                            "testo"=>"Le grandi acque non possono spegnere l'amore né i fiumi travolgerlo. Se un desse tutte le ricchezze della sua casa in cambio dell'amore, non ne avrebbe che dispregio."
+                            "testo"=>"Le grandi acque non possono spegnere l'amore né i fiumi travolgerlo. Se uno desse tutte le ricchezze della sua casa in cambio dell'amore, non ne avrebbe che dispregio."
                         );
                     }
                     elseif($this->actual['ora']=='terza') {
@@ -4331,7 +4331,7 @@ class Lettura {
                     elseif($this->actual['ora']=='sesta') {
                         $this->info=array(
                             "titolo"=>"1Pt 5,1-2a",
-                            "testo"=>"Esorto gli anziani che sono tra voi, quale anziano come loro, testimone delle sofferenze di Cristo e partecipe della gloria che deve manifestarsi: PAscete il gregge di Dio che vi è affidato, sorvegliandolo non per forza ma volentieri secondo Dio."
+                            "testo"=>"Esorto gli anziani che sono tra voi, quale anziano come loro, testimone delle sofferenze di Cristo e partecipe della gloria che deve manifestarsi: Pascete il gregge di Dio che vi è affidato, sorvegliandolo non per forza ma volentieri secondo Dio."
                         );
                     }
                     elseif($this->actual['ora']=='nona') {
@@ -4629,7 +4629,7 @@ class Lettura {
                     elseif($this->actual['ora']=='sesta') {
                         $this->info=array(
                             "titolo"=>"Ct 8,6b-7a",
-                            "testo"=>"Forte come la morte è l'amore, tenace come gli inferi è la gelosia: le sua vampe son vampe do fuoco, una fiamma del Signore! Le grandi acque non possono spegnera l'amore né i fiumi travolgerlo."
+                            "testo"=>"Forte come la morte è l'amore, tenace come gli inferi è la gelosia: le sua vampe son vampe do fuoco, una fiamma del Signore! Le grandi acque non possono spegnere l'amore né i fiumi travolgerlo."
                         );
                     }
                     elseif($this->actual['ora']=='nona') {
@@ -4641,7 +4641,7 @@ class Lettura {
                     elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
                         $this->info=array(
                             "titolo"=>"2Tm 2,10-12a",
-                            "testo"=>"Sopporto ogni cosa per gli eletti , perché anch'essi raggiungano la salvezza che è in Cristo Gesù, insieme alla gloria eterna. Certa è questa parola: Se moriamo con lui, vivremo anche con lui; se con lui perseveriamo, con lui anche regneremo."
+                            "testo"=>"Sopporto ogni cosa per gli eletti, perché anch'essi raggiungano la salvezza che è in Cristo Gesù, insieme alla gloria eterna. Certa è questa parola: Se moriamo con lui, vivremo anche con lui; se con lui perseveriamo, con lui anche regneremo."
                         );
                     }
                 }

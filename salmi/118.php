@@ -567,7 +567,7 @@ $this->closure['load']=function() {
         '19'=>array(
             array(
                 array('','N',"19 - KOF"),
-                array('','*',"T'invoco cn tutto il cuore, Signore, rispondimi;"),
+                array('','*',"T'invoco con tutto il cuore, Signore, rispondimi;"),
                 array('','2',"custodirò i tuoi precetti."),
                 array('','*',"Io ti chiamo, salvami,"),
                 array('','2',"e seguirò i tuoi insegnamenti.")

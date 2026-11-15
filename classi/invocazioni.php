@@ -188,7 +188,7 @@ class Invocazioni {
                                 array('','',"Concedici di trascorrere in letizia questo giorno,"),
                                 array('-','',"in cui celebriamo la risurrezione del tuo Figlio."),
                                 array('','',"Dona ai tuoi fedeli, lo spirito di orazione e di lode,"),
-                                array('-','',"perchè tutta la nostra vita sia un rendimento di grazie a te.")
+                                array('-','',"perché tutta la nostra vita sia un rendimento di grazie a te.")
                             )
                         );
                     break;
@@ -209,7 +209,7 @@ class Invocazioni {
                                 array('-','',"infondi in loro il tuo Spirito di unità, di amore e di pace."),
                                 array('','',"Fa' che i cristiani siano intimamente uniti a te, capo della Chiesa,"),
                                 array('-','',"e diano valida testimonianza al tuo Vangelo."),
-                                array('','',"Dona al mondi la pace,"),
+                                array('','',"Dona al mondo la pace,"),
                                 array('-','',"fa' che si costruisca un ordina nuovo nella giustizia e nella fraternità."),
                                 array('','',"Concedi ai nostri fratelli defunti la gloria della risurrezione,"),
                                 array('-','',"rendi partecipi anche noi della loro beatitudine.")
@@ -854,7 +854,7 @@ class Invocazioni {
                     case 1:
                         $this->testo=array(
                             array(
-                                array('','',"Preghiamo Dio, fondamento di tuta la nostra speranza:"),
+                                array('','',"Preghiamo Dio, fondamento di tutta la nostra speranza:"),
                                 array('ris','I',"Benedici i tuoi figli, o Signore.")
                             ),
                             array(
@@ -1058,7 +1058,7 @@ class Invocazioni {
                         $this->testo=array(
                             array(
                                 array('','',"Nel misterioso disegno della sapienza divina, il Signore Gesù fu consegnato alla morte per i nostri peccati ed è risorto per la nostra santificazione. Adoriamo il nostro Salvatore e con umile fiducia invochiamolo:"),
-                                array('ris',"Abbi pietà del tuo popolo, Signore.")
+                                array('ris','',"Abbi pietà del tuo popolo, Signore.")
                             ),
                             array(
                                 array('','',"Esaudisci, Signore, le nostre suppliche e cancella le nostre colpe,"),
@@ -1086,7 +1086,7 @@ class Invocazioni {
                                 array('','',"Tu conosci quanto è forte per noi la suggestione del male,"),
                                 array('-','',"guarisci le nostre anime con la larghezza del tuo perdono."),
                                 array('','',"Tu che sei offeso dal peccato e placato dalla penitenza,"),
-                                array('-','',"allontana i flagelli della tua ira , che meritiamo a causa delle nostre colpe."),
+                                array('-','',"allontana i flagelli della tua ira, che meritiamo a causa delle nostre colpe."),
                                 array('','',"Hai perdonato la peccatrice e hai preso sulle tue spalle la pecorella smarrita,"),
                                 array('-','',"non privarci mai della tua misericordia."),
                                 array('','',"Ci hai aperto le porte del cielo mediante la tua croce,"),
@@ -1508,7 +1508,7 @@ class Invocazioni {
 
                     $this->testo=array(
                         array(
-                            array('','',"Lode e benedizione a Dio Padre , che nel suo Figlio ha rivelato agli uomini la sua gloria:"),
+                            array('','',"Lode e benedizione a Dio Padre, che nel suo Figlio ha rivelato agli uomini la sua gloria:"),
                             array('ris','I',"Signore, noi ti lodiamo e ti glorifichiamo.")
                         ),
                         array(
@@ -1803,7 +1803,7 @@ class Invocazioni {
 
                     $this->testo=array(
                         array(
-                            array('','',"Uniti nel rendimento di grazie a Dio Padre, che ha mandato il suo Figlio a riscattare tutti gli  uomini, preghiamo per la salvezza e la pace del mondo:"),
+                            array('','',"Uniti nel rendimento di grazie a Dio Padre, che ha mandato il suo Figlio a riscattare tutti gli uomini, preghiamo per la salvezza e la pace del mondo:"),
                             array('ris','I',"Mostraci, Signore, la tua misericordia.")
                         ),
                         array(
@@ -1996,7 +1996,7 @@ class Invocazioni {
                             array('-','',"Signore Gesù, abbi pietà del tuo popolo."),
                             array('','',"Chiami tutti alla carità perfetta,"),
                             array('-','',"Signore Gesù, santifica il tuo popolo."),
-                            array('','',"Hai voluto che i tuoi discepoli  siano sale della terra e luce del mondo,"),
+                            array('','',"Hai voluto che i tuoi discepoli siano sale della terra e luce del mondo,"),
                             array('-','',"Signore Gesù illumina il tuo popolo."),
                             array('','',"Sei venuto per servire e non per essere servito,"),
                             array('-','',"Signore Gesù, insegnaci a servirti nei nostri fratelli."),
@@ -2671,7 +2671,7 @@ class Invocazioni {
                             array('ris','I',"Mostraci, Signore, la tua misericordia.")
                         ),
                         array(
-                            array('','',"Padre santo, ti preghiamo per quelli che ti conoscono  co la sola luce della ragione,"),
+                            array('','',"Padre santo, ti preghiamo per quelli che ti conoscono con la sola luce della ragione,"),
                             array('-','',"fa' che vedano anche la luce sfolgorante del tuo Vangelo."),
                             array('','',"Guarda con bontà tutti i non cristiani, che si impegnano per liberare l'uomo dalla sofferenza e dal bisogno,"),
                             array('-','',"fa' che trovino in Cristo la via, la verità e la vita."),
@@ -2885,7 +2885,7 @@ class Invocazioni {
                                 array('ris','I',"Sii la vita del tuo popolo, Signore.")
                             ),
                             array(
-                                array('','',"Cristo, che hai voluto essere simle a noi in tutto fuorché nel peccato, insegnaci a gioire con chi gioisce e a piangere con chi piange,"),
+                                array('','',"Cristo, che hai voluto essere simile a noi in tutto fuorché nel peccato, insegnaci a gioire con chi gioisce e a piangere con chi piange,"),
                                 array('-','',"perché la nostra carità diventi sempre più concreta e generosa."),
                                 array('','',"Donaci la grazia di riconoscerti nei poveri e nei sofferenti,"),
                                 array('-','',"per saziare la tua fame negli affamati e la tua sete negli assetati."),
@@ -4100,7 +4100,7 @@ class Invocazioni {
                         $this->testo=array(
                             array(
                                 array('','',"Lode e onore a Cristo, costituito dal Padre erede di tutte le genti. A lui s'innalzi la nostra preghiera:"),
-                                array('ris','I',"Per la tua gloriosa risurrezione. salvaci, o Signore."),
+                                array('ris','I',"Per la tua gloriosa risurrezione, salvaci, o Signore."),
                             ),
                             array(
                                 array('','',"Cristo, che hai vinto l'inferno e hai distrutto il peccato,"),
@@ -4302,7 +4302,7 @@ class Invocazioni {
                                 array('','',"Ti preghiamo per i vescovi, i presbiteri e i diaconi,"),
                                 array('-','',"perché promuovano nel popolo cristiano il senso di corresponsabilità al servizio del Vangelo."),
                                 array('','',"Ti preghiamo per i teologi e i catechisti,"),
-                                array('-','',"perché servano al verita con purezza di spirito."),
+                                array('-','',"perché servano la verità con purezza di spirito."),
                                 array('','',"Ti preghiamo per tutti i membri del popolo di Dio,"),
                                 array('-','',"perché combattano la pacifica battaglia della fede e ricevano il premio del tuo regno."),
                                 array('','',"Tu che sulla croce hai distrutto la sentenza della nostra condanna,"),
@@ -4329,7 +4329,7 @@ class Invocazioni {
                                 array('-','',"manda operai alla tua Chiesa a continuare l'opera della salvezza."),
                                 array('','',"Sulla riva del lago hai preparato il pane e il pesce per i tuoi discepoli,"),
                                 array('-','',"fa' che nessuno dei nostri fratelli soffra la fame per colpa nostra."),
-                                array('','',"O Gesù, nuovo Adamo e spirito datore di vita , che che i defunti portino l'immagine della tua gloria,"),
+                                array('','',"O Gesù, nuovo Adamo e spirito datore di vita, fa' che i defunti portino l'immagine della tua gloria,"),
                                 array('-','',"e godano la pienezza della tua felicità.")
                             )
                         );
@@ -5084,7 +5084,7 @@ class Invocazioni {
                         array(
                             array('','',"Padre, grande e misericordioso, nel nome del tuo Figlio effondi lo Spirito Santo Paraclito sulla tua Chiesa,"),
                             array('-','',"perché la custodisca nella comunione della verità e dell'amore."),
-                            array('','',"Manda operai nella tua messe perché ammaestrino gli uomini e li battezzino nel nome del Padre e del FIglio e dello Spirito Santo,"),
+                            array('','',"Manda operai nella tua messe perché ammaestrino gli uomini e li battezzino nel nome del Padre e del Figlio e dello Spirito Santo,"),
                             array('-','',"e li confermino nella comunione vitale a questo mistero."),
                             array('','',"Dio Padre, sostieni coloro che sono perseguitati per il nome del Figlio tuo,"),
                             array('-','',"lo Spirito Santo che ha promesso gli renda testimonianza per bocca loro."),
@@ -5249,7 +5249,7 @@ class Invocazioni {
 
                 $this->testo=array(
                     array(
-                        array('','',"Uniti nella liturgia di lod, acclamiamo e invochiamo il nostro Salvatore, presentato al tempio da Maria e Giuseppe:"),
+                        array('','',"Uniti nella liturgia di lode, acclamiamo e invochiamo il nostro Salvatore, presentato al tempio da Maria e Giuseppe:"),
                         array('ris','I',"O luce delle genti, illumina il tuo popolo.")
                     ),
                     array(
@@ -5397,9 +5397,9 @@ class Invocazioni {
                         array('','',"Poiché nulla abbiamo più caro del Cristo tuo Figlio, e aneliamo sinceramente al regno dei cieli,"),
                         array('-','',"concedi che non viviamo più a nostro arbitrio, secondo i nostri desideri e gusti, ma desideriamo camminare nel monastero sotto la guida e l'autorità di chi ci parla in tuo nome."),
                         array('','',"Tu chiami i monaci a vivere in una condizione di umiltà:"),
-                        array('-','',"conducili, mediante l'esperienza della loro miseria e povertà, unita a quella della tua misericordia , a riconoscersi gli ultimi con la parola e con la vita."),
+                        array('-','',"conducili, mediante l'esperienza della loro miseria e povertà, unita a quella della tua misericordia, a riconoscersi gli ultimi con la parola e con la vita."),
                         array('','',"Animati dal tuo santo zelo, noi desideriamo prevenirci a vicenda nel casto amore fraterno e nella carità sincera e umile verso l'abate, nella incessante scoperta del volto di Cristo:"),
-                        array('-','',"egli ci conduca alla vita eterna , dove, con la Vergine Maria e con tutti i santi monaci, ci attendono i confratelli che ci han preceduti in questa santa dimora.")
+                        array('-','',"egli ci conduca alla vita eterna, dove, con la Vergine Maria e con tutti i santi monaci, ci attendono i confratelli che ci han preceduti in questa santa dimora.")
                     )
                 );
             }
@@ -5523,7 +5523,7 @@ class Invocazioni {
                     ),
                     array(
                         array('','',"Hai chiamato Giovanni dal grembo di sua madre a preparare le vie del tuo Figlio,"),
-                        array('-','',"fa' che ci disponiamo alla sequela di Cristo, comn al stessa dedizione di colui che lo ha preceduto."),
+                        array('-','',"fa' che ci disponiamo alla sequela di Cristo, con la stessa dedizione di colui che lo ha preceduto."),
                         array('','',"Hai dato a Giovanni il privilegio di additare come presente a Israele il Cristo, Agnello di Dio,"),
                         array('-','',"fa' che la tua Chiesa lo proponga in modo efficace al nostro tempo."),
                         array('','',"Hai voluto che il tuo profeta diminuisse, mentre cresceva il Cristo, tuo Figlio,"),
@@ -5576,7 +5576,7 @@ class Invocazioni {
                         array('','',"Hai mandato l'apostolo Paolo ad annunziare il Vangelo ai pagani,"),
                         array('-','',"fa' che la parola di salvezza sia predicata ad ogni creatura."),
                         array('','',"Hai affidato all'apostolo Pietro le chiavi del tuo regno,"),
-                        array('-','',"apri le porte del cielo  a coloro che in vita si sono affidati alla tua misericordia.")
+                        array('-','',"apri le porte del cielo a coloro che in vita si sono affidati alla tua misericordia.")
                     )
                 );
             }
@@ -6107,7 +6107,7 @@ class Invocazioni {
                             array(
                                 array('','',"Signore, a quanti credono nel tuo nome e hanno in comune il tesoro della tua parola,"),
                                 array('-','',"fa' scoprire più quello che li unisce di quello che li divide."),
-                                array('','',"Il santo dottore ... ha saputo trar fuori dal tesoro comune della tradizione, cose nuove e coe antiche:"),
+                                array('','',"Il santo dottore ... ha saputo trar fuori dal tesoro comune della tradizione, cose nuove e cose antiche:"),
                                 array('-','',"la sua parola e la sua preghiera aiutino i cristiani a camminare nella via del Vangelo."),
                                 array('','',"Tanti fratelli vivono nelle tenebre del peccato e dell'errore,"),
                                 array('-','',"suscita nella tua Chiesa uomini che, guidati dallo Spirito, li aiutino a ritornare a te."),
@@ -6315,7 +6315,7 @@ class Invocazioni {
                             ),
                             array(
                                 array('','',"Padre santo, che mediante il Battesimo ci hai sepolti nella morte del tuo Figlio e ci hai reso partecipi della sua risurrezione, fa' che camminiamo sempre in novità di vita,"),
-                                array('-','',"perché al di lù della morte, viviamo sempre con Cristo."),
+                                array('-','',"perché al di là della morte, viviamo sempre con Cristo."),
                                 array('','',"Padre buono, che ci nutri con il pane vivo disceso dal cielo,"),
                                 array('-','',"fa' che, comunicando alla mensa eucaristica, riceviamo il pegno della risurrezione."),
                                 array('','',"Padre santo, che per mezzo del tuo angelo hai confortato il tuo Figlio nell'agonia del Getsemani,"),
@@ -6347,7 +6347,7 @@ class Invocazioni {
                                 array('','',"Tu che aprendo gli occhi al cieco, ti sei rivelato allo stupore del suo sguardo,"),
                                 array('-','',"rivela il tuo volto ai defunti, che sono ancora privi della tua visione gloriosa."),
                                 array('','',"O Signore, quando sarà disfatta la nostra tenda in questo mondo,"),
-                                array('-','',"preparaci  una casa eterna non costruita da mani d'uomo, nella pace della santa Gerusalemme.")
+                                array('-','',"preparaci una casa eterna non costruita da mani d'uomo, nella pace della santa Gerusalemme.")
                             )
                         );
                     } 

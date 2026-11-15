@@ -49,12 +49,12 @@ $this->closure['load']=function() {
                 array('','*',"Ho udito e fremette il mio cuore,"),
                 array('','2',"a tal voce tremò il mio labbro,"),
                 array('','*',"la carie entra nelle mie ossa"),
-                array('','2',"e sotto  di me tremano i miei passi."),
+                array('','2',"e sotto di me tremano i miei passi."),
                 array('','*',"Sospiro nel giorno dell'angoscia"),
                 array('','2',"che verrà contro il popolo che ci opprime.")
             ),
             array(
-                array('','+',"Il fico infatti  non metterà germogli,"),
+                array('','+',"Il fico infatti non metterà germogli,"),
                 array('','*',"nessun prodotto daranno le viti,"),
                 array('','2',"cesserà il raccolto dell'olivo,"),
                 array('','+',"i campi non daranno più cibo,"),

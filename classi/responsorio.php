@@ -299,7 +299,7 @@ class Responsorio {
                     elseif ($this->actual['quarto']==3 || $this->actual['quarto']==4) {
                         $this->info=array(
                             array('ris','',"Ascolta la mia voce, Signore:"),
-                            array('ebd','',"Precedo l'aurora e grido aiuto:,"),
+                            array('ebd','',"Precedo l'aurora e grido aiuto,"),
                             array('*','2c','spero sulla tua parola.')
                         );
                     }
@@ -2266,7 +2266,7 @@ class Responsorio {
             elseif($this->actual['ora']=='sesta') {
                 $this->info=array(
                     array('ebd','',"Di te ha detto il mio cuore: cercate il suo volto!"),
-                    array('ris','',"Il tuo volto, Signore, io ceco.")
+                    array('ris','',"Il tuo volto, Signore, io cerco.")
                 );
             }
             elseif($this->actual['ora']=='nona') {
@@ -3741,7 +3741,7 @@ class Responsorio {
                         elseif($this->actual['ora']=='sesta') {
                             $this->info=array(
                                 array('ebd','',"Ho trovato colui che amo, alleluia,"),
-                                array('ris','',"lo stringo  me e non lo lascio andare, alleluia."),
+                                array('ris','',"lo stringo a me e non lo lascio andare, alleluia."),
                             );
                         }
                         elseif($this->actual['ora']=='nona') {
@@ -3784,7 +3784,7 @@ class Responsorio {
                         elseif($this->actual['ora']=='sesta') {
                             $this->info=array(
                                 array('ebd','',"Ho trovato colui che amo,"),
-                                array('ris','',"lo stringo  me e non lo lascio andare."),
+                                array('ris','',"lo stringo a me e non lo lascio andare."),
                             );
                         }
                         elseif($this->actual['ora']=='nona') {

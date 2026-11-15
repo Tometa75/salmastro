@@ -53,7 +53,7 @@ $this->closure['load']=function() {
             ),
             array(
                 array('','*',"perché non abbandonerai la mia vita nel sepolcro,"),
-                array('','2',"nè lascerai che il tuo santo veda la corruzione."),
+                array('','2',"né lascerai che il tuo santo veda la corruzione."),
                 array('','+',"Mi indicherai il sentiero della vita,"),
                 array('','*',"gioia piena nella tua presenza,"),
                 array('','2',"dolcezza senza fine alla tua destra.")

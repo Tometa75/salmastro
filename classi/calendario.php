@@ -65,7 +65,7 @@ class Calendario {
 	protected $ricorrenza=array(
 		"0102"=>array(
 			"0102a"=>array(
-				"titolo"=>"Santi Basiglio Magno e Gregorio Nazianzeno (Vescovi e Dottori della Chiesa)",
+				"titolo"=>"Santi Basilio Magno e Gregorio Nazianzeno (Vescovi e Dottori della Chiesa)",
 				"tipo"=>"M",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -79,7 +79,7 @@ class Calendario {
 		),
 		"0107"=>array(
 			"0107a"=>array(
-				"titolo"=>"San Raimondo di Pegñafort (Sacerdote)",
+				"titolo"=>"San Raimondo di Peñafort (Sacerdote)",
 				"tipo"=>"R",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -255,7 +255,7 @@ class Calendario {
 		),
 		"0214"=>array(
 			"0214a"=>array(
-				"titolo"=>"San Cirillo (Monaco) e Metodio (Vescovo) - Patroni D'Europa",
+				"titolo"=>"San Cirillo (Monaco) e Metodio (Vescovo) - Patroni d'Europa",
 				"tipo"=>"F",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -263,7 +263,7 @@ class Calendario {
 		),
 		"0217"=>array(
 			"0217a"=>array(
-				"titolo"=>"Sette santi fondatori dell'ordine dei servi della B.V. Maria",
+				"titolo"=>"Sette santi fondatori dell'Ordine dei Servi della B.V. Maria",
 				"tipo"=>"R",
 				"comune"=>"religiosi",
 				"mix"=>1
@@ -319,7 +319,7 @@ class Calendario {
 		),
 		"0309"=>array(
 			"0309a"=>array(
-				"titolo"=>"Santa Francesca romana (Religiosa)",
+				"titolo"=>"Santa Francesca Romana (Religiosa)",
 				"tipo"=>"M",
 				"comune"=>"religiose",
 				"mix"=>1
@@ -343,7 +343,7 @@ class Calendario {
 		),
 		"0323"=>array(
 			"0323a"=>array(
-				"titolo"=>"San Turibio di Mongrovejo (Vescovo)",
+				"titolo"=>"San Turibio de Mogrovejo (Vescovo)",
 				"tipo"=>"R",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -383,7 +383,7 @@ class Calendario {
 		),
 		"0411"=>array(
 			"0411a"=>array(
-				"titolo"=>"Santo Stanislao (Vescovo e martire)",
+				"titolo"=>"San Stanislao (Vescovo e martire)",
 				"tipo"=>"M",
 				"comune"=>"martire",
 				"mix"=>1
@@ -945,7 +945,7 @@ class Calendario {
 		),
 		"0816"=>array(
 			"0816a"=>array(
-				"titolo"=>"San Stefano di Ungheria",
+				"titolo"=>"Santo Stefano d'Ungheria",
 				"tipo"=>"R",
 				"comune"=>"santi",
 				"mix"=>1
@@ -1013,7 +1013,7 @@ class Calendario {
 				"mix"=>1
 			),
 			"0825b"=>array(
-				"titolo"=>"San Giuseppe Calansazio (Sacerdote)",
+				"titolo"=>"San Giuseppe Calasanzio (Sacerdote)",
 				"tipo"=>"R",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -1069,7 +1069,7 @@ class Calendario {
 		),
 		"0915"=>array(
 			"0915a"=>array(
-				"titolo"=>"Beata Vergine Maria addolorata",
+				"titolo"=>"Beata Vergine Maria Addolorata",
 				"tipo"=>"M",
 				"comune"=>"BVM",
 				"mix"=>1
@@ -1085,7 +1085,7 @@ class Calendario {
 		),
 		"0917"=>array(
 			"0917a"=>array(
-				"titolo"=>"Santa Ildegarde (Vergine)",
+				"titolo"=>"Santa Ildegarda (Vergine)",
 				"tipo"=>"R",
 				"comune"=>"monaci",
 				"mix"=>1
@@ -1195,7 +1195,7 @@ class Calendario {
 		),
 		"1007"=>array(
 			"1007a"=>array(
-				"titolo"=>"Beata Vergine Maria del rosario",
+				"titolo"=>"Beata Vergine Maria del Rosario",
 				"tipo"=>"M",
 				"comune"=>"BVM",
 				"mix"=>1
@@ -1271,7 +1271,7 @@ class Calendario {
 		),
 		"1019"=>array(
 			"1019a"=>array(
-				"titolo"=>"Santi Giovanni de Brebeuf e Isacco Jogues (Sacerdoti) e compagni (martiri)",
+				"titolo"=>"Santi Giovanni de Brébeuf e Isacco Jogues (Sacerdoti) e compagni (martiri)",
 				"tipo"=>"R",
 				"comune"=>"martiri",
 				"mix"=>1
@@ -1365,7 +1365,7 @@ class Calendario {
 		),
 		"1112"=>array(
 			"1112a"=>array(
-				"titolo"=>"San Teodoro studita (Abate)",
+				"titolo"=>"San Teodoro Studita (Abate)",
 				"tipo"=>"R",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -1583,7 +1583,7 @@ class Calendario {
 		),
 		"1223"=>array(
 			"1223a"=>array(
-				"titolo"=>"San Giovanni da Kety (Sacerdote)",
+				"titolo"=>"San Giovanni da Kęty (Sacerdote)",
 				"tipo"=>"R",
 				"comune"=>"pastori",
 				"mix"=>1
@@ -2050,7 +2050,7 @@ class Calendario {
 				}
 				elseif (substr($day,4,4)=='1228') {
 					$m['evento']['1228a']=array(
-						"titolo"=>"Santi innocenti martiri",
+						"titolo"=>"Santi Innocenti martiri",
 						"tipo"=>"E"
 					);
 				}
@@ -2155,7 +2155,7 @@ class Calendario {
 			if (substr($day,4,4)=='1208') {
 				$m['evento']=array();
 				$m['evento']['1208a']=array(
-					"titolo"=>"Immacolata concezione della Beata Vergine Maria",
+					"titolo"=>"Immacolata Concezione della Beata Vergine Maria",
 					"tipo"=>"S",
 					"ppvv"=>true
 				);
