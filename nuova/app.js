@@ -36,14 +36,16 @@
   function getJSON(url) {
     return fetch(url, { credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
+      // senza rete risponde la copia salvata sul telefono (sw.js), che lo segnala
+      var copia = r.headers.get('X-Salmastro-Copia') === '1';
+      return r.json().then(function (j) { if (copia && j && typeof j === 'object') j._copia = true; return j; });
     });
   }
   function postTesto(param) {
     var b = new URLSearchParams();
     b.append('param[today]', param.today);
     Object.keys(param.config).forEach(function (k) { b.append('param[config][' + k + ']', param.config[k]); });
-    return fetch('load.php', { method: 'POST', body: b, credentials: 'same-origin', cache: 'no-store' }).then(function (r) {
+    return fetch('load.php', { method: 'POST', body: b, credentials: 'same-origin', cache: 'no-store', headers: { 'X-Salmastro': '1' } }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.text();
     });
@@ -303,6 +305,7 @@
     $('testo').classList.add('carica');
     return getJSON('giorno.php?' + q.toString()).then(function (g) {
       if (id !== richiesta) return;
+      if (g._copia) senzaRete(g);
       G = g; st.today = g.today;
       // l'ora: quella scelta se c'è ancora, altrimenti la stessa ora del giorno, altrimenti quella proposta
       if (!trovaOra(st.ora)) st.ora = st.gruppo ? principale(st.gruppo) : '';
@@ -313,7 +316,7 @@
       return caricaTesto();
     }).catch(function () {
       if (id !== richiesta) return;
-      errore('Non riesco a leggere i dati del giorno.', caricaGiorno);
+      errore(navigator.onLine === false ? 'Senza rete, e questo giorno non è salvato sul telefono.' : 'Non riesco a leggere i dati del giorno.', caricaGiorno);
     });
   }
   function caricaTesto() {
@@ -642,6 +645,65 @@
     else { synth.pause(); inPausa = true; this.textContent = 'Riprendi'; }
   });
   $('barra-stop').addEventListener('click', ferma);
+
+  // ---------------------------------------------------------------- app installabile e uso senza rete
+  function oggiLocale(d) {
+    d = d || new Date();
+    return d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2);
+  }
+  // la copia salvata è di quando è stata scaricata: la data di oggi e l'ora di adesso le prende dal telefono
+  function senzaRete(g) {
+    g.oggi = oggiLocale();
+    if (!st.ora && g.fasce) {
+      var t = new Date(), adesso = ('0' + t.getHours()).slice(-2) + ':' + ('0' + t.getMinutes()).slice(-2);
+      g.fasce.some(function (f) {
+        if (adesso < f[1] || adesso > f[2]) return false;
+        var o = g.ore.filter(function (x) { return x.codice.indexOf('|') < 0 && x.gruppo === f[0]; })[0];
+        if (o) g.ora = o.codice;
+        return true;
+      });
+    }
+    if (!senzaRete.detto) { senzaRete.detto = true; toast('Senza rete: uso i testi salvati sul telefono.'); }
+  }
+  var GIORNI_AVANTI = 7;
+  // con la rete, una volta al giorno: salva sul telefono la pagina e le ore dei prossimi giorni
+  function scaricaAvanti() {
+    if (navigator.onLine === false || !navigator.serviceWorker.controller) return;
+    // i file della pagina (stile, script, caratteri): passando dal service worker restano salvati
+    var sede = location.origin + location.pathname.replace(/[^\/]*$/, '');
+    (performance.getEntriesByType ? performance.getEntriesByType('resource') : []).forEach(function (r) {
+      if (r.name.indexOf(sede) === 0 && /^(nuova|fonts|icone)\//.test(r.name.slice(sede.length))) fetch(r.name).catch(function () {});
+    });
+    var oggi = oggiLocale(), firma = oggi + '|' + st.ctx + '|' + st.inv, fatto = '';
+    try { fatto = localStorage.getItem('salmastro-scaricato') || ''; } catch (e) {}
+    if (fatto === firma) return;
+    navigator.serviceWorker.controller.postMessage({ pulisci: oggi });
+    var anno = parseInt(oggi.slice(0, 4), 10);
+    getJSON('anno.php?anno=' + anno).catch(function () {});
+    if (oggi.slice(4, 6) === '12') getJSON('anno.php?anno=' + (anno + 1)).catch(function () {});
+    var giorno = oggi, n = 0;
+    function prossimo() {
+      if (n++ >= GIORNI_AVANTI) { try { localStorage.setItem('salmastro-scaricato', firma); } catch (e) {} return; }
+      getJSON('giorno.php?today=' + giorno + '&festa=').then(function (g) {
+        var ore = g.ore.filter(function (o) { return o.codice.indexOf('|') < 0; });
+        // una richiesta alla volta, per non rallentare la lettura
+        return ore.reduce(function (p, o) {
+          return p.then(function () {
+            return postTesto({ today: g.today, config: { ora: o.codice, festa: '', inv: st.inv === '1' ? 1 : 0, mix: 0, contesto: st.ctx } }).catch(function () {});
+          });
+        }, Promise.resolve()).then(function () { giorno = g.succ; prossimo(); });
+      }).catch(function () {});
+    }
+    prossimo();
+  }
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').then(function () {
+        if (navigator.serviceWorker.controller) setTimeout(scaricaAvanti, 3000);
+        else navigator.serviceWorker.addEventListener('controllerchange', function () { setTimeout(scaricaAvanti, 3000); }, { once: true });
+      }).catch(function () {});
+    });
+  }
 
   // ---------------------------------------------------------------- avvio
   leggiPref(); applicaTema(); applicaScala();

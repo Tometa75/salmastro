@@ -12,6 +12,14 @@ $v=function($f) { return @filemtime(SITE_ROOT.'/'.$f); };
     <meta name="description" content="La Liturgia delle Ore secondo il rito monastico benedettino, giorno per giorno.">
     <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#171512" media="(prefers-color-scheme: dark)">
+    <!-- app installabile: icona e nome sulla schermata Home, apertura a tutto schermo -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icone/icona.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icone/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Salmastro">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="preload" href="fonts/Literata/Literata.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="nuova/stile.css?v=<?php echo $v('nuova/stile.css'); ?>">
     <script>
