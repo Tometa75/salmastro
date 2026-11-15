@@ -586,15 +586,25 @@
     nodi.forEach(function (n) { if (n.closest('[hidden]')) return; var t = pulisci(n); if (t) out.push({ el: n, t: t }); });
     return out;
   }
-  function voce() { var vs = (synth && synth.getVoices()) || []; return vs.filter(function (v) { return /^it/i.test(v.lang); })[0] || null; }
+  // su iPhone e iPad l'elenco delle voci contiene anche voci non scaricate, che restano mute:
+  // lì la voce la sceglie il sistema dalla lingua, come fa il sito classico
+  var IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  function voce() {
+    if (IOS) return null;
+    var vs = ((synth && synth.getVoices()) || []).filter(function (v) { return /^it/i.test(v.lang); });
+    return vs.filter(function (v) { return v.localService; })[0] || vs[0] || null;
+  }
   function avvia(lista, titolo) {
     if (!synth || typeof SpeechSynthesisUtterance === 'undefined') { toast('Questo browser non sa leggere ad alta voce.'); return; }
+    var occupato = synth.speaking || synth.pending;
     ferma();
     coda = lista; pos = 0; lettura++;
     $('barra-cosa').textContent = 'In ascolto: ' + titolo;
     $('barra-pausa').textContent = 'Pausa';
     barra.hidden = false; inPausa = false;
-    prossima(lettura);
+    // Safari su iPhone perde la frase pronunciata subito dopo cancel(): se c'era una lettura in corso si aspetta un attimo
+    var id = lettura;
+    if (occupato) setTimeout(function () { prossima(id); }, 150); else prossima(id);
   }
   function prossima(id) {
     if (id !== lettura) return;
@@ -604,7 +614,7 @@
     r.el.classList.add('leggo');
     var rect = r.el.getBoundingClientRect();
     if (rect.top < 80 || rect.bottom > window.innerHeight - 90) r.el.scrollIntoView({ block: 'center' });
-    var u = new SpeechSynthesisUtterance(r.t); u.lang = 'it-IT'; u.rate = 0.95;
+    var u = new SpeechSynthesisUtterance(r.t); u.lang = 'it-IT'; u.rate = 0.95; u.volume = 1;
     var v = voce(); if (v) u.voice = v;
     u.onend = function () { pos++; prossima(id); };
     u.onerror = function () { if (id === lettura) { pos++; prossima(id); } };
