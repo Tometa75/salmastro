@@ -101,7 +101,7 @@ class Salmo {
 
     function set_closure() {
         foreach ($this->closure as $key=>$c) {
-            $this->methods[$key] = Closure::bind($c, $this, get_class());
+            $this->methods[$key] = Closure::bind($c, $this, self::class);
         }
     }
 

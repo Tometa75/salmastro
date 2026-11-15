@@ -4,14 +4,9 @@ include_once ('classi/salmastro.php');
 
 $param=array();
 
-if (isset($_REQUEST['today'])) $param['today']=$_REQUEST['today'];
-if (isset($_REQUEST['ora'])) $param['config']['ora']=$_REQUEST['ora'];
-if (isset($_REQUEST['festa'])) $param['config']['festa']=$_REQUEST['festa'];
-if (isset($_REQUEST['mix'])) $param['config']['mix']=$_REQUEST['mix'];
-if (isset($_REQUEST['inv'])) $param['config']['inv']=$_REQUEST['inv'];
-if (isset($_REQUEST['contesto'])) $param['config']['contesto']=$_REQUEST['contesto'];
-
-if (isset($param['today']) && $param['today']=='xxxxxxxx') $param['today']=date('Ymd');
+//i parametri del link vengono accettati solo se validi (vedi mainFunc::param_today e param_config)
+if (isset($_REQUEST['today'])) $param['today']=mainFunc::param_today($_REQUEST['today']);
+$param['config']=mainFunc::param_config($_REQUEST);
 
 $sal=new Salmastro($param);
 $sal->build();
