@@ -118,6 +118,12 @@ else {
     }
 }
 if ($res['ora']=='' && count($res['ore'])>0) $res['ora']=$res['ore'][0]['codice'];
+
+//fasce orarie delle ore: senza rete la pagina usa la copia salvata e sceglie da sé l'ora di adesso
+$res['fasce']=array();
+foreach ($litio->fasce() as $kb=>$ob) {
+    if (isset($ob['i']) && isset($ob['f'])) $res['fasce'][]=array(substr($kb,0,3),$ob['i'],$ob['f']);
+}
 //l'ora di adesso (per il puntino), indipendente dalla scelta
 $res['adesso']='';
 foreach ($litio->fasce() as $kb=>$ob) {
