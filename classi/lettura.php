@@ -1660,7 +1660,7 @@ class Lettura {
                 if($this->actual['ora']=='ves1') {
                     $this->info=array(
                         "titolo"=>"2Cor 8,9",
-                        "testo"=>"Conoscete la grazia del signore nostro Gesù Cristo: da ricco che era, si è fatto povero per voi, perché voi diventaste ricchi per mezzo della sua povertà."
+                        "testo"=>"Conoscete la grazia del Signore nostro Gesù Cristo: da ricco che era, si è fatto povero per voi, perché voi diventaste ricchi per mezzo della sua povertà."
                     );
                 }
                 if($this->actual['ora']=='lodi') {
