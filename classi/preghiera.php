@@ -72,12 +72,25 @@ class Preghiera {
                 array('ris','','Rendiamo grazie a Dio.')
             );
             $this->info['testo']->addBlock($b);
+
+            $b=array(
+                array('ebd','L','Benedicámus Dómino.'),
+                array('ris','L','Deo grátias.')
+            );
+            $this->info['testo']->addBlock($b);
         }
         elseif ($ora=='comp' || $ora=='comp1') {
 
+            //nel libro la formula di Compieta non ha il ℣
             $b=array(
-                array('ebd','','Il Signore ci conceda una notte serena e un riposo tranquillo.'),
+                array('','','Il Signore ci conceda una notte serena e un riposo tranquillo.'),
                 array('ris','','Amen.')
+            );
+            $this->info['testo']->addBlock($b);
+
+            $b=array(
+                array('','L','Noctem quiétam et finem perféctum concédat nobis Dóminus omnípotens.'),
+                array('ris','L','Amen.')
             );
             $this->info['testo']->addBlock($b);
         }
@@ -90,6 +103,11 @@ class Preghiera {
                     array('','2',"Amen.")
                 );
                 $this->info['testo']->addBlock($b);
+
+                $b=array(
+                    array('','L','Dóminus nos benedícat, et ab omni malo deféndat, et ad vitam perdúcat ætérnam, cum frátribus nostris abséntibus. Amen.')
+                );
+                $this->info['testo']->addBlock($b);
             }
             elseif ($this->litio->config['contesto']=='prete') {
 
@@ -99,9 +117,18 @@ class Preghiera {
                 );
                 $this->info['testo']->addBlock($b);
 
+                //nel libro la benedizione non ha il ℣
                 $b=array(
-                    array('sac','','Vi benedica Dio onnipotente, Padre e Figlio e Spirito Santo.'),
+                    array('','','Vi benedica Dio onnipotente, Padre e Figlio e Spirito Santo.'),
                     array('ris','','Amen.')
+                );
+                $this->info['testo']->addBlock($b);
+
+                $b=array(
+                    array('sac','L','Dóminus vobíscum.'),
+                    array('ris','L','Et cum spíritu tuo.'),
+                    array('','L','Benedícat vos omnípotens Deus, Pater, et Fílius, et Spíritus Sanctus.'),
+                    array('ris','L','Amen.')
                 );
                 $this->info['testo']->addBlock($b);
             }
@@ -160,6 +187,20 @@ class Preghiera {
             array('ris','','E con i nostri fratelli assenti. Amen.')
         );
         $testo->addBlock($b);
+
+        //il latino del libro (per "Voi, che dopo i giorni della Passione" il libro non lo riporta)
+        if ($tipo!='pasqua') {
+            $all=($tipo=='alleluia')?', allelúia, allelúia.':'.';
+            $b=array(
+                array('sac','L','Dóminus vobíscum.'),
+                array('ris','L','Et cum spíritu tuo.'),
+                array('sac','L','Benedicámus Dómino'.$all),
+                array('ris','L','Deo grátias'.$all),
+                array('sac','L','Divínum auxílium máneat semper nobíscum.'),
+                array('ris','L','Et cum frátribus nostris abséntibus. Amen.')
+            );
+            $testo->addBlock($b);
+        }
     }
 
     function draw() {

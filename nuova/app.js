@@ -69,9 +69,12 @@
 
   function riga(div) {
     var s = stile(div), cls = ['v'];
-    if (s.indexOf('padding-left:30px') >= 0) cls.push('r');
-    if (s.indexOf('#705103') >= 0) cls.push('b');
-    if (s.indexOf('italic') >= 0) cls.push('it');
+    if (ha(div, 'salLatino')) cls.push('la');   // latino: lo stile lo dà il blocco
+    else {
+      if (s.indexOf('padding-left:30px') >= 0) cls.push('r');
+      if (s.indexOf('#705103') >= 0) cls.push('b');
+      if (s.indexOf('italic') >= 0) cls.push('it');
+    }
     var pre = '', post = '', corpo = '';
     div.childNodes.forEach(function (c) {
       if (c.nodeType === 3) { corpo += esc(c.nodeValue); return; }
@@ -89,8 +92,9 @@
   }
   function strofa(blk) {
     var out = '';
-    Array.prototype.forEach.call(blk.children, function (d) { if (ha(d, 'salTextBody')) out += riga(d); });
-    return out ? '<div class="st">' + out + '</div>' : '';
+    var la = false;
+    Array.prototype.forEach.call(blk.children, function (d) { if (ha(d, 'salTextBody')) { out += riga(d); if (ha(d, 'salLatino')) la = true; } });
+    return out ? (la ? '<div class="st latino" lang="la">' : '<div class="st">') + out + '</div>' : '';
   }
   function titolo(t) {
     var c = t.cloneNode(true);
@@ -612,7 +616,7 @@
     document.querySelectorAll('.leggo').forEach(function (x) { x.classList.remove('leggo'); });
     barra.hidden = true;
   }
-  function leggiSezione(sec, nome) { avvia(righe(sec.querySelectorAll('.v, p.ant')), nome); }
+  function leggiSezione(sec, nome) { avvia(righe(sec.querySelectorAll('.v:not(.la), p.ant')), nome); }
   function leggiSalmo(h, nome) {
     var nodi = [], n = h.nextElementSibling;
     while (n && !n.matches('h3.ps') && !(n.matches('p.ant') && nodi.length && n.nextElementSibling && n.nextElementSibling.matches('h3.ps'))) {

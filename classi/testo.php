@@ -39,6 +39,7 @@ class Saltesto {
     /*
     - EBD=ebdomadario , RIS=risposta , SAC=sacerdote , NOTA=indicazione
     - 2=seconda riga (rientrata) , *=prima parte salmo , +=continuazione prima parte salmo
+    - L=testo latino (grafica diversa, non letto ad alta voce)
     $b=array(
             array('ebd','','O Dio, vieni a salvarmi.'),
             array('ris','','Signore, vieni preto in mio aiuto.')
@@ -83,9 +84,12 @@ class Saltesto {
                     //echo '<div>'.json_encode($t).'</div>';
                     if (count($t)==1 && $t[0]!='') $t=$this->label[$t[0]];
 
-                    echo '<div class="salTextBody" style="';
+                    $latino=(strpos($t[1],'L',0)!==false);
+
+                    echo '<div class="salTextBody'.($latino?' salLatino':'').'" style="';
                         if ($t[1]!='') {
                             if ($t[1]=='N') echo 'color:brown;font-size:0.9em;';
+                            elseif ($latino) echo 'font-style:italic;font-size:0.9em;color:#7a6a58;padding-left:30px;';
                             else {
                                 if (strpos($t[1],'2',0)!==false) echo 'padding-left:30px;';
                                 if (strpos($t[1],'c',0)!==false) echo 'color:#705103;';
@@ -104,15 +108,21 @@ class Saltesto {
                             echo '" />';
                         }
 
-                        echo '<span id="salParte_'.$this->parte.'_'.$index.'" data-voxindex="'.$index.'" ';
-                        //####################################################
-                        //aggiungere parametri voce
-                        if (strpos($t[1],'c',0)!==false) echo ' data-voxpitch="0.5"';
-                        if (strpos($t[1],'*',0)!==false) echo ' data-voxdelay="800"';
-                        //####################################################
-                        echo ' >'.$t[2].'</span>';
+                        if ($latino) {
+                            //il latino non entra nella lettura ad alta voce
+                            echo '<span lang="la">'.$t[2].'</span>';
+                        }
+                        else {
+                            echo '<span id="salParte_'.$this->parte.'_'.$index.'" data-voxindex="'.$index.'" ';
+                            //####################################################
+                            //aggiungere parametri voce
+                            if (strpos($t[1],'c',0)!==false) echo ' data-voxpitch="0.5"';
+                            if (strpos($t[1],'*',0)!==false) echo ' data-voxdelay="800"';
+                            //####################################################
+                            echo ' >'.$t[2].'</span>';
 
-                        $index++;
+                            $index++;
+                        }
 
                         if ($t[1]!='') {
                             if (strpos($t[1],'*',0)!==false) echo '<img class="salTextEnd" src="'.SITE_URL.'/img/asterisk.png" />';
