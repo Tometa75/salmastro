@@ -128,8 +128,8 @@ function calnav(indice,risoluzione,today,config) {
     this.customExecute=function() {
 
         //let url = location.protocol + '//' + location.host + location.pathname;
-        var href = window.location.href;
-        var url = href.substring(0, href.lastIndexOf('/')) + "/";
+        //si resta sulla stessa pagina (classica.php), non sulla cartella che ora apre la nuova veste
+        var url = location.pathname;
 
         url += '?today='+this.today;
 

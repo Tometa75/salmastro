@@ -285,7 +285,7 @@
     }).join('');
     $('celebra').hidden = opz.length < 2;
 
-    $('classica').href = 'index.php' + (G.today !== G.oggi ? '?today=' + G.today : '');
+    $('classica').href = 'classica.php' + (G.today !== G.oggi ? '?today=' + G.today : '');
   }
   $('opz-festa').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
