@@ -123,6 +123,7 @@ button { font: inherit; color: inherit; }
 .foglio .cap {
   position: sticky; top: 0; z-index: 2; background: var(--paper); display: flex; align-items: center; justify-content: space-between;
   gap: 12px; padding-block: 14px 10px; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 10px;
 }
 .foglio .cap h2 { margin: 0; font-family: var(--f-testo); font-size: 1.3rem; font-weight: 600; }
 .foglio .chiudi { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: .9rem; }
@@ -306,3 +307,15 @@ h3.ps .ascolta { justify-self: start; margin-left: -6px; }
 .musica { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .musica button { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 14px; font-size: .9rem; cursor: pointer; }
 .musica button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* calendario: mesi sempre visibili */
+.foglio .cap h2 { font-size: clamp(1.02rem, 4.6vw, 1.3rem); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.foglio .anni { min-width: 0; }
+.foglio .chiudi.x { width: 34px; height: 34px; padding: 0; display: grid; place-items: center; }
+.foglio .chiudi.x svg { width: 16px; height: 16px; }
+.mesi { grid-column: 1 / -1; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; margin-inline: -2px; padding: 2px; }
+.mesi::-webkit-scrollbar { display: none; }
+.mesi button { flex: 1 0 auto; min-width: 44px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 8px; font: 600 .8rem var(--f-ui); cursor: pointer; }
+.mesi button[aria-current="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.mese { scroll-margin-top: var(--cap, 120px); }
+.anno-dopo { display: block; width: 100%; margin: 22px 0 8px; padding: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 12px; font: 600 .95rem var(--f-ui); cursor: pointer; }

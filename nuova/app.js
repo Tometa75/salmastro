@@ -485,12 +485,13 @@
   // ---------------------------------------------------------------- calendario liturgico
   var MESI = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
   var GS = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
+  var MESI3 = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
   var foglio = $('foglio'), lista = $('cal-lista'), annoCal = 0, annoCaricato = 0, ultimoFuoco = null;
   function disegnaCal(dati) {
     var h = '', mese = -1, visti = {}, leg = '';
     dati.giorni.forEach(function (d) {
       var m = parseInt(d[0].slice(4, 6), 10) - 1;
-      if (m !== mese) { mese = m; h += '<div class="mese">' + MESI[m] + '</div>'; }
+      if (m !== mese) { mese = m; h += '<div class="mese" data-m="' + m + '">' + MESI[m] + '</div>'; }
       var righe = '';
       d[7].forEach(function (e) { righe += '<span class="ev">' + esc(e[0]) + '</span>'; });
       d[8].forEach(function (f) { righe += '<span class="fs-' + esc(f[1]) + '">' + esc(f[0]) + '</span>'; });
@@ -504,14 +505,36 @@
       var k = d[6] ? 'Giorni in rosso' : d[3];
       if (!visti[k]) { visti[k] = 1; leg += '<span><i style="background:' + tinta(d[4], d[6]) + '"></i>' + esc(k) + '</span>'; }
     });
+    if (dati.anno < 2100) h += '<button type="button" class="anno-dopo" data-anno="' + (dati.anno + 1) + '">Continua con il ' + (dati.anno + 1) + '</button>';
     lista.innerHTML = h; $('legenda').innerHTML = leg;
-    $('cal-tit').textContent = 'Calendario ' + dati.anno;
+    $('cal-mesi').innerHTML = MESI3.map(function (n, i) { return '<button type="button" data-m="' + i + '" aria-label="' + MESI[i] + '">' + n + '</button>'; }).join('');
     annoCaricato = dati.anno;
+    meseVisibile();
   }
+  // il mese che si sta guardando: nel titolo e nella barra dei mesi
+  function altezzaCap() { var c = foglio.querySelector('.cap'); var a = c ? c.offsetHeight : 120; foglio.style.setProperty('--cap', (a + 8) + 'px'); return a; }
+  function meseVisibile() {
+    var lim = foglio.getBoundingClientRect().top + altezzaCap() + 12, m = 0;
+    lista.querySelectorAll('.mese').forEach(function (x) { if (x.getBoundingClientRect().top <= lim) m = parseInt(x.dataset.m, 10); });
+    if (annoCaricato === annoCal) $('cal-tit').textContent = MESI[m] + ' ' + annoCal;
+    $('cal-mesi').querySelectorAll('button').forEach(function (b) {
+      var on = b.dataset.m === String(m);
+      b.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on && b.scrollIntoView && b.offsetParent) { var n = b.parentNode; n.scrollLeft = Math.max(0, b.offsetLeft - n.offsetWidth / 2 + b.offsetWidth / 2); }
+    });
+  }
+  var rafMese = 0;
+  foglio.addEventListener('scroll', function () { if (!rafMese) rafMese = requestAnimationFrame(function () { rafMese = 0; meseVisibile(); }); });
+  $('cal-mesi').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var x = lista.querySelector('.mese[data-m="' + b.dataset.m + '"]'); if (!x) return;
+    altezzaCap();
+    foglio.scrollTop += x.getBoundingClientRect().top - foglio.getBoundingClientRect().top - altezzaCap() - 4;
+  });
   function caricaAnno(anno, poi) {
     annoCal = anno;
     $('cal-tit').textContent = 'Calendario ' + anno;
-    if (annoCaricato === anno) { if (poi) poi(); return; }
+    if (annoCaricato === anno) { if (poi) poi(); meseVisibile(); return; }
     lista.innerHTML = '<div class="stato">Carico il calendario…</div>';
     getJSON('anno.php?anno=' + anno).then(function (d) { if (annoCal === anno) { disegnaCal(d); if (poi) poi(); } })
       .catch(function () { lista.innerHTML = '<div class="stato">Non riesco a caricare il calendario.</div>'; });
@@ -537,6 +560,8 @@
   $('anno-succ').addEventListener('click', function () { if (annoCal < 2100) caricaAnno(annoCal + 1, function () { lista.parentNode.parentNode.scrollTop = 0; }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !foglio.hidden) chiudiCal(); });
   lista.addEventListener('click', function (e) {
+    var a = e.target.closest('.anno-dopo');
+    if (a) { caricaAnno(parseInt(a.dataset.anno, 10), function () { foglio.scrollTop = 0; }); return; }
     var b = e.target.closest('.gg'); if (!b) return;
     chiudiCal();
     if (b.dataset.tag !== G.today) { vaiAlGiorno(b.dataset.tag); window.scrollTo({ top: 0 }); }

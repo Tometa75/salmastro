@@ -121,8 +121,9 @@ $v=function($f) { return @filemtime(SITE_ROOT.'/'.$f); };
             </span>
             <span style="display:flex;gap:6px">
                 <button type="button" class="chiudi" id="cal-oggi">Oggi</button>
-                <button type="button" class="chiudi" id="cal-chiudi">Chiudi</button>
+                <button type="button" class="chiudi x" id="cal-chiudi" aria-label="Chiudi il calendario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
             </span>
+            <nav class="mesi" id="cal-mesi" aria-label="Vai al mese"></nav>
         </div>
         <div class="legenda" id="legenda"></div>
         <div id="cal-lista"></div>
