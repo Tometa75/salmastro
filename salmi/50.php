@@ -19,7 +19,7 @@ $this->closure['load']=function() {
                 array('','*',"Pietà di me, o Dio, secondo la tua misericordia:"),
                 array('','2',"nel tuo grande amore cancella il mio peccato."),
                 array('','*',"Lavami da tutte le mie colpe,"),
-                array('','2',"mondami del mio peccato.")
+                array('','2',"mondami dal mio peccato.")
             ),
             array(
                 array('','*',"Riconosco la mia colpa,"),

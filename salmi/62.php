@@ -37,7 +37,7 @@ $this->closure['load']=function() {
                 array('','*',"Nel mio giaciglio di te mi ricordo,"),
                 array('','2',"penso a te nelle veglie notturne,"),
                 array('','*',"tu sei stato il mio aiuto,"),
-                array('','2',"esulto di gioia all'ombra della tue ali."),
+                array('','2',"esulto di gioia all'ombra delle tue ali."),
                 array('','*',"A te si stringe l'anima mia"),
                 array('','2',"la forza della tua destra mi sostiene.")
             ),

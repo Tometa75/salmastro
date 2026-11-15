@@ -40,6 +40,13 @@ $this->closure['load']=function() {
                 array('','2',"e non hanno timore.")
             ),
             array(
+                array('','+',"Si ostinano nel fare il male,"),
+                array('','*',"si accordano per nascondere tranelli;"),
+                array('','2',"dicono: « Chi li potrà vedere? »."),
+                array('','*',"Meditano iniquità, attuano le loro trame:"),
+                array('','2',"un baratro è l'uomo e il suo cuore un abisso.")
+            ),
+            array(
                 array('','*',"Ma Dio li colpisce con le sue frecce:"),
                 array('','2',"all'improvviso essi sono feriti,"),
                 array('','*',"la loro stessa lingua li farà cadere;"),
