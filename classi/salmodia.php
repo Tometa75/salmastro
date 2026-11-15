@@ -55,7 +55,8 @@ class Salmodia {
         //definizione dei salmi in base a feste ed eventi
         //build dei salmi e definizione delle antifone e delle parti
 
-        if ($this->actual['weekDay']==0) {
+        //la Compieta dopo i Primi Vespri è sempre quella della domenica, anche per le solennità infrasettimanali
+        if ($this->actual['weekDay']==0 || $this->actual['ora']=='comp1') {
             switch ($this->actual['ora']) {
                 case 'ves1': 
                     $this->salmi=array(

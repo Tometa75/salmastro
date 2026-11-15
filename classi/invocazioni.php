@@ -1185,9 +1185,12 @@ class Invocazioni {
 
         if ($this->actual['tempo']=='A') {
 
+            //in Avvento 'quarto' non è impostato: la settimana del salterio coincide con la settimana di Avvento
+            $q=($this->actual['quarto']!='')?$this->actual['quarto']:$this->actual['settimana'];
+
             if ($this->actual['weekDay']==0) {
 
-                if ($this->actual['quarto']==1 || $this->actual['quarto']==3) {
+                if ($q==1 || $q==3) {
 
                     if ($this->actual['ora']=='ves1') {
 
@@ -1254,7 +1257,7 @@ class Invocazioni {
                     }
                 }
 
-                if ($this->actual['quarto']==2 || $this->actual['quarto']==4) {
+                if ($q==2 || $q==4) {
 
                     if ($this->actual['ora']=='ves1') {
 

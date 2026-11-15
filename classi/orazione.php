@@ -2873,6 +2873,8 @@ class Orazione {
             if ($this->actual['ora']=='terza') $this->actual['orazione']='terza_'.$this->actual['weekDay'];
             elseif ($this->actual['ora']=='sesta') $this->actual['orazione']='sesta_'.$this->actual['weekDay'];
             elseif ($this->actual['ora']=='nona') $this->actual['orazione']='nona_'.$this->actual['weekDay'];
+            //Compieta dopo i Primi Vespri di una solennità infrasettimanale
+            elseif ($this->actual['ora']=='comp1') $this->actual['orazione']='comp_S';
             elseif ($this->actual['ora']=='comp' || $this->actual['ora']=='comp2') {
                 if ( ($this->actual['evCode']!="" && $this->actual['evento'][$this->actual['evCode']]['tipo']=='S') || ($this->actual['fesCode']!="" && $this->actual['festa'][$this->actual['fesCode']]['tipo']=='S')) {
                     $this->actual['orazione']='comp_S';

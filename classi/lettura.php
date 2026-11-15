@@ -31,7 +31,8 @@ class Lettura {
 
     function init() {
 
-        if ($this->actual['weekDay']==0) {
+        //la Compieta dopo i Primi Vespri è sempre quella della domenica, anche per le solennità infrasettimanali
+        if ($this->actual['weekDay']==0 || $this->actual['ora']=='comp1') {
             switch ($this->actual['ora']) {
                 case 'ves1': 
                     switch ($this->actual['quarto']) {
@@ -1103,7 +1104,8 @@ class Lettura {
 
         if ($this->actual['tempo']=='A') {
 
-            if (substr($this->actual['today'],4,4)<'1217') {
+            //i Primi Vespri delle domeniche dal 17 dicembre usano la lettura delle domeniche di Avvento
+            if (substr($this->actual['today'],4,4)<'1217' || ($this->actual['weekDay']==0 && $this->actual['ora']=='ves1')) {
 
                 if ($this->actual['weekDay']==0) {
 

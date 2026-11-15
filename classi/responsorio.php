@@ -917,6 +917,25 @@ class Responsorio {
                         array('*','2c',"la tua misericordia.")
                     );
                 }
+                //ora media: gli stessi versetti delle ferie di Avvento
+                elseif($this->actual['ora']=='terza') {
+                    $this->info=array(
+                            array('ebd','',"Le nazioni temeranno il tuo nome, Signore;"),
+                            array('ris','',"la tua gloria, tutti i re della terra."),
+                        );
+                }
+                elseif($this->actual['ora']=='sesta') {
+                    $this->info=array(
+                            array('ebd','',"Per la tua benevolenza, Signore, ricordati di noi,"),
+                            array('ris','',"vieni a visitarci con la tua salvezza."),
+                        );
+                }
+                elseif($this->actual['ora']=='nona') {
+                    $this->info=array(
+                            array('ebd','',"Vieni, Signore, non tardare:"),
+                            array('ris','',"libera dal peccato il tuo popolo."),
+                        );
+                }
             }
 
             elseif (substr($this->actual['today'],4,4)<'1224') {

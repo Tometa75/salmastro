@@ -143,6 +143,14 @@ class Litio {
         }
 
         if ($this->map['weekDay']==0 && !$this->map['ppvv']) $this->map['ssvv']=true;
+
+        //se oggi ci sono i Secondi Vespri e domani i Primi Vespri, prevale la celebrazione
+        //di grado più alto nella tabella dei giorni liturgici; a parità prevale oggi
+        //(Norme generali sull'anno liturgico, n. 61)
+        if ($this->map['ppvv'] && $this->map['ssvv']) {
+            if ($this->grado($this->vig,$this->vig['evCode']) < $this->grado($this->map,$this->map['evCode'])) $this->map['ssvv']=false;
+            else $this->map['ppvv']=false;
+        }
         //################################
 
         //se domani è domenica o è una solennità ci sono i Primi Vespri e la compieta1
@@ -168,6 +176,33 @@ class Litio {
 
         //$this->build();
 
+    }
+
+    //grado della celebrazione nella tabella dei giorni liturgici (1 = il più alto)
+    //serve solo a decidere tra Secondi Vespri di oggi e Primi Vespri di domani
+    function grado($m,$evCode) {
+
+        $ev=($evCode!="" && isset($m['evento'][$evCode]))?$m['evento'][$evCode]:array();
+        $tipo=isset($ev['tipo'])?$ev['tipo']:'';
+
+        //i Primi Vespri di Natale prevalgono anche sulla IV domenica di Avvento
+        if ($evCode=='NAT') return 1;
+        //Pasqua, Epifania, Ascensione, Pentecoste
+        if (in_array($evCode,array('PAS','EPI','ASC','PEN'))) return 2;
+        //domeniche di Avvento, Quaresima e Pasqua
+        if ($m['weekDay']==0 && $tipo!='S' && in_array($m['tempo']['codice'],array('A','Q','P'))) return 2;
+        //solennità proprie della famiglia benedettina
+        if (in_array($evCode,array('0210a','0321a','0711a'))) return 4;
+        //solennità del calendario generale
+        if ($tipo=='S') return 3;
+        //feste del Signore
+        if (in_array($evCode,array('SAF','BAT','0202a','0806a','0914a'))) return 5;
+        //domeniche del tempo di Natale e del tempo ordinario
+        if ($m['weekDay']==0) return 6;
+        //feste con i Primi Vespri
+        if (isset($ev['ppvv']) && $ev['ppvv']) return 7;
+
+        return 13;
     }
 
     function build() {

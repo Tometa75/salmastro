@@ -1830,8 +1830,11 @@ class Calendario {
 					"ppvv"=>true
 				);
 			}
-			//se il tempo è ordinario la natività del Battista è una Solennità che ha la priorità
-			elseif (substr($day,4,4)=='0624') {
+			//se il tempo è ordinario la natività del Battista è una Solennità che ha la priorità,
+			//ma non su una solennità del Signore (Sacro Cuore o Corpus Domini il 24 giugno):
+			//in quel caso viene anticipata al 23 giugno, come nel 2022
+			elseif ( (substr($day,4,4)=='0624' && $day!=$this->info['cuore'] && $day!=$this->info['corpus']) ||
+					(substr($day,4,4)=='0623' && (substr($this->info['cuore'],4,4)=='0624' || substr($this->info['corpus'],4,4)=='0624')) ) {
 				$m['evento']=array();
 				$m['evento']['0624a']=array(
 					"titolo"=>"Natività di San Giovanni Battista",
@@ -1840,8 +1843,10 @@ class Calendario {
 					"ppvv"=>true
 				);
 			}
-			//se il tempo è ordinario la Solennità ha la priorità
-			elseif (substr($day,4,4)=='0629') {
+			//se il tempo è ordinario la Solennità ha la priorità, ma non sul Sacro Cuore:
+			//in quel caso viene anticipata al 28 giugno
+			elseif ( (substr($day,4,4)=='0629' && $day!=$this->info['cuore']) ||
+					(substr($day,4,4)=='0628' && substr($this->info['cuore'],4,4)=='0629') ) {
 				$m['evento']=array();
 				$m['evento']['0629a']=array(
 					"titolo"=>"Santi Pietro e Paolo apostoli",
