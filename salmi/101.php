@@ -67,7 +67,7 @@ $this->closure['load']=function() {
             ),
             array(
                 array('','*',"I popoli temeranno il nome del Signore"),
-                array('','2',"e tutti i re della terra la sua gloria,"),
+                array('','2',"e tutti i re della terra la tua gloria,"),
                 array('','*',"quando il Signore avrà ricostruito Sion"),
                 array('','2',"e sarà apparso in tutto il suo splendore.")
             ),

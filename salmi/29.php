@@ -65,7 +65,7 @@ $this->closure['load']=function() {
             array(
                 array('','*',"Hai mutato il mio lamento in danza,"),
                 array('','2',"la mia veste di sacco in abito di gioia,"),
-                array('','*',"perché io passa cantare senza posa."),
+                array('','*',"perché io possa cantare senza posa."),
                 array('','2',"Signore, mio Dio, ti loderò per sempre.")
             )
         )

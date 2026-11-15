@@ -38,7 +38,7 @@ $this->closure['load']=function() {
                 array('','*',"Dal cielo fai udire la sentenza:"),
                 array('','2',"sbigottita la terra tace"),
                 array('','*',"quando Dio si alza per giudicare,"),
-                array('','2',"per salvare tutti gli uomini della terra.")
+                array('','2',"per salvare tutti gli umili della terra.")
             ),
             array(
                 array('','*',"L'uomo colpito dal tuo furore ti dà gloria,"),

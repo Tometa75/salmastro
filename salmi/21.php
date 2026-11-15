@@ -52,7 +52,7 @@ $this->closure['load']=function() {
                 array('','*',"Eppure tu abiti la santa dimora,"),
                 array('','2',"tu, lode di Israele."),
                 array('','*',"In te hanno sperato i nostri padri,"),
-                array('','2',"hanno sperato e tu gli hai liberati;"),
+                array('','2',"hanno sperato e tu li hai liberati;"),
                 array('','*',"a te gridarono e furono salvati,"),
                 array('','2',"sperando in te non rimasero delusi.")
             ),

@@ -28,7 +28,7 @@ $this->closure['load']=function() {
                 array('','2',"che i fratelli vivano insieme!"),
                 array('','+',"È come olio profumato sul capo,"),
                 array('','*',"che scende sulla barba, sulla barba di Aronne,"),
-                array('','2',"che scende sull'orlo della tua veste.")
+                array('','2',"che scende sull'orlo della sua veste.")
             ),
             array(
                 array('','*',"È come rugiada dell'Ermon,"),

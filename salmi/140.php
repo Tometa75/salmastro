@@ -23,7 +23,7 @@ $this->closure['load']=function() {
             ),
             array(
                 array('','*',"Poni, Signore, una custodia alla mia bocca,"),
-                array('','2',"sorveglia la porta delle mia labbra."),
+                array('','2',"sorveglia la porta delle mie labbra."),
                 array('','+',"Non lasciare che il mio cuore si pieghi al male"),
                 array('','*',"e compia azioni inique con i peccatori:"),
                 array('','2',"che io non gusti i loro cibi deliziosi.")

@@ -487,7 +487,7 @@ $this->closure['load']=function() {
             array(
                 array('','N',"16 - AIN"),
                 array('','*',"Ho agito secondo diritto e giustizia;"),
-                array('','2',"non abbandonarmi ai tuoi oppressori."),
+                array('','2',"non abbandonarmi ai miei oppressori."),
                 array('','*',"Assicura il bene al tuo servo;"),
                 array('','2',"non mi opprimano i superbi.")
             ),

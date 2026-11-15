@@ -79,7 +79,7 @@ $this->closure['load']=function() {
                 array('','*',"Sei tu il mio aiuto, non lasciarmi,"),
                 array('','2',"non abbandonarmi, Dio della mia salvezza."),
                 array('','*',"Mio padre e mia madre mi hanno abbandonato,"),
-                array('','2',"ma il Signore mi ha accolto.")
+                array('','2',"ma il Signore mi ha raccolto.")
             ),
             array(
                 array('','+',"Mostrami, Signore, la tua via,"),
