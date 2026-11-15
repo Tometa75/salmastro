@@ -3376,7 +3376,8 @@ class Salmodia {
                     }
                 }
 
-                elseif ($this->actual['evCode']=='PA3' || $this->actual['evCode']=='PA4' || $this->actual['evCode']=='PA5' || $this->actual['evCode']=='PA6') {
+                //domeniche di Pasqua; la II domenica solo ai Vespri (le antifone sono le stesse ai Primi e ai Secondi)
+                elseif ( ($this->actual['evCode']=='PA2' && substr($this->actual['ora'],0,3)=='ves') || $this->actual['evCode']=='PA3' || $this->actual['evCode']=='PA4' || $this->actual['evCode']=='PA5' || $this->actual['evCode']=='PA6') {
 
                     if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves1' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
                         switch ($s[0]) {
