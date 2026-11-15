@@ -64,3 +64,6 @@ fixed ninth hour's antiphon
 
 27.09.2024
 Added text to speech
+
+15.11.2026
+fix and new version
