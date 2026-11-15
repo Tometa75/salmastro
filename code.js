@@ -31,7 +31,8 @@ class Salmastro {
 
         //location.href=location.protocol + '//' + location.host + location.pathname;
         //location.href=dir;
-        location.replace(dir);
+        //si resta sulla stessa pagina (classica.php), senza parametri
+        location.replace(location.pathname);
     }
 
     getConfig() {
