@@ -64,7 +64,7 @@ $this->closure['load']=function() {
             ),
             array(
                 array('','*',"Non i morti lodano il Signore,"),
-                array('','2',"nè quanti scendono nella tomba."),
+                array('','2',"né quanti scendono nella tomba."),
                 array('','*',"Ma noi, i viventi, benediciamo il Signore"),
                 array('','2',"ora e per sempre.")
             )

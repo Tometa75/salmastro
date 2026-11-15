@@ -27,7 +27,7 @@ $this->closure['load']=function() {
             array(
                 array('','*',"Ecco, dono del Signore sono i figli,"),
                 array('','2',"è sua grazia il frutto del grembo."),
-                array('','*',"Come frecce in  mano a un eroe"),
+                array('','*',"Come frecce in mano a un eroe"),
                 array('','2',"sono i figli della giovinezza."),
                 array('','+',"Beato l'uomo che piena ne ha la faretra:"),
                 array('','*',"non resterà confuso quando verrà alla porta"),

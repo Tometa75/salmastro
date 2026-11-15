@@ -6,7 +6,7 @@ $this->closure['load']=function() {
     //nona martedì
     $this->antifona[0]=array(
         "Il nostro aiuto",
-        "è nel mome del Signore: ha spezzato il laccio e ci ha liberati."
+        "è nel nome del Signore: ha spezzato il laccio e ci ha liberati."
     );
 
     $this->antifona[1]=$this->antifona[0];

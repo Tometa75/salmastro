@@ -24,7 +24,7 @@ $this->closure['load']=function() {
     $this->testoBase=array(
         'all'=>array(
             array(
-                array('','*',"Ascoltate popoli , la parola del Signore"),
+                array('','*',"Ascoltate, popoli, la parola del Signore"),
                 array('','2',"annunziatela alle isole più lontane"),
                 array('','*',"e dite: « Chi ha disperso Israele lo raduna"),
                 array('','2',"e lo custodisce come un pastore il suo gregge »."),

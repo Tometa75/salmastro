@@ -1697,7 +1697,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "Ecco,",
-                                "L'Atteso dalle nazioni è vicino, la casa del Signore sarà piena di gloria, alleluia."
+                                "l'Atteso dalle nazioni è vicino, la casa del Signore sarà piena di gloria, alleluia."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
@@ -2493,7 +2493,7 @@ class Salmodia {
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
-                                "L'agnelo",
+                                "L'angelo",
                                 "disse ai pastori: Vi annunzio una gioia grande: oggi è nato per voi il Salvatore del mondo, alleluia."
                             ));
                             break;
@@ -3040,7 +3040,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "Ho sopportato",
-                                "l'insulto e il terrore: ma il Signore è con me  come un guerriero valoroso."
+                                "l'insulto e il terrore: ma il Signore è con me come un guerriero valoroso."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
@@ -3412,7 +3412,7 @@ class Salmodia {
                     if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves1' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
                         switch ($s[0]) {
                             case 1: $this->res[$k]->setAntifona(array(
-                                "Uomini di galilea,",
+                                "Uomini di Galilea,",
                                 "perché state a guardare in alto? Gesù, elevato in cielo, tornerà glorioso, alleluia."
                             ));
                             break;
@@ -3977,7 +3977,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "Vieni,",
-                                "mia eletta: porrò in te ikl mio trono."
+                                "mia eletta: porrò in te il mio trono."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
@@ -3992,7 +3992,7 @@ class Salmodia {
                             break;
                             case 5: $this->res[$k]->setAntifona(array(
                                 "Serva fedele,",
-                                "sposa prediletta, è entrata esultante nel cuore del suo Signore ardemente amato."
+                                "sposa prediletta, è entrata esultante nel cuore del suo Signore ardentemente amato."
                             ));
                             break;
                         }
@@ -4037,7 +4037,7 @@ class Salmodia {
                         switch ($s[0]) {
                             case 1: $this->res[$k]->setAntifona(array(
                                 "Ogni anno,",
-                                "per la festa di Pasqua. i genitori di Gesù salivano a Gerusalemme."
+                                "per la festa di Pasqua, i genitori di Gesù salivano a Gerusalemme."
                             ));
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
@@ -4096,7 +4096,7 @@ class Salmodia {
                     elseif ($this->actual['ora']=='terza') {
                         $this->res[$k]->setAntifona(array(
                             "Ogni anno,",
-                            "per la festa di Pasqua. i genitori di Gesù salivano a Gerusalemme."
+                            "per la festa di Pasqua, i genitori di Gesù salivano a Gerusalemme."
                         ));
                     }
                     elseif ($this->actual['ora']=='sesta') {
@@ -4154,7 +4154,7 @@ class Salmodia {
                             break;
                             case 5: $this->res[$k]->setAntifona(array(
                                 "Benedetto,",
-                                "ricolmo dello Spirito del Signore, riassumeva in sè le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
+                                "ricolmo dello Spirito del Signore, riassumeva in sé le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
                             ));
                             break;
                         }
@@ -4214,7 +4214,7 @@ class Salmodia {
                             break;
                             case 5: $this->res[$k]->setAntifona(array(
                                 "Disprezzando il mondo",
-                                "e le cose terrene, l'uomo di Dio ha vinto la sua battaglia: con la parola e con le opere ha accumulato tesori peer il cielo."
+                                "e le cose terrene, l'uomo di Dio ha vinto la sua battaglia: con la parola e con le opere ha accumulato tesori per il cielo."
                             ));
                             break;
                         }
@@ -4246,7 +4246,7 @@ class Salmodia {
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
                                 "Benedetto,",
-                                "ricolmo dello Spirito del Signore, riassumeva in sè le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
+                                "ricolmo dello Spirito del Signore, riassumeva in sé le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
                             ));
                             break;
                         }
@@ -4542,7 +4542,7 @@ class Salmodia {
                             break;
                             case 5: $this->res[$k]->setAntifona(array(
                                 "Benedetto,",
-                                "ricolmo dello Spirito del Signore, riassumeva in sè le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
+                                "ricolmo dello Spirito del Signore, riassumeva in sé le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
                             ));
                             break;
                         }
@@ -4604,7 +4604,7 @@ class Salmodia {
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
                                 "Benedetto,",
-                                "ricolmo dello Spirito del Signore, riassumeva in sè le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
+                                "ricolmo dello Spirito del Signore, riassumeva in sé le virtù di tutti i giusti: egli interceda per quanti, alla sua scuola, lo hanno seguito nella vita monastica."
                             ));
                             break;
                         }
@@ -4627,7 +4627,7 @@ class Salmodia {
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
                                 "Ecco,",
-                                "aopparvero Mosè ed Elia, e parlavano con Gesù."
+                                "apparvero Mosè ed Elia, e parlavano con Gesù."
                             ));
                             break;
                             case 4: $this->res[$k]->setAntifona(array(
@@ -4652,7 +4652,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "Signore,",
-                                "è bello pr noi stare qui! Se vuoi facciamo tre tende: una per te, una per Mosè e una per Elia."
+                                "è bello per noi stare qui! Se vuoi facciamo tre tende: una per te, una per Mosè e una per Elia."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
@@ -5078,7 +5078,7 @@ class Salmodia {
                         elseif ($this->actual['ora']=='sesta') {
                             $this->res[$k]->setAntifona(array(
                                 "Beata Madre,",
-                                "Vergine santa, gloriosa Regina del mondo, intercedi pre noi presso il Signore."
+                                "Vergine santa, gloriosa Regina del mondo, intercedi per noi presso il Signore."
                             ));
                         }
                         elseif ($this->actual['ora']=='nona') {
@@ -5305,7 +5305,7 @@ class Salmodia {
                                 break;
                                 case 3: $this->res[$k]->setAntifona(array(
                                     "I santi",
-                                    "rinnovano come aquila la loro giovinezza: come gigli fioriscono  nella città del Signore."
+                                    "rinnovano come aquila la loro giovinezza: come gigli fioriscono nella città del Signore."
                                 ));
                                 break;
                                 case 4: $this->res[$k]->setAntifona(array(
@@ -5431,7 +5431,7 @@ class Salmodia {
                                 break;
                                 case 3: $this->res[$k]->setAntifona(array(
                                     "I santi",
-                                    "rinnovano come aquila la loro giovinezza: come gigli fioriscono  nella città del Signore."
+                                    "rinnovano come aquila la loro giovinezza: come gigli fioriscono nella città del Signore."
                                 ));
                                 break;
                                 case 4: $this->res[$k]->setAntifona(array(
@@ -5516,7 +5516,7 @@ class Salmodia {
                         elseif ($this->actual['ora']=='terza') {
                             $this->res[$k]->setAntifona(array(
                                 "Padre,",
-                                "come tu tu mi hai mandato nel mondo, anch'io li ho mandati."
+                                "come tu mi hai mandato nel mondo, anch'io li ho mandati."
                             ));
                         }
                         elseif ($this->actual['ora']=='sesta') {
@@ -5582,7 +5582,7 @@ class Salmodia {
                         elseif ($this->actual['ora']=='terza') {
                             $this->res[$k]->setAntifona(array(
                                 "Padre,",
-                                "come tu tu mi hai mandato nel mondo, anch'io li ho mandati."
+                                "come tu mi hai mandato nel mondo, anch'io li ho mandati."
                             ));
                         }
                         elseif ($this->actual['ora']=='sesta') {
@@ -5668,7 +5668,7 @@ class Salmodia {
                                 ));
                                 break;
                                 case 5: $this->res[$k]->setAntifona(array(
-                                    "Quanto pè glorioso",
+                                    "Quanto è glorioso",
                                     "il regno dove con Cristo godono i santi; in candide vesti essi seguono l'Agnello ovunque vada."
                                 ));
                                 break;
@@ -6360,7 +6360,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "Sollevato",
-                                "sulle ali dell'obbedienza cammina sulle acque, nè può essere sommerso dalle onde colui che è portato dallo Spirito di Dio."
+                                "sulle ali dell'obbedienza cammina sulle acque, né può essere sommerso dalle onde colui che è portato dallo Spirito di Dio."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
@@ -6390,7 +6390,7 @@ class Salmodia {
                     elseif ($this->actual['ora']=='sesta') {
                         $this->res[$k]->setAntifona(array(
                             "Sollevato",
-                            "sulle ali dell'obbedienza cammina sulle acque, nè può essere sommerso dalle onde colui che è portato dallo Spirito di Dio."
+                            "sulle ali dell'obbedienza cammina sulle acque, né può essere sommerso dalle onde colui che è portato dallo Spirito di Dio."
                         ));
                     }
                     elseif ($this->actual['ora']=='nona') {
@@ -7162,7 +7162,7 @@ class Salmodia {
                         switch ($s[0]) {
                             case 1: $this->res[$k]->setAntifona(array(
                                 "Lorenzo entrò",
-                                "e i martiri confessarono  il nome del Signore Gesù Cristo."
+                                "e i martiri confessarono il nome del Signore Gesù Cristo."
                             ));
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
@@ -7625,7 +7625,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "Tutto io faccio",
-                                "per annunziare il Vangelo, e avere pate anch'io dei suoi beni."
+                                "per annunziare il Vangelo, e avere parte anch'io dei suoi beni."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(

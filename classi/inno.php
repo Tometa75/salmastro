@@ -598,7 +598,7 @@ class Inno {
             ),
             array(
                 array('','',"Donaci un cuore puro,"),
-                array('','',"fedele nel sevizio,"),
+                array('','',"fedele nel servizio,"),
                 array('','',"ardente nella lode.")
             ),
             array(
@@ -1056,7 +1056,7 @@ class Inno {
             ),
             array(
                 array('','',"A un cenno vi obbediscono"),
-                array('','',"le potenze del male:,"),
+                array('','',"le potenze del male:"),
                 array('','',"rinnovate i prodigi.")
             ),
             array(
@@ -1650,7 +1650,7 @@ class Inno {
             array(
                 array('','',"Luce d'eterna sapienza,"),
                 array('','',"svelaci il grande mistero"),
-                array('','',"di Dio OPadre e del Figlio"),
+                array('','',"di Dio Padre e del Figlio"),
                 array('','',"uniti in un solo Amore.")
             )
         ),
@@ -2336,7 +2336,7 @@ class Inno {
             array(
                 array('','',"Redenti dal tuo sangue,"),
                 array('','',"adoriamo il tuo nome,"),
-                array('','',"cantiamo iun canto nuovo.")
+                array('','',"cantiamo un canto nuovo.")
             ),
             array(
                 array('','',"A te sia gloria, o Cristo,"),
@@ -2493,7 +2493,7 @@ class Inno {
                 array('','',"pellegrina nel tempo.")
             ),
             array(
-                array('','',"Il tio braccio potente"),
+                array('','',"Il tuo braccio potente"),
                 array('','',"ci liberi dal male"),
                 array('','',"e ci guidi a un approdo"),
                 array('','',"di salvezza e di pace.")
@@ -2784,7 +2784,7 @@ class Inno {
             array(
                 array('','',"O Cristo, onore dei santi angeli,"),
                 array('','',"il loro coro ci assista sempre,"),
-                array('','',"affinché insieme, alla fine,tributiamo"),
+                array('','',"affinché insieme, alla fine, tributiamo"),
                 array('','',"canti alla Trinità per sempre.")
             )
         )

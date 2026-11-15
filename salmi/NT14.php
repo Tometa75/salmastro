@@ -13,22 +13,22 @@ $this->closure['load']=function() {
     $this->testoBase=array(
         'all'=>array(
             array(
-                array('ris','',"Popoli tutti ,lodate il Signore."),
+                array('ris','',"Popoli tutti, lodate il Signore."),
                 array('','*',"Cristo si manifestò nella carne,"),
                 array('','2',"fu giustificato nello Spirito.")
             ),
             array(
-                array('ris','',"Popoli tutti ,lodate il Signore."),
+                array('ris','',"Popoli tutti, lodate il Signore."),
                 array('','*',"Apparve agli angeli"),
                 array('','2',"fu annunziato ai pagani.")
             ),
             array(
-                array('ris','',"Popoli tutti ,lodate il Signore."),
+                array('ris','',"Popoli tutti, lodate il Signore."),
                 array('','*',"Fu creduto nel mondo,"),
                 array('','2',"fu assunto nella gloria.")
             ),
             array(
-                array('ris','',"Popoli tutti ,lodate il Signore.")
+                array('ris','',"Popoli tutti, lodate il Signore.")
             )
         )
     );

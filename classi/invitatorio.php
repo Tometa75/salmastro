@@ -812,7 +812,7 @@ class Invito {
                 }
             
                 elseif ($k=='0829a') {  
-                    $this->antifona="Nel ricordo di Giovanni Battista. precursore di Cristo nel martirio, adoriamo l'Agnello di Dio.";
+                    $this->antifona="Nel ricordo di Giovanni Battista, precursore di Cristo nel martirio, adoriamo l'Agnello di Dio.";
                     $this->setSalmo();
                 }
 

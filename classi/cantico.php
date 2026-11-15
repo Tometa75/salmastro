@@ -208,7 +208,7 @@ class Cantico {
                             case 'C':
                                 $this->antifona=array(
                                     "Nozze benedette,",
-                                    "in Cana di galilea, dov'era Gesù con Maria, sua madre!"
+                                    "in Cana di Galilea, dov'era Gesù con Maria, sua madre!"
                                 );
                             break;
                         }
@@ -379,7 +379,7 @@ class Cantico {
                             case 'A':
                                 $this->antifona=array(
                                     "Voi",
-                                    "siete luce del mondo : risplendano davanti agli uomini le vostre opere buone, per la gloria del Padre."
+                                    "siete luce del mondo: risplendano davanti agli uomini le vostre opere buone, per la gloria del Padre."
                                 );
                             break;
                             case 'B':
@@ -547,7 +547,7 @@ class Cantico {
                         if($this->actual['pari']) {
                             $this->antifona=array(
                                 "Tre volte",
-                                "sono stato percosso con le verghe, una volta sono st<to lapidato, tre volte ho fatto naufragio per il nome di Cristo."
+                                "sono stato percosso con le verghe, una volta sono stato lapidato, tre volte ho fatto naufragio per il nome di Cristo."
                             );
                         }
                         else {
@@ -818,7 +818,7 @@ class Cantico {
                             case 'C':
                                 $this->antifona=array(
                                     "Era necessario",
-                                    "che il Cristo patisse per risorgere dai mirti, alleluia."
+                                    "che il Cristo patisse per risorgere dai morti, alleluia."
                                 );
                             break;
                         }
@@ -873,7 +873,7 @@ class Cantico {
                             case 'B':
                                 $this->antifona=array(
                                     "La donna",
-                                    "diceva tra sè: Se riuscirò anche solo a toccare il suo mantello, sarò salva."
+                                    "diceva tra sé: Se riuscirò anche solo a toccare il suo mantello, sarò salva."
                                 );
                             break;
                             case 'C':
@@ -1224,7 +1224,7 @@ class Cantico {
                         else {
                             $this->antifona=array(
                                 "Mentre il Signore",
-                                "traeva Elia nel turbine verso il cielo , Eliseo lo vide e si mise a invocarlo: Padre mio, padre mio."
+                                "traeva Elia nel turbine verso il cielo, Eliseo lo vide e si mise a invocarlo: Padre mio, padre mio."
                             );
                         }
                     }
@@ -1910,7 +1910,7 @@ class Cantico {
                             case 'B':
                                 $this->antifona=array(
                                     "Figlio di Davide,",
-                                    "abbi pietà di me! Che vui che io faccia per te? Signore, che io veda!"
+                                    "abbi pietà di me! Che vuoi che io faccia per te? Signore, che io veda!"
                                 );
                             break;
                             case 'C':
@@ -1999,7 +1999,7 @@ class Cantico {
                             case 'C':
                                 $this->antifona=array(
                                     "Ho altre pecore",
-                                    "che non sono di questo ovile: anche queste io devo condurre; ascolteranno la mia voce e siu avrà un solo gregge e un solo pastore."
+                                    "che non sono di questo ovile: anche queste io devo condurre; ascolteranno la mia voce e si avrà un solo gregge e un solo pastore."
                                 );
                             break;
                         }
@@ -2311,7 +2311,7 @@ class Cantico {
                         if ($this->actual['ora']=="lodi") {
                             $this->antifona=array(
                                 "Egli",
-                                "è il mio Dio e lo voglio lodare, è il Diodi mio padre e lo voglio esaltare!"
+                                "è il mio Dio e lo voglio lodare, è il Dio di mio padre e lo voglio esaltare!"
                             );
                         }
                         elseif ($this->actual['ora']=="ves") {
@@ -2466,7 +2466,7 @@ class Cantico {
                     case 4:
                         if ($this->actual['ora']=="lodi") {
                             $this->antifona=array(
-                                "Tra i nati di di donna",
+                                "Tra i nati di donna",
                                 "non è sorto uno più grande di Giovanni Battista."
                             );
                         }
@@ -2912,7 +2912,7 @@ class Cantico {
                         case 'A':
                             $this->antifona=array(
                                 "Figlio,",
-                                "perchè ci hai fatto così? Ecco, tuo padre ed io, angosciati, ti cercavamo."
+                                "perché ci hai fatto così? Ecco, tuo padre ed io, angosciati, ti cercavamo."
                             );
                         break;
                         case 'B':
@@ -3690,7 +3690,7 @@ class Cantico {
                 elseif ($this->actual['ora']=="ves" || $this->actual['ora']=="ves2") {
                     $this->antifona=array(
                         "Gesù",
-                        "aveva detto: Tuo figklio vive. Il padre conobbe l'ora e credette, lui e tutta la sua casa."
+                        "aveva detto: Tuo figlio vive. Il padre conobbe l'ora e credette, lui e tutta la sua casa."
                     );
                 }
             }
@@ -4715,7 +4715,7 @@ class Cantico {
                 if ($this->actual['ora']=="lodi") {
                     $this->antifona=array(
                         "Chi mi ama,",
-                        "ossergerà la mia parola: il Padre mio lo amerà, e abiteremo in lui, alleluia."
+                        "osserverà la mia parola: il Padre mio lo amerà, e abiteremo in lui, alleluia."
                     );
                 }
 
@@ -5396,7 +5396,7 @@ class Cantico {
                 if ($this->actual['ora']=="ves1") {
                     $this->antifona=array(
                         "Destatosi dal sonno,",
-                        "Gesù fece come gli aveva ordinato l'angelo del Signore, e prese con sè Maria, sua sposa, alleluia."
+                        "Gesù fece come gli aveva ordinato l'angelo del Signore, e prese con sé Maria, sua sposa, alleluia."
                     );
                 }
                 elseif ($this->actual['ora']=="lodi") {
@@ -5416,7 +5416,7 @@ class Cantico {
                 if ($this->actual['ora']=="ves1") {
                     $this->antifona=array(
                         "Destatosi dal sonno,",
-                        "Gesù fece come gli aveva ordinato l'angelo del Signore, e prese con sè Maria, sua sposa."
+                        "Gesù fece come gli aveva ordinato l'angelo del Signore, e prese con sé Maria, sua sposa."
                     );
                 }
                 elseif ($this->actual['ora']=="lodi") {
@@ -5629,7 +5629,7 @@ class Cantico {
             if ($this->actual['ora']=="ves1") {
                 $this->antifona=array(
                     "O croce",
-                    "che brilli più delle stelle, celebre, amabile. santa più di ogni coda al mondo; tu sola fosti degna di portare il dolce peso del nostro riscatto: salva i tuoi figli, oggi riuniti nella tua lode."
+                    "che brilli più delle stelle, celebre, amabile, santa più di ogni cosa al mondo; tu sola fosti degna di portare il dolce peso del nostro riscatto: salva i tuoi figli, oggi riuniti nella tua lode."
                 );
             }
             elseif ($this->actual['ora']=="lodi") {
@@ -7449,7 +7449,7 @@ class Cantico {
                     if($this->actual['ora']=='lodi') {
                         $this->antifona=array(
                             "La sposa di Cristo",
-                            "Ildegarde illuminò la santa Chiesa di Dio con lo splendore della sua dottrina, fonte di salvezza per molti."
+                            "Ildegarda illuminò la santa Chiesa di Dio con lo splendore della sua dottrina, fonte di salvezza per molti."
                         );
                     }
                     elseif($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
