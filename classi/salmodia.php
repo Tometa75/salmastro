@@ -6,6 +6,8 @@ class Salmodia {
     protected $litio;
     protected $actual;
     protected $salmi=array();
+    //salmi alternativi scelti in base alla settimana: indice => salmo dell'altra settimana
+    protected $alt=array();
     protected $res=array();
     protected $festa=array();
 
@@ -39,7 +41,35 @@ class Salmodia {
         $this->actual=$caller->actual;
 
         $this->init();
+        $this->altSettimana();
         $this->build();
+    }
+
+    function altSettimana() {
+        //alle Lodi e ai Vespri alcuni salmi cambiano tra settimane pari e dispari:
+        //si ricalcola la salmodia con la settimana opposta e si confrontano i due elenchi.
+        //Il salmo scelto dalle regole resta quello regolare, l'altro diventa un'alternativa.
+        if (!in_array($this->actual['ora'],array('lodi','ves','ves1','ves2'))) return;
+
+        $regolari=$this->salmi;
+        $settimana=$this->actual['settimana'];
+
+        $this->actual['settimana']=(int)$settimana+1;
+        $this->salmi=array();
+        $this->init();
+        $altri=$this->salmi;
+
+        $this->actual['settimana']=$settimana;
+        $this->salmi=$regolari;
+
+        if (count($altri)!=count($regolari)) return;
+
+        foreach ($regolari as $k=>$s) {
+            if (!isset($altri[$k]) || $altri[$k]==$s) continue;
+            //solo salmi completi: stessa posizione, con il Gloria, non agganciati ad altri
+            if ($s[0]=='' || $s[0]!=$altri[$k][0] || $s[4]!='G' || $altri[$k][4]!='G') continue;
+            $this->alt[$k]=$altri[$k];
+        }
     }
 
     function init() {
@@ -1559,8 +1589,14 @@ class Salmodia {
 
     function build() {
 
-        foreach ($this->salmi as $k=>$s) {
-            $this->res[$k]=new Salmo($this->litio,$s);
+        //i salmi alternativi ricevono le stesse antifone della loro posizione
+        $lista=$this->salmi;
+        foreach ($this->alt as $k=>$s) {
+            $lista['alt'.$k]=$s;
+        }
+
+        foreach ($lista as $k=>$s) {
+            $this->res[$k]=new Salmo($this->litio,$s,(is_int($k)?'':'b'));
 
             //////////////////////////////////////////////////////////////////////////
             //modifica ANTIFONE in base al TEMPO LITURGICO
@@ -7961,7 +7997,7 @@ class Salmodia {
             }
 
             //se DI SEGUITO copia antifona dal salmo precedente
-            if ($s[0]=='') {
+            if ($s[0]=='' && is_int($k)) {
                 $this->res[$k]->setAntifona($this->res[$k-1]->getAntifona()[0]);
             }
         }
@@ -7972,7 +8008,15 @@ class Salmodia {
         //registra il salmo di riferimento per l'antifona
         $ant="";
 
-        foreach ($this->res as $k=>$r) {
+        foreach ($this->salmi as $k=>$s) {
+
+            $r=$this->res[$k];
+
+            //salmo che cambia con la settimana: bottoni per scegliere
+            if (isset($this->alt[$k])) {
+                $this->drawScelta($k);
+                continue;
+            }
 
             //se la posizione=='' significa che il salmo è una continuazione
             if ($this->salmi[$k][0]!='') {
@@ -8001,5 +8045,33 @@ class Salmodia {
 
     }
     
+    function drawScelta($k) {
+        //bottoni per passare dal salmo regolare a quello dell'altra settimana
+        $opzioni=array(
+            0=>array($this->res[$k],true),
+            1=>array($this->res['alt'.$k],false)
+        );
+
+        echo '<div class="salAltScelta">';
+            foreach ($opzioni as $i=>$o) {
+                $titolo=$o[0]->getTitolo();
+                if (($p=strpos($titolo,')'))!==false) $titolo=substr($titolo,0,$p+1);
+                echo '<div id="salmastro_salaltbtn_'.$k.'_'.$i.'" class="salAltBtn'.($i==0?' salAltSel':'').'" onclick="window._salmastro.salAlt(\''.$k.'\','.$i.');">';
+                    echo htmlspecialchars($titolo);
+                    echo '<div class="salAltNota">'.($o[1]?'regolare':'altra settimana').'</div>';
+                echo '</div>';
+            }
+        echo '</div>';
+
+        foreach ($opzioni as $i=>$o) {
+            echo '<div id="salmastro_salalt_'.$k.'_'.$i.'"'.($i==0?'':' style="display:none;"').'>';
+                $o[0]->drawAntifona(true);
+                $o[0]->drawTitolo();
+                $o[0]->drawSalmo();
+                $o[0]->drawAntifona(false);
+            echo '</div>';
+        }
+    }
+
 }
 ?>

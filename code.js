@@ -87,6 +87,15 @@ class Salmastro {
         $('#salmastro_bvm_'+id).show();
     }
 
+    salAlt(k,i) {
+        //scelta tra il salmo regolare (0) e quello dell'altra settimana (1)
+        this.stopTTS();
+        $('div[id^="salmastro_salalt_'+k+'_"]').hide();
+        $('#salmastro_salalt_'+k+'_'+i).show();
+        $('div[id^="salmastro_salaltbtn_'+k+'_"]').removeClass('salAltSel');
+        $('#salmastro_salaltbtn_'+k+'_'+i).addClass('salAltSel');
+    }
+
     litcal() {
 
         var href = window.location.href;
