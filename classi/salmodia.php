@@ -2636,7 +2636,7 @@ class Salmodia {
                             break;
                             case 2: $this->res[$k]->setAntifona(array(
                                 "È sorta",
-                                "la tua luce, o Gerusalemme, su di tè si è levata la gloria del Signore: nella tua luce cammineranno le genti, alleluia."
+                                "la tua luce, o Gerusalemme, su di te si è levata la gloria del Signore: nella tua luce cammineranno le genti, alleluia."
                             ));
                             break;
                             case 3: $this->res[$k]->setAntifona(array(
@@ -2666,7 +2666,7 @@ class Salmodia {
                     elseif ($this->actual['ora']=='sesta') {
                         $this->res[$k]->setAntifona(array(
                             "È sorta",
-                            "la tua luce, o Gerusalemme, su di tè si è levata la gloria del Signore: nella tua luce cammineranno le genti, alleluia."
+                            "la tua luce, o Gerusalemme, su di te si è levata la gloria del Signore: nella tua luce cammineranno le genti, alleluia."
                         ));
                     }
                     elseif ($this->actual['ora']=='nona') {
