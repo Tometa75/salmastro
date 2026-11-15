@@ -1,11 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- retro della medaglia di San Benedetto -->
+  <defs>
+    <radialGradient id="oro" cx="40%" cy="35%" r="75%">
+      <stop offset="0" stop-color="#f3dc8e"/><stop offset=".6" stop-color="#d4b25c"/><stop offset="1" stop-color="#a77f2c"/>
+    </radialGradient>
+    <path id="giro" d="M50 50 m-35.5 0 a35.5 35.5 0 1 1 71 0 a35.5 35.5 0 1 1 -71 0"/>
+  </defs>
   <rect width="100" height="100" fill="#fbfaf6"/>
-  <circle cx="50" cy="50" r="37" fill="none" stroke="#d4b25c" stroke-width="1.6"/>
-  <g fill="#ad2a1f">
-    <path id="b" d="M46.2 47 L40 21 Q50 24.5 60 21 L53.8 47 Z"/>
-    <use href="#b" transform="rotate(90 50 50)"/>
-    <use href="#b" transform="rotate(180 50 50)"/>
-    <use href="#b" transform="rotate(270 50 50)"/>
-    <rect x="45.5" y="45.5" width="9" height="9"/>
+  <circle cx="50" cy="50" r="45" fill="url(#oro)" stroke="#8a6620" stroke-width="1.4"/>
+  <circle cx="50" cy="50" r="40.5" fill="none" stroke="#8a6620" stroke-width=".7"/>
+  <circle cx="50" cy="50" r="30.5" fill="none" stroke="#8a6620" stroke-width=".7"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="#4a3410" text-anchor="middle">
+    <text font-size="6.4" letter-spacing=".2"><textPath href="#giro" startOffset="25%" dominant-baseline="middle">PAX</textPath></text>
+    <text font-size="5.6" letter-spacing="1.55"><textPath href="#giro" startOffset="63%" dominant-baseline="middle">V R S · N S M V · S M Q L · I V B</textPath></text>
+    <!-- croce -->
+    <path d="M45.5 24 h9 v21.5 h21.5 v9 h-21.5 v21.5 h-9 v-21.5 h-21.5 v-9 h21.5 z" fill="#e8cb78" stroke="#8a6620" stroke-width=".8"/>
+    <g font-size="6.2">
+      <text x="50" y="31.2">C</text><text x="50" y="41">S</text><text x="50" y="52.2">S</text><text x="50" y="63.6">M</text><text x="50" y="73.4">L</text>
+      <text x="28.2" y="52.2">N</text><text x="38.6" y="52.2">D</text><text x="61.6" y="52.2">M</text><text x="72" y="52.2">D</text>
+    </g>
+    <g font-size="7.5">
+      <text x="35" y="40">C</text><text x="65" y="40">S</text><text x="35" y="67.5">P</text><text x="65" y="67.5">B</text>
+    </g>
   </g>
 </svg>
