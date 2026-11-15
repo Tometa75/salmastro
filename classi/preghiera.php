@@ -7,7 +7,8 @@ class Preghiera {
         "tipo"=>"inizio",
         "titolo"=>"",
         "parte"=>"",
-        "testo"=>false
+        "testo"=>false,
+        "alt"=>false
     );
 
     protected $litio;
@@ -106,59 +107,59 @@ class Preghiera {
             }
             else {
 
-                $b=array(
-                    array('sac','','Il Signore sia con voi.'),
-                    array('ris','','E con il tuo spirito.')
-                );
-                $this->info['testo']->addBlock($b);
+                //doppio alleluia (libro pp. 4, 466, 543): Pasqua e la sua ottava fino alla II Domenica di Pasqua,
+                //Secondi Vespri di Pentecoste, Vespri del martedì che precede le Ceneri
+                $ev=$this->litio->actual['evCode'];
+                $alleluia=($ev=='PAS' || substr($ev,0,3)=='PA1' || $ev=='PA2');
+                if ($ora=='ves2' && array_key_exists('PEN',$this->litio->map['evento'])) $alleluia=true;
+                if ($ora=='ves' && array_key_exists('CEN',$this->litio->vig['evento'])) $alleluia=true;
 
-                //ottava di Pasqua
-                if ($this->litio->actual['evCode']=='PAS') {
-                    $b=array(
-                        array('sac','','Voi, che dopo i giorni della Passione, celebrate con gioia la Pasqua del Signore, possiate giungere alla grande festa della Pasqua eterna.'),
-                        array('ris','','Amen.')
-                    );
-                }
-                elseif (substr($this->litio->actual['evCode'],0,3)=='PA1') {
-                    $b=array(
-                        array('sac','','Benediciamo il Signore, alleluia, alleluia.'),
-                        array('ris','','Rendiamo grazie a Dio, alleluia, alleluia.')
-                    );
-                }
-                else {
-                    $b=array(
-                        array('sac','','Benediciamo il Signore.'),
-                        array('ris','','Rendiamo grazie a Dio.')
-                    );
-                }
-                
-                $this->info['testo']->addBlock($b);
+                $this->setComunita($this->info['testo'],$alleluia?'alleluia':'');
 
-                $b=array(
-                    array('sac','',"L'aiuto del Signore resti sempre con noi."),
-                    array('ris','','E con i nostri fratelli assenti. Amen.')
-                );
-                $this->info['testo']->addBlock($b);
-
-                $flag=false;
-
-                if (substr($ora,0,3)=='ves') {
-                    foreach ($this->litio->map['evento'] as $k=>$e) {
-                        if (substr($k,0,3)=='PA1') {
-                            $flag=true;
-                            break;
-                        }
-                    }
-                }
-
-                if ( ($ora=='ves' && array_key_exists('CEN',$this->litio->vig['evento'])) || ($ora=='ves2' && array_key_exists('PEN',$this->litio->map['evento'])) || $flag) {
-                    $b=array(
-                        array('','','Alleluia. Alleluia.')
-                    );
-                    $this->info['testo']->addBlock($b);
+                //il giorno di Pasqua, invece di Benediciamo il Signore, si può dire "Voi, che dopo i giorni della Passione..." (p. 466)
+                if ($ev=='PAS') {
+                    $this->info['alt']=new Saltesto();
+                    $this->info['alt']->setParte('PC2');
+                    $this->setComunita($this->info['alt'],'pasqua');
                 }
             }
         }
+    }
+
+    function setComunita($testo,$tipo) {
+        //preghiera conclusiva di Lodi e Vespri in comunità
+
+        $b=array(
+            array('sac','','Il Signore sia con voi.'),
+            array('ris','','E con il tuo spirito.')
+        );
+        $testo->addBlock($b);
+
+        if ($tipo=='pasqua') {
+            $b=array(
+                array('sac','','Voi, che dopo i giorni della Passione, celebrate con gioia la Pasqua del Signore, possiate giungere alla grande festa della Pasqua eterna.'),
+                array('ris','','Amen.')
+            );
+        }
+        elseif ($tipo=='alleluia') {
+            $b=array(
+                array('sac','','Benediciamo il Signore, alleluia, alleluia.'),
+                array('ris','','Rendiamo grazie a Dio, alleluia, alleluia.')
+            );
+        }
+        else {
+            $b=array(
+                array('sac','','Benediciamo il Signore.'),
+                array('ris','','Rendiamo grazie a Dio.')
+            );
+        }
+        $testo->addBlock($b);
+
+        $b=array(
+            array('sac','',"L'aiuto del Signore resti sempre con noi."),
+            array('ris','','E con i nostri fratelli assenti. Amen.')
+        );
+        $testo->addBlock($b);
     }
 
     function draw() {
@@ -171,7 +172,27 @@ class Preghiera {
         echo '</div>';
 
         echo '<div class="salResBlockBody" >';
-            if ($this->info['testo']) {
+            if ($this->info['alt']) {
+                //bottoni come per il cantico delle Lodi: la formula regolare è preselezionata
+                $opzioni=array(
+                    0=>array($this->info['testo'],'Benediciamo il Signore','regolare'),
+                    1=>array($this->info['alt'],'Voi, che dopo i giorni della Passione','si può dire')
+                );
+                echo '<div class="salAltScelta">';
+                    foreach ($opzioni as $i=>$o) {
+                        echo '<div id="salmastro_salaltbtn_PC_'.$i.'" class="salAltBtn'.($i==0?' salAltSel':'').'" onclick="window._salmastro.salAlt(\'PC\','.$i.');">';
+                            echo htmlspecialchars($o[1]);
+                            echo '<div class="salAltNota">'.$o[2].'</div>';
+                        echo '</div>';
+                    }
+                echo '</div>';
+                foreach ($opzioni as $i=>$o) {
+                    echo '<div id="salmastro_salalt_PC_'.$i.'"'.($i==0?'':' style="display:none;"').'>';
+                        $o[0]->draw();
+                    echo '</div>';
+                }
+            }
+            elseif ($this->info['testo']) {
                 echo $this->info['testo']->draw();
             }
         echo '</div>';
