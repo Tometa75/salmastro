@@ -1,0 +1,308 @@
+/* Salmastro - nuova veste
+   Una colonna di lettura come la pagina di un breviario; testata compatta che scorre via,
+   ore sempre a portata di dito; nastro del colore liturgico. */
+@font-face { font-family: "Literata"; src: url(../fonts/Literata/Literata.woff2) format("woff2"); font-weight: 400 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url(../fonts/Literata/Literata-Italic.woff2) format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Lato"; src: url(../fonts/Lato/Lato-Regular.woff2) format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Lato"; src: url(../fonts/Lato/Lato-Bold.woff2) format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  --paper: #fbfaf6;
+  --surface: #f2eee5;
+  --ink: #1f1b16;
+  --ink-2: #6b5226;
+  --muted: #6c655a;
+  --rubric: #ad2a1f;
+  --line: #e3ddd0;
+  --tempo: #68b368;
+  --focus: #2f6db5;
+  --f-testo: "Literata", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-ui: "Lato", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --scala: 1;
+  --col: 40rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #171512; --surface: #221f1a; --ink: #ebe5d9; --ink-2: #d4b67c;
+    --muted: #a59c8d; --rubric: #f08474; --line: #36312a; --focus: #8db8ef;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #171512; --surface: #221f1a; --ink: #ebe5d9; --ink-2: #d4b67c;
+  --muted: #a59c8d; --rubric: #f08474; --line: #36312a; --focus: #8db8ef;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; color-scheme: light; }
+[hidden] { display: none !important; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-ui);
+  font-size: 16px;
+  line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: env(safe-area-inset-top, 0px) calc(6rem + env(safe-area-inset-bottom, 0px));
+  margin: 0;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper);
+}
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+
+.pagina { max-width: var(--col); margin: 0 auto; position: relative; }
+
+/* nastro */
+.nastro {
+  position: absolute; top: 0; right: 4px; width: 14px; height: 64px;
+  background: var(--tempo);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+  opacity: .9;
+}
+.bordo { height: 4px; background: var(--tempo); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); }
+
+/* testata */
+.testata { padding-block: 14px 10px; padding-right: 28px; display: grid; gap: 6px; }
+.riga1 { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marchio { font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; color: var(--muted); }
+.riga1 .btns { display: flex; gap: 6px; flex: none; }
+.btn-opz {
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line);
+  background: var(--surface); border-radius: 999px; padding: 5px 12px; font-size: .85rem; cursor: pointer;
+}
+.btn-opz svg { width: 16px; height: 16px; }
+.data { display: flex; align-items: center; gap: 4px; margin-top: 4px; }
+.data .freccia {
+  width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; cursor: pointer;
+  display: grid; place-items: center; color: var(--muted); flex: none;
+}
+.data .freccia:hover { background: var(--surface); color: var(--ink); }
+.data .freccia svg { width: 18px; height: 18px; }
+.data .giorno { font-size: .95rem; font-weight: 700; text-align: center; flex: 1; min-width: 0; }
+.giornata { font-family: var(--f-testo); font-size: 1.45rem; line-height: 1.2; font-weight: 600; text-wrap: balance; margin: 2px 0 0; }
+.dettagli { font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; }
+.dettagli .tempo { display: inline-flex; align-items: center; gap: 6px; }
+.dettagli .tempo::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--tempo); }
+.avviso { font-size: .82rem; color: var(--muted); background: var(--surface); border-radius: 8px; padding: 6px 10px; }
+
+/* celebra */
+.celebra { display: grid; gap: 6px; margin-top: 2px; }
+.celebra .et, .gruppo > .et { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.celebra .seg button { text-align: left; display: grid; gap: 1px; border-radius: 12px; padding: 7px 12px; line-height: 1.25; }
+.celebra .seg button small { font-size: .74rem; color: var(--muted); }
+.celebra .seg button[aria-pressed="true"] small { color: var(--paper); opacity: .8; }
+.vigilia { font-size: .85rem; color: var(--rubric); }
+.btn-ico { display: inline-flex; gap: 8px; }
+.data .giorno { border: 0; background: transparent; cursor: pointer; border-radius: 8px; padding: 6px 4px; }
+.data .giorno:hover { background: var(--surface); }
+.data .giorno span { border-bottom: 1px dotted var(--muted); }
+
+/* invitatorio in testa alle Lodi */
+.inv-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-family: var(--f-ui); font-size: .9rem; padding: 10px 12px; margin-top: 14px;
+  background: var(--surface); border-radius: 12px;
+}
+.inv-bar small { display: block; color: var(--muted); font-size: .78rem; }
+.interr { flex: none; width: 50px; height: 30px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); position: relative; cursor: pointer; padding: 0; }
+.interr::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--muted); transition: transform .15s; }
+.interr[aria-checked="true"] { background: var(--ink); border-color: var(--ink); }
+.interr[aria-checked="true"]::after { transform: translateX(20px); background: var(--paper); }
+
+/* calendario */
+.foglio {
+  position: fixed; inset: 0; z-index: 20; background: var(--paper); overflow-y: auto;
+  padding: env(safe-area-inset-top, 0px) max(16px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.foglio .in { max-width: var(--col); margin: 0 auto; }
+.foglio .cap {
+  position: sticky; top: 0; z-index: 2; background: var(--paper); display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding-block: 14px 10px; border-bottom: 1px solid var(--line);
+}
+.foglio .cap h2 { margin: 0; font-family: var(--f-testo); font-size: 1.3rem; font-weight: 600; }
+.foglio .chiudi { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: .9rem; }
+.legenda { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .78rem; color: var(--muted); padding-top: 10px; }
+.legenda span { display: inline-flex; align-items: center; gap: 6px; }
+.legenda i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; border: 1px solid var(--line); }
+.mese { font-family: var(--f-ui); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--rubric); padding: 22px 0 6px; }
+.gg {
+  display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 12px; padding: 8px 6px; border-radius: 10px;
+  width: 100%; text-align: left; border: 0; background: transparent; cursor: pointer;
+}
+.gg:hover { background: var(--surface); }
+.gg .n { display: grid; justify-items: center; align-content: start; line-height: 1.1; }
+.gg .n b { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.gg .n small { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.gg .n i { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; border: 1px solid var(--line); }
+.gg .c { display: grid; gap: 2px; font-size: .9rem; min-width: 0; }
+.gg .c .t { font-size: .74rem; color: var(--muted); }
+.gg .c .ev { color: var(--rubric); font-weight: 700; }
+.gg .c .fs-S { color: var(--rubric); font-weight: 700; }
+.gg .c .fs-F, .gg .c .fs-M { font-weight: 700; }
+.gg .c .fs-R { color: var(--ink); }
+.gg .c .fs-X { color: var(--muted); text-decoration: line-through; }
+.gg.dom .n b { color: var(--rubric); }
+.gg.oggi { background: var(--surface); box-shadow: inset 0 0 0 2px var(--ink); }
+
+/* ore */
+.ore-wrap {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--paper);
+  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: 8px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px));
+  border-bottom: 1px solid var(--line);
+}
+.ore { max-width: var(--col); margin: 0 auto; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; }
+.ora {
+  border: 1px solid var(--line); background: var(--surface); border-radius: 10px;
+  padding: 11px 2px; cursor: pointer; font-size: .86rem; font-weight: 700; line-height: 1.1;
+  display: grid; justify-items: center; gap: 3px; min-width: 0;
+}
+.ora[aria-current="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.ora.adesso { position: relative; }
+.ora.adesso::after {
+  content: ""; position: absolute; top: 5px; right: 6px; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rubric);
+}
+
+/* opzioni */
+.opzioni {
+  margin-top: 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface);
+  padding: 14px; display: grid; gap: 14px;
+}
+.gruppo { display: grid; gap: 6px; }
+.gruppo > .et { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.gruppo .nota-opz { font-size: .8rem; color: var(--muted); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button {
+  border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 14px;
+  font-size: .9rem; cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.dim { display: flex; align-items: center; gap: 8px; }
+.dim button { width: 44px; height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); cursor: pointer; font-weight: 700; }
+.dim output { font-variant-numeric: tabular-nums; min-width: 3.5em; text-align: center; font-size: .9rem; color: var(--muted); }
+
+/* indice laterale su schermi larghi */
+.indice { display: none; }
+@media (min-width: 1180px) {
+  .indice {
+    display: block; position: fixed; top: 96px; left: calc(50% - var(--col) / 2 - 220px); width: 180px;
+    font-size: .85rem;
+  }
+  .indice .et { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .indice a { display: block; color: var(--muted); text-decoration: none; padding: 4px 0 4px 10px; border-left: 2px solid var(--line); }
+  .indice a:hover { color: var(--ink); border-left-color: var(--rubric); }
+}
+
+/* testo */
+#testo {
+  font-family: var(--f-testo); font-size: calc(1.12rem * var(--scala)); line-height: 1.55;
+  padding-top: 10px; font-optical-sizing: auto;
+}
+#testo section { padding-block: 18px 4px; scroll-margin-top: 80px; }
+#testo section + section { border-top: 1px solid var(--line); }
+#testo h2 {
+  font-family: var(--f-ui); font-size: .78em; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--rubric); margin: 0 0 .9em; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  text-wrap: balance;
+}
+#testo h2 .sub {
+  font-family: var(--f-testo); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0;
+  color: var(--muted); font-size: 1.2em; flex-basis: 100%;
+}
+#testo h3.ps { margin: 1.4em 0 .6em; display: grid; gap: 2px; }
+#testo h3.ps .pn { font-family: var(--f-ui); font-size: .8em; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+#testo h3.ps .psub { font-style: italic; font-weight: 400; color: var(--muted); font-size: .9em; }
+#testo h3.ps .seg { font-family: var(--f-ui); font-size: .68em; letter-spacing: .08em; text-transform: uppercase; color: var(--rubric); font-weight: 700; }
+#testo .st { margin: 0 0 .8em; }
+#testo .v { padding-left: 1.3em; text-indent: -1.3em; }
+#testo .v.r { padding-left: 2.6em; }
+#testo .v.b { color: var(--ink-2); }
+#testo .v.it { font-style: italic; }
+#testo .prosa .v { padding-left: 0; text-indent: 0; }
+#testo .prosa .v + .v { margin-top: .5em; }
+#testo .prosa .v.r { padding-left: 1.3em; }
+#testo .m { color: var(--rubric); font-weight: 600; }
+#testo .vr { color: var(--rubric); font-weight: 600; font-family: var(--f-testo); }
+#testo .tr { color: var(--rubric); font-weight: 600; }
+#testo p.ant { margin: .4em 0 1em; padding: .5em .8em; background: var(--surface); border-radius: 10px; }
+#testo p.ant .al { color: var(--rubric); font-style: italic; font-weight: 500; margin-right: .2em; white-space: nowrap; }
+#testo .nota { font-family: var(--f-ui); font-size: .8em; color: var(--muted); }
+#testo .v.leggo { background: color-mix(in srgb, var(--tempo) 24%, transparent); border-radius: 4px; }
+
+/* scelte (cantico, antifone mariane) */
+#testo .scelta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: 8px; margin: .6em 0 1em; font-family: var(--f-ui); }
+#testo .scelta .opt {
+  text-align: left; border: 1px solid var(--line); background: var(--paper); border-radius: 10px; padding: 8px 12px;
+  cursor: pointer; display: grid; gap: 2px; font-size: .78em; line-height: 1.3;
+}
+#testo .scelta .opt .ot { font-weight: 700; }
+#testo .scelta .opt .on2 { color: var(--muted); font-size: .9em; }
+#testo .scelta .opt[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+#testo .scelta .opt[aria-pressed="true"] .on2 { color: var(--rubric); }
+
+/* ascolta */
+.ascolta {
+  border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 2px 6px; border-radius: 6px;
+  display: inline-flex; align-items: center; gap: 4px; font-family: var(--f-ui); font-size: .72rem; letter-spacing: .04em; text-transform: none; font-weight: 400;
+  margin-left: auto;
+}
+.ascolta:hover { color: var(--ink); background: var(--surface); }
+.ascolta svg { width: 14px; height: 14px; }
+h3.ps .ascolta { justify-self: start; margin-left: -6px; }
+
+.barra {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+  background: var(--ink); color: var(--paper);
+  padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.barra .in { max-width: var(--col); margin: 0 auto; display: flex; align-items: center; gap: 10px; }
+.barra .cosa { flex: 1; min-width: 0; font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barra button { border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent); background: transparent; color: var(--paper); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: .85rem; }
+
+.piede { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+.toast {
+  position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  background: var(--ink); color: var(--paper); padding: 8px 14px; border-radius: 10px; font-size: .85rem; z-index: 8;
+  max-width: calc(100% - 32px);
+}
+@media (max-width: 480px) {
+  .marchio { letter-spacing: .08em; }
+  .btn-opz .lbl { display: none; }
+  .btn-opz { padding: 7px 10px; }
+  .ore { gap: 3px; }
+  .ora { font-size: .76rem; padding-inline: 0; border-radius: 8px; }
+}
+@media (max-width: 340px) {
+  }
+@media (min-width: 1180px) {
+  .ore-wrap { margin-inline: auto; max-width: calc(var(--col) + 32px); padding-inline: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* aggiunte del sito vero */
+.altre { font-size: .85rem; color: var(--muted); display: grid; gap: 2px; }
+.altre .ev { color: var(--rubric); font-weight: 700; }
+.ora:disabled { opacity: .4; cursor: default; }
+.ora-tit { font-family: var(--f-ui); font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 16px; }
+.varianti { margin-top: 10px; display: grid; gap: 6px; }
+.varianti .seg button { text-align: left; border-radius: 12px; line-height: 1.25; }
+.stato { font-family: var(--f-ui); color: var(--muted); padding: 28px 0; font-size: .95rem; }
+.stato button { margin-left: 8px; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+#testo.carica { opacity: .45; transition: opacity .2s; }
+.foglio .anni { display: flex; align-items: center; gap: 4px; }
+.foglio .anni button { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); cursor: pointer; display: grid; place-items: center; }
+.foglio .anni button svg { width: 16px; height: 16px; }
+.gg.scelto { box-shadow: inset 0 0 0 2px var(--rubric); }
+.piede a { color: inherit; }
+.musica { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.musica button { border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 14px; font-size: .9rem; cursor: pointer; }
+.musica button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
