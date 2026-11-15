@@ -60,11 +60,11 @@ button { font: inherit; color: inherit; }
 /* nastro */
 .nastro {
   position: absolute; top: 0; right: 4px; width: 14px; height: 64px;
-  background: var(--tempo);
+  background: var(--giorno, var(--tempo));
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
   opacity: .9;
 }
-.bordo { height: 4px; background: var(--tempo); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); }
+.bordo { height: 4px; background: var(--giorno, var(--tempo)); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); }
 
 /* testata */
 .testata { padding-block: 14px 10px; padding-right: 28px; display: grid; gap: 6px; }
@@ -235,7 +235,7 @@ button { font: inherit; color: inherit; }
 #testo p.ant { margin: .4em 0 1em; padding: .5em .8em; background: var(--surface); border-radius: 10px; }
 #testo p.ant .al { color: var(--rubric); font-style: italic; font-weight: 500; margin-right: .2em; white-space: nowrap; }
 #testo .nota { font-family: var(--f-ui); font-size: .8em; color: var(--muted); }
-#testo .v.leggo { background: color-mix(in srgb, var(--tempo) 24%, transparent); border-radius: 4px; }
+#testo .v.leggo { background: color-mix(in srgb, var(--giorno, var(--tempo)) 24%, transparent); border-radius: 4px; }
 
 /* scelte (cantico, antifone mariane) */
 #testo .scelta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: 8px; margin: .6em 0 1em; font-family: var(--f-ui); }

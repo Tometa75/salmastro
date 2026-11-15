@@ -48,11 +48,11 @@
       return r.text();
     });
   }
-  function tinta(colore, rosso) {
-    if (rosso) return '#d23b2f';
-    if (!colore || colore === 'white') return '#d4b25c';   // il bianco liturgico si vede come oro
-    return colore;
-  }
+  // colori liturgici (Messale, n. 346); il bianco si vede come oro, perché su fondo chiaro sparirebbe
+  var COL = { verde: '#68b368', viola: '#7b4bb3', rosaceo: '#e39ab4', bianco: '#d4b25c', rosso: '#d23b2f' };
+  var NOMECOL = { verde: 'Verde', viola: 'Viola', rosaceo: 'Rosaceo', bianco: 'Bianco', rosso: 'Rosso' };
+  function coloreTempo(codice) { return codice === 'O' ? 'verde' : (codice === 'A' || codice === 'Q') ? 'viola' : 'bianco'; }
+
 
   // ---------------------------------------------------------------- conversione dei testi
   var SEGNI = {
@@ -251,7 +251,8 @@
     $('giorno-txt').textContent = G.data;
     $('giornata').textContent = G.titolo;
     document.title = G.titolo + ' · Liturgia delle ore benedettina';
-    root.style.setProperty('--tempo', tinta(G.tempo.colore, G.rosso));
+    root.style.setProperty('--tempo', COL[coloreTempo(G.tempo.codice)]);
+    root.style.setProperty('--giorno', COL[G.colore] || COL[coloreTempo(G.tempo.codice)]);
     var det = '<span class="tempo">' + esc(G.tempo.nome) + '</span>';
     if (G.anno) det += '<span>Anno ' + esc(G.anno) + '</span>';
     if (G.settimana !== '' && G.settimana != null) det += '<span>Settimana ' + esc(G.settimana) + '</span>';
@@ -500,12 +501,13 @@
       righe += '<span class="t">' + esc(tempo) + '</span>';
       var cl = 'gg' + (d[1] === 0 ? ' dom' : '') + (G && d[0] === G.oggi ? ' oggi' : '') + (G && d[0] === G.today && G.today !== G.oggi ? ' scelto' : '');
       h += '<button type="button" class="' + cl + '" data-tag="' + d[0] + '">' +
-        '<span class="n"><b>' + parseInt(d[0].slice(6), 10) + '</b><small>' + GS[d[1]] + '</small><i style="background:' + tinta(d[4], d[6]) + '"></i></span>' +
+        '<span class="n"><b>' + parseInt(d[0].slice(6), 10) + '</b><small>' + GS[d[1]] + '</small><i style="background:' + (COL[d[9]] || COL.verde) + '" title="' + (NOMECOL[d[9]] || '') + '"></i></span>' +
         '<span class="c">' + righe + '</span></button>';
-      var k = d[6] ? 'Giorni in rosso' : d[3];
-      if (!visti[k]) { visti[k] = 1; leg += '<span><i style="background:' + tinta(d[4], d[6]) + '"></i>' + esc(k) + '</span>'; }
+      var k = d[9];
+      if (k && !visti[k]) { visti[k] = 1; }
     });
     if (dati.anno < 2100) h += '<button type="button" class="anno-dopo" data-anno="' + (dati.anno + 1) + '">Continua con il ' + (dati.anno + 1) + '</button>';
+    ['verde', 'viola', 'rosaceo', 'bianco', 'rosso'].forEach(function (k) { if (visti[k]) leg += '<span><i style="background:' + COL[k] + '"></i>' + NOMECOL[k] + '</span>'; });
     lista.innerHTML = h; $('legenda').innerHTML = leg;
     $('cal-mesi').innerHTML = MESI3.map(function (n, i) { return '<button type="button" data-m="' + i + '" aria-label="' + MESI[i] + '">' + n + '</button>'; }).join('');
     annoCaricato = dati.anno;

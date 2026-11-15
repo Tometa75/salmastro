@@ -4,6 +4,7 @@
 include ('baseline.php');
 require_once (SITE_ROOT.'/classi/calendario.php');
 require_once (SITE_ROOT.'/classi/litio.php');
+require_once (SITE_ROOT.'/classi/colore.php');
 
 //serve solo a leggere le fasce orarie delle ore, che in Litio sono protette
 class LitioGiorno extends Litio {
@@ -74,6 +75,9 @@ if (isset($map['alternative'])) {
 foreach ($vig['evento'] as $k=>$e) {
     if ($e['tipo']=='F' || $e['tipo']=='S') $res['vigilia'][]=$e['titolo'];
 }
+
+//colore della celebrazione (cornice): quella scelta, altrimenti quella del calendario
+$res['colore']=ColoreLiturgico::giorno($litio->map,(isset($config['festa']) && isset($map['festa'][$config['festa']]))?$config['festa']:'');
 
 //titolo del giorno: l'evento, altrimenti il giorno della settimana
 $feriale=$giorni[$wd].($map['settimana']!=''?' della '.$map['settimana'].'ª settimana':'');

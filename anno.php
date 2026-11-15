@@ -2,6 +2,7 @@
 //NUOVA VESTE - calendario liturgico di un anno in JSON (gli stessi dati di litcal.php)
 include ('baseline.php');
 require_once (SITE_ROOT.'/classi/calendario.php');
+require_once (SITE_ROOT.'/classi/colore.php');
 
 $req=(isset($_POST['param']) && is_array($_POST['param']))?$_POST['param']:$_GET;
 
@@ -11,7 +12,7 @@ if ($anno>2100) $anno=2100;
 
 $cal=new Calendario($anno.'0101');
 
-//ogni giorno: [data, giorno della settimana, codice tempo, nome tempo, colore, settimana, rosso, eventi, feste]
+//ogni giorno: [data, giorno della settimana, codice tempo, nome tempo, colore del tempo, settimana, rosso, eventi, feste, colore della celebrazione]
 $giorni=array();
 $t=mktime(12,0,0,1,1,$anno);
 while ((int)date('Y',$t)==$anno) {
@@ -21,7 +22,7 @@ while ((int)date('Y',$t)==$anno) {
     foreach ($m['evento'] as $e) $ev[]=array($e['titolo'],$e['tipo']);
     $fe=array();
     foreach ($m['festa'] as $f) $fe[]=array($f['titolo'],$f['tipo']);
-    $giorni[]=array($tag,(int)$m['weekDay'],$m['tempo']['codice'],$m['tempo']['nome'],$m['tempo']['colore'],$m['settimana'],$m['rocho']?1:0,$ev,$fe);
+    $giorni[]=array($tag,(int)$m['weekDay'],$m['tempo']['codice'],$m['tempo']['nome'],$m['tempo']['colore'],$m['settimana'],$m['rocho']?1:0,$ev,$fe,ColoreLiturgico::giorno($m));
     $t=strtotime('+1 day',$t);
 }
 
