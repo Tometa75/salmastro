@@ -3743,7 +3743,7 @@ class Lettura {
             }
             elseif($this->actual['ora']=='lodi') {
                 $this->info=array(
-                    "titolo"=>"Pt 8,22-24a",
+                    "titolo"=>"Pr 8,22-24a",
                     "testo"=>"Il Signore mi ha creato all'inizio della sua attività, prima di ogni sua opera, fin d'allora. Dall'eternità sono stata costituita, fin dal principio, dagli inizi della terra. Quando non esistevano gli abissi, io fui generata."
                 );
             }

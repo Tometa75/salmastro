@@ -200,6 +200,8 @@ class mainFunc {
 
 		$ore=array('lodi','terza','sesta','nona','ves','ves1','ves2','comp','comp1');
 		if (isset($c['ora']) && in_array($c['ora'],$ore,true)) $res['ora']=$c['ora'];
+		//celebrazioni spostate: Primi Vespri o Compieta di domani ('ves1|codice', 'comp1|codice'), oppure Vespri e Compieta del giorno ('ves|feria', 'comp|feria')
+		elseif (isset($c['ora']) && is_string($c['ora']) && preg_match('/^(ves|ves1|ves2|comp|comp1)\|[A-Za-z0-9]{1,12}$/',$c['ora'])) $res['ora']=$c['ora'];
 
 		if (isset($c['festa'])) {
 			$res['festa']=(is_string($c['festa']) && preg_match('/^[A-Za-z0-9]{1,12}$/',$c['festa']))?$c['festa']:'';

@@ -105,6 +105,28 @@ class Litio {
         $this->vig=$vig;
         $this->config=$config;
 
+        if (!isset($this->map['alternative'])) $this->map['alternative']=array();
+        if (!isset($this->vig['alternative'])) $this->vig['alternative']=array();
+
+        //################################
+        //CELEBRAZIONI SPOSTATE scelte dall'utente
+        //- nella tendina: una celebrazione spostata, celebrata in questo giorno, diventa l'evento del giorno
+        $this->config['alt']='';
+        if (isset($this->config['festa']) && $this->config['festa']!='' && isset($this->map['alternative'][$this->config['festa']])) {
+            $this->config['alt']=$this->config['festa'];
+            $this->config['festa']='';
+            $this->map['evento']=$this->eventoAlternativo($this->map['alternative'][$this->config['alt']],$this->config['alt']);
+        }
+        //- nel menu delle ore: 'ves1|codice' e 'comp1|codice' sono i Primi Vespri (e la Compieta)
+        //  di una celebrazione spostata che si sceglie di celebrare domani
+        $this->config['oraKey']=isset($this->config['ora'])?$this->config['ora']:'';
+        $vigAlt='';
+        if (isset($this->config['ora']) && strpos($this->config['ora'],'|')!==false) {
+            list($o,$c)=explode('|',$this->config['ora'],2);
+            $this->config['ora']=$o;
+            if (isset($this->vig['alternative'][$c])) $vigAlt=$c;
+        }
+
         //$this->map['invitatorio']=$this->invitatorio;
         $this->map['actual']=$this->base;
 
@@ -143,6 +165,7 @@ class Litio {
         }
 
         if ($this->map['weekDay']==0 && !$this->map['ppvv']) $this->map['ssvv']=true;
+        $ssvvOggi=$this->map['ssvv'];
 
         //se oggi ci sono i Secondi Vespri e domani i Primi Vespri, prevale la celebrazione
         //di grado più alto nella tabella dei giorni liturgici; a parità prevale oggi
@@ -174,8 +197,48 @@ class Litio {
             }
         }
 
+        //le celebrazioni spostate che domani si possono celebrare: Primi Vespri e Compieta a scelta nel menu delle ore
+        foreach ($this->vig['alternative'] as $k=>$a) {
+            //domani è il giorno in cui il calendario ha spostato una celebrazione: per chi l'ha già celebrata,
+            //stasera Vespri e Compieta del giorno al posto dei suoi Primi Vespri
+            if (!empty($a['feria'])) {
+                if ($this->map['ppvv']) {
+                    $v=$ssvvOggi?'ves2':'ves';
+                    $this->map['actual'][$v.'|'.$k]=$this->base[$v];
+                    $this->map['actual'][$v.'|'.$k]['titolo']=$this->base[$v]['titolo'].' ('.$a['nota'].')';
+                    $this->map['actual']['comp|'.$k]=$this->base['comp'];
+                    $this->map['actual']['comp|'.$k]['titolo']=$this->base['comp']['titolo'].' ('.$a['nota'].')';
+                }
+                continue;
+            }
+            if (!isset($a['ppvv']) || !$a['ppvv']) continue;
+            $this->map['actual']['ves1|'.$k]=$this->base['ves1'];
+            $this->map['actual']['ves1|'.$k]['titolo']='Primi Vespri: '.$a['titolo'].' ('.$a['nota'].')';
+            $this->map['actual']['comp1|'.$k]=$this->base['comp1'];
+            $this->map['actual']['comp1|'.$k]['titolo']='Compieta dopo i Primi Vespri: '.$a['titolo'].' ('.$a['nota'].')';
+        }
+
+        //i Primi Vespri scelti: la celebrazione spostata diventa l'evento di domani
+        if ($vigAlt!='') {
+            $this->vig['evento']=$this->eventoAlternativo($this->vig['alternative'][$vigAlt],$vigAlt);
+            $this->vig['evCode']='';
+            foreach ($this->vig['evento'] as $k=>$e) $this->vig['evCode']=$k;
+        }
+
+        //Vespri del giorno: 'ves' e 'ves2' si equivalgono se l'ora richiesta non c'è (es. dopo aver scelto una celebrazione)
+        if (isset($this->config['ora']) && $vigAlt=='') {
+            if ($this->config['ora']=='ves' && !isset($this->map['actual']['ves']) && isset($this->map['actual']['ves2'])) $this->config['ora']='ves2';
+            elseif ($this->config['ora']=='ves2' && !isset($this->map['actual']['ves2']) && isset($this->map['actual']['ves'])) $this->config['ora']='ves';
+        }
+
         //$this->build();
 
+    }
+
+    //evento del giorno quando si sceglie un'alternativa: la celebrazione spostata, oppure l'ufficio del giorno
+    function eventoAlternativo($a,$k) {
+        if (!empty($a['feria'])) return $a['evento'];
+        return array($k=>$a);
     }
 
     //grado della celebrazione nella tabella dei giorni liturgici (1 = il più alto)
@@ -240,7 +303,7 @@ class Litio {
 
         ///////////////////////////////////////////////////////////
 
-        foreach ($this->map['actual'][$this->config['ora']]['st'] as $k=>$o) {
+        foreach ($this->base[$this->config['ora']]['st'] as $k=>$o) {
 
             switch ($o) {
                 case 'PI':
@@ -293,7 +356,13 @@ class Litio {
                 $tnow=date('H:i');
                 $def="";
 				
-				if (!isset($this->config['ora']) || $this->config['ora']=='') {
+				$oraSel=$this->config['oraKey'];
+				if ($oraSel!='' && strpos($oraSel,'|')===false) $oraSel=$this->config['ora'];
+				if ($oraSel!='' && !isset($this->map['actual'][$oraSel])) {
+					$def=substr($oraSel,0,3);
+					$oraSel='';
+				}
+				if ($oraSel=='' && $def=='') {
 	                foreach ($this->base as $kb=>$ob) {
 	                    if ($tnow>=$ob['i'] && $tnow<=$ob['f']) {
 	                        $def=substr($kb,0,3);
@@ -303,10 +372,14 @@ class Litio {
 				}
 
                 echo '<select id="sal_ora" style="position:relative;width:95%;font-size:1.2em;font-weight:bold;margin-top:5px;text-align:center;background-color:#d4dfee;" >';
+                    $fatto=false;
                     foreach ($this->map['actual'] as $k=>$a) {
                         echo '<option value="'.$k.'" ';
-                            if (isset($this->config['ora']) && $this->config['ora']==$k) echo 'selected';
-                            elseif ($def==substr($k,0,3)) echo 'selected';
+                            if ($oraSel!='' && $oraSel==$k) echo 'selected';
+                            elseif ($oraSel=='' && !$fatto && strpos($k,'|')===false && $def==substr($k,0,3)) {
+                                echo 'selected';
+                                $fatto=true;
+                            }
                         echo '>'.$a['titolo'].'</option>';
                     }
                 echo '</select>';
@@ -324,7 +397,10 @@ class Litio {
 
             echo '<div style="position:relative;display:inline-block;width:50%;vertical-align:top;padding:5px;box-sizing:border-box;">';
                  
-                echo '<select id="sal_festa" style="position:relative;width:98%;font-size:1em;font-weight:bold;margin-top:5px;text-align:center;background-color:#d4dfee;" >';
+                echo '<select id="sal_festa" style="position:relative;width:98%;font-size:1em;font-weight:bold;margin-top:5px;text-align:center;background-color:#d4dfee;" ';
+                    //scegliere o togliere una celebrazione spostata cambia le ore del giorno: si ricarica la pagina
+                    if (count($this->map['alternative'])>0) echo 'onchange="window._calnav_salmastro.customExecute();"';
+                echo '>';
                     /*if (count($this->map['evento'])>0) {
                         foreach ($this->map['evento'] as $k=>$f) {
                             echo '<option value="'.$k.'" ';
@@ -343,6 +419,13 @@ class Litio {
                         echo '<option value="'.$k.'" ';
                             if (isset($this->config['festa']) && $this->config['festa']==$k) echo 'selected';
                         echo '>'.$f['titolo'].'</option>';
+                    }
+
+                    //celebrazioni spostate dal calendario che si possono celebrare in questo giorno
+                    foreach ($this->map['alternative'] as $k=>$a) {
+                        echo '<option value="'.$k.'" ';
+                            if ($this->config['alt']==$k) echo 'selected';
+                        echo '>'.$a['titolo'].' ('.$a['nota'].')</option>';
                     }
                 echo '</select>';
 

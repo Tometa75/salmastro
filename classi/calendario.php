@@ -43,6 +43,18 @@ class Calendario {
 	protected $map=array();
 
 	protected $giornoSett=array('Domenica','Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato');
+
+	//celebrazioni che il calendario può spostare: nel giorno proprio (o il giorno dopo, se cade di domenica)
+	//vengono offerte come alternativa nella tendina, se quel giorno non sono già la celebrazione del giorno
+	protected $mobili=array(
+		"0210a"=>array("titolo"=>"Santa Scolastica (Vergine)","tipo"=>"S","comune"=>"vergini","ppvv"=>true),
+		"0319a"=>array("titolo"=>"San Giuseppe sposo della B.V. Maria","tipo"=>"S","ppvv"=>true),
+		"0321a"=>array("titolo"=>"Transito del N.S. Padre Benedetto Abate","tipo"=>"F","comune"=>"monaci","ppvv"=>true),
+		"0325a"=>array("titolo"=>"Annunciazione del Signore","tipo"=>"S","comune"=>"BVM","ppvv"=>true),
+		"0624a"=>array("titolo"=>"Natività di San Giovanni Battista","tipo"=>"S","comune"=>"BVM","ppvv"=>true),
+		"0629a"=>array("titolo"=>"Santi Pietro e Paolo apostoli","tipo"=>"S","comune"=>"apostoli","ppvv"=>true),
+		"1208a"=>array("titolo"=>"Immacolata Concezione della Beata Vergine Maria","tipo"=>"S","ppvv"=>true)
+	);
 	protected $anni=array('A','B','C');
 	protected $rifAnno=1999;
 
@@ -1735,7 +1747,7 @@ class Calendario {
 		return $this->map;
 	}
 
-	function buildMap($day) {
+	function buildMap($day,$conAlternative=true) {
 
 		//evento è un momento specifico del periodo come "ceneri", "settimana santa"...
 		//settimana ha senso solo per il tempo Ordinario
@@ -1751,7 +1763,8 @@ class Calendario {
 			"evento"=>array(),
 			"rocho"=>false,
 			"ASC"=>$this->info['ascensione'],
-			"errore"=>false
+			"errore"=>false,
+			"alternative"=>array()
 		);
 
 		if (!$m['tempo']) {
@@ -1802,6 +1815,7 @@ class Calendario {
 			}
 			//se il tempo è ordinario Santa Scolastica è una Solennità che ha la priorità
 			elseif (substr($day,4,4)=='0210') {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0210a']=array(
 					"titolo"=>"Santa Scolastica (Vergine)",
@@ -1812,6 +1826,7 @@ class Calendario {
 			}
 			//se il tempo è ordinario San Giuseppe è una Solennità che ha la priorità
 			elseif (substr($day,4,4)=='0319') {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0319a']=array(
 					"titolo"=>"San Giuseppe sposo della B.V. Maria",
@@ -1822,6 +1837,7 @@ class Calendario {
 			}
 			//se il tempo è ordinario l'Annunciazione è una Solennità che ha la priorità
 			elseif (substr($day,4,4)=='0325') {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0325a']=array(
 					"titolo"=>"Annunciazione del Signore",
@@ -1835,6 +1851,7 @@ class Calendario {
 			//in quel caso viene anticipata al 23 giugno, come nel 2022
 			elseif ( (substr($day,4,4)=='0624' && $day!=$this->info['cuore'] && $day!=$this->info['corpus']) ||
 					(substr($day,4,4)=='0623' && (substr($this->info['cuore'],4,4)=='0624' || substr($this->info['corpus'],4,4)=='0624')) ) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0624a']=array(
 					"titolo"=>"Natività di San Giovanni Battista",
@@ -1847,6 +1864,7 @@ class Calendario {
 			//in quel caso viene anticipata al 28 giugno
 			elseif ( (substr($day,4,4)=='0629' && $day!=$this->info['cuore']) ||
 					(substr($day,4,4)=='0628' && substr($this->info['cuore'],4,4)=='0629') ) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0629a']=array(
 					"titolo"=>"Santi Pietro e Paolo apostoli",
@@ -1955,6 +1973,7 @@ class Calendario {
 
 			//nel tempo ordinario il Transito non può accavallarsi ad una domenica
 			if (substr($day,4,4)=='0321' && $m['weekDay']!=0) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0321a']=array(
 					"titolo"=>"Transito del N.S. Padre Benedetto Abate",
@@ -1964,6 +1983,7 @@ class Calendario {
 				);
 			}
 			elseif (substr($day,4,4)=='0322' && $m['weekDay']==1) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0321a']=array(
 					"titolo"=>"Transito del N.S. Padre Benedetto Abate",
@@ -2158,7 +2178,9 @@ class Calendario {
 			}
 
 			//Questa solennità è equiparata ad una Solennità del Signore
-			if (substr($day,4,4)=='1208') {
+			//se cade di domenica (II di Avvento) passa al lunedì 9 dicembre; si può scegliere il giorno proprio dalla tendina
+			if ( (substr($day,4,4)=='1208' && $m['weekDay']!=0) || (substr($day,4,4)=='1209' && $m['weekDay']==1) ) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['1208a']=array(
 					"titolo"=>"Immacolata Concezione della Beata Vergine Maria",
@@ -2286,6 +2308,7 @@ class Calendario {
 
 			//se il tempo è di Quaresima Santa Scolastica non può cadere il mercoledì delle ceneri o domenica
 			if (substr($day,4,4)=='0210' && $day!=$this->info['ceneri'] && $m['weekDay']!=0) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0210a']=array(
 					"titolo"=>"Santa Scolastica (Vergine)",
@@ -2294,6 +2317,7 @@ class Calendario {
 				);
 			}
 			elseif (substr($day,4,4)=='0211' && (substr($this->info['ceneri'],4,4)=='0210' || $m['weekDay']==1) ){
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0210a']=array(
 					"titolo"=>"Santa Scolastica (Vergine)",
@@ -2305,6 +2329,7 @@ class Calendario {
 			//se il tempo è di Quaresima San Giuseppe è una Solennità che non può cadere di domenica e viene posticipato
 			//o dalle Palme alla seconda di Pasqua e viene anticipato
 			if (substr($day,4,4)=='0319' && $m['weekDay']!=0 && $day<$this->info['palme']) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0319a']=array(
 					"titolo"=>"San Giuseppe sposo della B.V. Maria",
@@ -2313,6 +2338,7 @@ class Calendario {
 				);
 			}
 			elseif (substr($day,4,4)=='0320' && $m['weekDay']==1 && $day<$this->info['palme']) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0319a']=array(
 					"titolo"=>"San Giuseppe sposo della B.V. Maria",
@@ -2321,6 +2347,7 @@ class Calendario {
 				);
 			}
 			elseif ($day==date('Ymd',strtotime("-1 day",mainFunc::gab_tots($this->info['palme']))) && substr($this->info['palme'],4,4)<='0319' && substr($this->info['pasqua'],4,4)>='0319') {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0319a']=array(
 					"titolo"=>"San Giuseppe sposo della B.V. Maria",
@@ -2329,8 +2356,11 @@ class Calendario {
 				);
 			}
 			
-			//il Transito non può accavallarsi ad una domenica
-			if (substr($day,4,4)=='0321' && $m['weekDay']!=0) {
+			//il Transito non può accavallarsi ad una domenica né alla Settimana Santa:
+			//in quel caso passa dopo l'ottava di Pasqua (vedi tempo di Pasqua)
+			$transitoSS=($this->info['anno'].'0321'>=$this->info['palme'] && $this->info['anno'].'0321'<$this->info['pasqua']);
+			if (substr($day,4,4)=='0321' && $m['weekDay']!=0 && !$transitoSS) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0321a']=array(
 					"titolo"=>"Transito del N.S. Padre Benedetto Abate",
@@ -2339,7 +2369,8 @@ class Calendario {
 					"ppvv"=>true
 				);
 			}
-			elseif (substr($day,4,4)=='0322' && $m['weekDay']==1) {
+			elseif (substr($day,4,4)=='0322' && $m['weekDay']==1 && !$transitoSS) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0321a']=array(
 					"titolo"=>"Transito del N.S. Padre Benedetto Abate",
@@ -2352,6 +2383,7 @@ class Calendario {
 			//se il tempo è di Quaresima Annunciazione è una Solennità che non può cadere di domenica e viene posticipato
 			//o dalle Palme alla seconda di Pasqua e viene posticipato
 			if (substr($day,4,4)=='0325' && $m['weekDay']!=0 && $day<$this->info['palme']) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0325a']=array(
 					"titolo"=>"Annunciazione del Signore",
@@ -2361,6 +2393,7 @@ class Calendario {
 				);
 			}
 			elseif (substr($day,4,4)=='0326' && $m['weekDay']==1 && $day<$this->info['palme']) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0325a']=array(
 					"titolo"=>"Annunciazione del Signore",
@@ -2488,6 +2521,7 @@ class Calendario {
 			//se il tempo è di Pasqua Annunciazione è una Solennità che non può cadere di domenica e viene posticipato
 			//o dalle Palme alla seconda di Pasqua e viene posticipato
 			if (substr($day,4,4)=='0326' && $m['weekDay']==1 && $day>$this->info['pas2']) {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0325a']=array(
 					"titolo"=>"Annunciazione del Signore",
@@ -2497,6 +2531,7 @@ class Calendario {
 				);
 			}
 			elseif ($day==date('Ymd',strtotime("+1 day",mainFunc::gab_tots($this->info['pas2']))) && substr($this->info['palme'],4,4)<='0325' && substr($this->info['pas2'],4,4)>='0325') {
+				$m['eventoPrima']=$m['evento'];
 				$m['evento']=array();
 				$m['evento']['0325a']=array(
 					"titolo"=>"Annunciazione del Signore",
@@ -2505,10 +2540,61 @@ class Calendario {
 					"ppvv"=>true
 				);
 			}
+
+			//Transito caduto nella Settimana Santa: dopo l'ottava di Pasqua, il primo giorno libero dall'Annunciazione
+			if ($this->info['anno'].'0321'>=$this->info['palme'] && $this->info['anno'].'0321'<$this->info['pasqua']) {
+				$annunciazioneDopo=(substr($this->info['palme'],4,4)<='0325' && substr($this->info['pas2'],4,4)>='0325');
+				if ($day==date('Ymd',strtotime("+".($annunciazioneDopo?2:1)." day",mainFunc::gab_tots($this->info['pas2'])))) {
+					$m['eventoPrima']=$m['evento'];
+					$m['evento']=array();
+					$m['evento']['0321a']=$this->mobili['0321a'];
+				}
+			}
 		}
 
 		///////////////////////////////////////////////////////////////
 		if (array_key_exists(substr($day,4,4),$this->ricorrenza)) $m['festa']=$this->ricorrenza[substr($day,4,4)];
+
+		///////////////////////////////////////////////////////////////
+		//celebrazioni spostate dal calendario: nel loro giorno proprio (e il giorno dopo, se il giorno proprio
+		//è una domenica) restano disponibili nella tendina, per chi le celebra in quel giorno
+		//non nel Triduo pasquale (Giovedì, Venerdì, Sabato Santo e Pasqua)
+		$triduo=false;
+		foreach ($m['evento'] as $k=>$e) {
+			if (in_array($k,array('SS4','SS5','SS6','PAS'))) $triduo=true;
+		}
+		if ($conAlternative && !$triduo) {
+			foreach ($this->mobili as $code=>$def) {
+				if (isset($m['evento'][$code])) continue;
+				$nat=substr($day,0,4).substr($code,0,4);
+				$dopo=date('Ymd',strtotime("+1 day",mainFunc::gab_tots($nat)));
+				if ($day==$nat) {
+					$m['alternative'][$code]=$def;
+					$m['alternative'][$code]['nota']='nel giorno';
+				}
+				elseif ($day==$dopo && date('w',mainFunc::gab_tots($nat))==0) {
+					//solo se la domenica non l'ha già celebrata
+					$mn=$this->buildMap($nat,false);
+					if (!isset($mn['evento'][$code])) {
+						$m['alternative'][$code]=$def;
+						$m['alternative'][$code]['nota']='il giorno dopo';
+					}
+				}
+			}
+
+			//nel giorno in cui il calendario ha spostato una celebrazione: l'ufficio del giorno, per chi l'ha già celebrata
+			foreach ($this->mobili as $code=>$def) {
+				if (isset($m['evento'][$code]) && substr($day,4,4)!=substr($code,0,4) && isset($m['eventoPrima'])) {
+					$m['alternative']['feria']=array(
+						"titolo"=>"Ufficio del giorno",
+						"nota"=>"senza ".$def['titolo'],
+						"evento"=>$m['eventoPrima'],
+						"feria"=>true
+					);
+				}
+			}
+		}
+		unset($m['eventoPrima']);
 
 		return $m;
 	}

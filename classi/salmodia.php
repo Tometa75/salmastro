@@ -1933,7 +1933,8 @@ class Salmodia {
 
                 if  ($this->actual['evCode']=='1208a') {
 
-                    if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
+                    //le stesse cinque antifone valgono anche per i Primi Vespri (come nel breviario monastico)
+                    if ($this->actual['ora']=='lodi' || $this->actual['ora']=='ves1' || $this->actual['ora']=='ves' || $this->actual['ora']=='ves2') {
 
                         switch ($s[0]) {
                             case 1: $this->res[$k]->setAntifona(array(
