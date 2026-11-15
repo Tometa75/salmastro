@@ -2911,6 +2911,8 @@ class Orazione {
         //###############################
 		//se è compieta l'orazione non subisce variazioni in base alla ricorrenza
 		if ($this->actual['ora']=='comp' || $this->actual['ora']=='comp1' || $this->actual['ora']=='comp2') {
+			//Sabato Santo: la Compieta ha la stessa orazione delle Lodi
+			if ($this->actual['evCode']=='SS6') $this->actual['proprio']='SS6';
 			$this->apply();
 			return;
 		}

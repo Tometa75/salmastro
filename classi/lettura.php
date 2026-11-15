@@ -1931,6 +1931,13 @@ class Lettura {
                         "testo"=>"Mi feci ricercare da chi non mi interrogava, mi feci trovare da chi non mi cercava. Dissi: « Eccomi, eccomi » a gente che non invocava il mio nome."
                     );
                 }
+                //Vespri dell'8 gennaio (il 31 dicembre la sera ci sono i Primi Vespri di Maria Madre di Dio)
+                elseif(($this->actual['ora']=='ves' || $this->actual['ora']=='ves2') && $this->actual['evCode']=='F0108') {
+                    $this->info=array(
+                        "titolo"=>"Ef 2,3b-5",
+                        "testo"=>"Eravamo per natura meritevoli d'ira, come gli altri. Ma Dio, ricco di misericordia, per il grande amore con il quale ci ha amati, da morti che eravamo per i peccati, ci ha fatti rivivere con Cristo: per grazia infatti siete stati salvati."
+                    );
+                }
             }
 
             elseif ($this->actual['evCode']=='MSS') {
