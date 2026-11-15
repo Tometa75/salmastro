@@ -1636,7 +1636,7 @@ class Calendario {
 		array(
 			"codice"=>"Q",
 			"nome"=>"Tempo di Quaresima",
-			"colore"=>"#d760d7",
+			"colore"=>"#7b4bb3",
 			"fine"=>"pasqua"
 		),
 		array(
@@ -1654,7 +1654,7 @@ class Calendario {
 		array(
 			"codice"=>"A",
 			"nome"=>"Tempo di Avvento",
-			"colore"=>"#d760d7",
+			"colore"=>"#7b4bb3",
 			"fine"=>"natale"
 		),
 		array(
