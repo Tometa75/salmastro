@@ -2034,11 +2034,11 @@ class Calendario {
 
 			//Santa Famiglia 1230 se natale è domenica oppure prima domenica dopo natale
 			elseif ( (date('w',mainFunc::gab_tots($this->info['natale']))==0 && substr($day,4,4)=='1230') || (substr($day,4,4)>'1225' && substr($day,4,4)<='1231' && $m['weekDay']==0) ) {
-				//festa del Signore: ha i Primi Vespri solo quando cade di domenica (Norme generali, n. 13)
+				//senza Primi Vespri, come nel libro monastico: la vigilia ha i Vespri del giorno
 				$m['evento']['SAF']=array(
 					"titolo"=>"Santa Famiglia di Gesù Maria e Giuseppe",
 					"tipo"=>"F",
-					"ppvv"=>($m['weekDay']==0)
+					"ppvv"=>false
 				);
 			}
 
