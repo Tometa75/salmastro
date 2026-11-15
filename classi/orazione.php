@@ -2879,6 +2879,11 @@ class Orazione {
                 if ( ($this->actual['evCode']!="" && $this->actual['evento'][$this->actual['evCode']]['tipo']=='S') || ($this->actual['fesCode']!="" && $this->actual['festa'][$this->actual['fesCode']]['tipo']=='S')) {
                     $this->actual['orazione']='comp_S';
                 }
+                //il sabato sera la Compieta è quella della vigilia della domenica (non c'è 'comp_6'),
+                //anche quando mancano i Primi Vespri (es. vigilia della Santa Famiglia)
+                elseif ($this->actual['weekDay']==6) {
+                    $this->actual['orazione']='comp1_0';
+                }
                 else {
                     $this->actual['orazione']='comp_'.$this->actual['weekDay'];
                 }
