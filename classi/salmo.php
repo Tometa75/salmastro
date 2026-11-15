@@ -15,17 +15,20 @@ class Salmo {
     protected $actual;
     protected $res;
     protected $error=false;
+    //suffisso dei tag per il salmo alternativo (stessa posizione, id distinti nella pagina)
+    protected $suf="";
 
     //definizione di nuovi metodi in maniera dinamica
     protected $methods = array();
     protected $closure = array();
 
-    function __construct($caller,$s) {
+    function __construct($caller,$s,$suf='') {
 
         $this->litio=$caller;
         $this->actual=$caller->actual;
 
         list($this->pos,$this->tipo,$this->tag,$this->parti,$this->gloria)=$s;
+        $this->suf=$suf;
 
         if ($this->tag && $this->tag!="") {
             ob_start();
@@ -51,7 +54,7 @@ class Salmo {
 		///////////////////////////////////////
 
         $this->res=new Saltesto();
-        $this->res->setParte('SAL'.$this->pos);
+        $this->res->setParte('SAL'.$this->pos.$this->suf);
         //se esiste la propietà '2' all'indice '1' allora diventa '2c'
         $this->res->setProp(1,'2','chg','2c');
 
@@ -123,6 +126,10 @@ class Salmo {
 		}
     }
 
+    function getTitolo() {
+        return $this->titolo;
+    }
+
     function getAntifona() {
         return array($this->antifona[0],$this->antifona[1]);
     }
@@ -133,7 +140,7 @@ class Salmo {
             if ($this->pos=="") echo '<span style="font-size:0.8em;">(di seguito) </span>';
             echo $this->titolo;
             if ($this->litio->config['vox']) {
-                $this->litio->drawPlayer('SAL'.$this->pos,1);
+                $this->litio->drawPlayer('SAL'.$this->pos.$this->suf,1);
             }
         echo '</div>';
     }
@@ -150,7 +157,7 @@ class Salmo {
 
         echo '<div style="position:relative;margin-top:5px;margin-bottom:10px;font-size:1.1em;" >';
             echo '<div class="salAntifona" >'.$this->pos.' ant.</div>';
-            echo '<div id="salParteAnt_SAL'.$this->pos.'_'.($flag?0:1).'" class="salAntifona2" >';
+            echo '<div id="salParteAnt_SAL'.$this->pos.$this->suf.'_'.($flag?0:1).'" class="salAntifona2" >';
                 echo $this->antifona[$index][0];
                 if ($flag) echo ' / ';
                 else echo ' ';

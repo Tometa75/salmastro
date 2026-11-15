@@ -198,3 +198,38 @@ body {
     box-sizing: border-box;
 }
 
+
+/* scelta del salmo che cambia con la settimana (Lodi) */
+.salAltScelta {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.salAltBtn {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 220px;
+    border: 1px solid #999;
+    padding: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #555;
+}
+
+.salAltBtn.salAltSel {
+    border: 2px solid brown;
+    color: brown;
+    background-color: #f7eee6;
+}
+
+.salAltNota {
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 2px;
+}
