@@ -95,6 +95,8 @@ button { font: inherit; color: inherit; }
 .celebra .et, .gruppo > .et { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .celebra .seg button { text-align: left; display: grid; gap: 1px; border-radius: 12px; padding: 7px 12px; line-height: 1.25; }
 .celebra .seg button small { font-size: .74rem; color: var(--muted); }
+.celebra .seg button small .grado { font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-size: .68rem; color: var(--rubric); }
+.celebra .seg button[aria-pressed="true"] small .grado { color: inherit; }
 .celebra .seg button[aria-pressed="true"] small { color: var(--paper); opacity: .8; }
 .vigilia { font-size: .85rem; color: var(--rubric); }
 .btn-ico { display: inline-flex; gap: 8px; }
