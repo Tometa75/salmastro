@@ -53,6 +53,7 @@
   // colori liturgici (Messale, n. 346); il bianco si vede come oro, perché su fondo chiaro sparirebbe
   var COL = { verde: '#68b368', viola: '#7b4bb3', rosaceo: '#e39ab4', bianco: '#d4b25c', rosso: '#d23b2f' };
   var NOMECOL = { verde: 'Verde', viola: 'Viola', rosaceo: 'Rosaceo', bianco: 'Bianco', rosso: 'Rosso' };
+  var GRADO = { S: 'Solennità', F: 'Festa', M: 'Memoria', R: 'Ricorrenza' };
   function coloreTempo(codice) { return codice === 'O' ? 'verde' : (codice === 'A' || codice === 'Q') ? 'viola' : 'bianco'; }
 
 
@@ -278,12 +279,16 @@
     G.feste.forEach(function (f) {
       if (!f.scegli) return;
       var m = /^(.*?)\s*\((.*)\)\s*$/.exec(f.titolo);
-      opz.push({ v: f.codice, t: m ? m[1] : f.titolo, s: m ? m[2].charAt(0).toLowerCase() + m[2].slice(1) : '' });
+      var sotto = m ? m[2].charAt(0).toLowerCase() + m[2].slice(1) : '';
+      // il grado, come la sigla (F) (M) (R) del sito classico
+      var grado = GRADO[f.tipo] || '';
+      opz.push({ v: f.codice, t: m ? m[1] : f.titolo, g: grado, s: sotto });
     });
     G.alternative.forEach(function (a) { opz.push({ v: a.codice, t: a.titolo, s: a.nota }); });
     var cel = $('opz-festa');
     cel.innerHTML = opz.map(function (o) {
-      return '<button type="button" data-v="' + esc(o.v) + '" aria-pressed="' + (o.v === st.festa) + '">' + esc(o.t) + (o.s ? '<small>' + esc(o.s) + '</small>' : '') + '</button>';
+      var sotto = (o.g ? '<b class="grado">' + esc(o.g) + '</b>' + (o.s ? ' · ' : '') : '') + esc(o.s || '');
+      return '<button type="button" data-v="' + esc(o.v) + '" aria-pressed="' + (o.v === st.festa) + '">' + esc(o.t) + (sotto ? '<small>' + sotto + '</small>' : '') + '</button>';
     }).join('');
     $('celebra').hidden = opz.length < 2;
 
